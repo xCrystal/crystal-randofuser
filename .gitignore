@@ -1,0 +1,5 @@
+*.class
+*.gbc
+*.sav
+*.sn*
+/bin/
