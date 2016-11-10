@@ -2,4 +2,5 @@
 *.gbc
 *.sav
 *.sn*
+*.rtc
 /bin/

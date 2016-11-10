@@ -10,7 +10,7 @@ import data.Constants;
 
 public class Main {
 	
-	public static void main () {
+	public static void main(String[] args) {
 		
 		ByteBuffer buf_evosAttacks_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.EVOS_ATTACKS_LENGTH);
 		ByteBuffer buf_evosAttacks_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.EVOS_ATTACKS_LENGTH);
@@ -40,6 +40,13 @@ public class Main {
 			Engine.readData (chin, buf_eggMoves_r, buf_eggMoves_w, Constants.EGG_MOVES);
 			Engine.readData (chin, buf_baseData_r, buf_baseData_w, Constants.BASE_DATA);
 			Engine.readData (chin, buf_names_r, buf_names_w, Constants.NAMES);
+			
+			int[] fusionIds = Rand.shufflePokemonIds();
+			
+			Engine.copyData(chout, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
+			Engine.copyData(chout, buf_eggMoves_w, Constants.EGG_MOVES);
+			Engine.copyData(chout, buf_baseData_w, Constants.BASE_DATA);
+			Engine.copyData(chout, buf_names_w, Constants.NAMES);
 			
 			Engine.fixGlobalChecksum(chout);
 			

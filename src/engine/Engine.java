@@ -29,9 +29,19 @@ public class Engine {
 	static void readData (FileChannel ch, ByteBuffer bbRead, ByteBuffer bbWrite, long pos) throws IOException {
 		
 		ch.position(pos);
+		bbRead.rewind();
 		ch.read(bbRead);
+		
 		ch.position(pos);
+		bbWrite.rewind();
 		ch.read(bbWrite);
+	}
+	
+	static void copyData (FileChannel ch, ByteBuffer bbWrite, long pos) throws IOException {
+		
+		ch.position(pos);
+		bbWrite.rewind();
+		ch.write(bbWrite);
 	}
 	
 	static void fixGlobalChecksum (FileChannel ch) throws IOException {
