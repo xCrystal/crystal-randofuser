@@ -7,6 +7,7 @@ import java.nio.channels.FileChannel;
 import javax.swing.JOptionPane;
 
 import data.Constants;
+import data.Pokemon;
 
 public class Engine {
 	
@@ -35,6 +36,36 @@ public class Engine {
 		ch.position(pos);
 		bbWrite.rewind();
 		ch.read(bbWrite);
+	}
+	
+	public static void fuseNames(ByteBuffer r, ByteBuffer w, int[] fusionIds) {
+		
+		byte[] name1 = new byte[Constants.NAMES_LENGTH];
+		byte[] name2 = new byte[Constants.NAMES_LENGTH];		
+		
+		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
+			
+			r.position(i * Constants.NAMES_LENGTH);
+			r.get(name1);
+			r.position(fusionIds[i] * Constants.NAMES_LENGTH);
+			r.get(name2);
+			
+			int _i1, _i2;
+			
+			for (_i1 = 0 ; _i1 < Constants.NAMES_LENGTH ; _i1++) {
+				if (name1[_i1] == 0x50) break;
+			}
+			
+			for (_i2 = 0 ; _i2 < Constants.NAMES_LENGTH ; _i2++) {
+				if (name2[_i2] == 0x50) break;
+			}
+			
+			w.position(i * Constants.NAMES_LENGTH);
+			w.put(name1, 0, (_i1+1)/2);
+			w.put(name2, (_i2/2), (_i2+1)/2);
+			if (w.position() != Constants.NAMES_LENGTH - 1)
+				w.put((byte) 0x50);
+		}
 	}
 	
 	static void copyData (FileChannel ch, ByteBuffer bbWrite, long pos) throws IOException {
@@ -70,4 +101,5 @@ public class Engine {
 		
 		JOptionPane.showMessageDialog(null, str);
 	}
+
 }
