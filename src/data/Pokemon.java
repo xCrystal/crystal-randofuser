@@ -179,13 +179,13 @@ public enum Pokemon {
 	TOGEPI     (EvoTypes.EVOTYPE1OF2),
 	TOGETIC    (EvoTypes.EVOTYPE2OF2),
 	NATU       (EvoTypes.EVOTYPE1OF2),
-	XATU       (EvoTypes.EVOTYPE1OF2),
+	XATU       (EvoTypes.EVOTYPE2OF2),
 	MAREEP     (EvoTypes.EVOTYPE1OF3),
-	FLAAFFY    (EvoTypes.EVOTYPE1OF3),
-	AMPHAROS   (EvoTypes.EVOTYPE1OF3),
+	FLAAFFY    (EvoTypes.EVOTYPE2OF3),
+	AMPHAROS   (EvoTypes.EVOTYPE3OF3),
 	BELLOSSOM  (EvoTypes.EVOTYPE1OF1),
 	MARILL     (EvoTypes.EVOTYPE1OF2),
-	AZUMARILL  (EvoTypes.EVOTYPE1OF2),
+	AZUMARILL  (EvoTypes.EVOTYPE2OF2),
 	SUDOWOODO  (EvoTypes.EVOTYPE1OF1),
 	POLITOED   (EvoTypes.EVOTYPE1OF1),
 	HOPPIP     (EvoTypes.EVOTYPE1OF3),
@@ -252,7 +252,8 @@ public enum Pokemon {
 	TYRANITAR  (EvoTypes.EVOTYPE3OF3),
 	LUGIA      (EvoTypes.LEGEND),
 	HO_OH      (EvoTypes.LEGEND),
-	CELEBI     (EvoTypes.LEGEND);
+	CELEBI     (EvoTypes.LEGEND),
+	NONE       (EvoTypes.NONE);
 	
 	private EvoTypes evoType;
 	

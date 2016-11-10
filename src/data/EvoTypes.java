@@ -8,5 +8,6 @@ public enum EvoTypes {
 	EVOTYPE2OF2,
 	EVOTYPE2OF3,
 	EVOTYPE3OF3,
-	LEGEND;
+	LEGEND,
+	NONE;
 }
