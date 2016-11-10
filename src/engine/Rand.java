@@ -24,9 +24,14 @@ public class Rand {
 		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++ )
 			fusionIds[i] = i;
 		
-		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++ ) {
+		for (int i = Pokemon.BULBASAUR.ordinal(), rand ; i <= Pokemon.CELEBI.ordinal() ; i ++ ) {
 			
-			int rand = randomRange(Pokemon.BULBASAUR.ordinal(), Pokemon.CELEBI.ordinal());
+			do {
+				do {
+					rand = randomRange(Pokemon.BULBASAUR.ordinal(), Pokemon.CELEBI.ordinal());
+				} while (i != rand);
+			} while (Pokemon.values()[i].getEvoType() != Pokemon.values()[rand].getEvoType());
+			
 			int temp = fusionIds[rand];
 			fusionIds[rand] = fusionIds[i];
 			fusionIds[i] = temp;
