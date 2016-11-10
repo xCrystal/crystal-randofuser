@@ -2,8 +2,12 @@ package data;
 
 public class Constants {
 	
+	public static final int ROM_SIZE = 0x200000;
+	
 	public static final String FILE_NAME_IN  = "crystal.gbc";
 	public static final String FILE_NAME_OUT = "crystal_randofused.gbc";
+	
+	public static final int NUM_POKEMON = Pokemon.CELEBI.ordinal() - Pokemon.BULBASAUR.ordinal();
 	
 	public static final int EVOS_ATTACKS = 0x44000;
 	public static final int EGG_MOVES = 0x1d4000;

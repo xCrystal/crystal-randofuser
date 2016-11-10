@@ -7,7 +7,7 @@ public class Rand {
 	
 	private static final Random rnd = new Random();
 	
-	public static byte randomRange (int min, int max) {
+	static byte randomRange (int min, int max) {
 		
 		if (min > max) {
 			int temp = min;
@@ -17,9 +17,9 @@ public class Rand {
 		return (byte) (min + rnd.nextInt(max - min + 1));
 	}
 	
-	public static int[] shufflePokemonIds() {
+	static int[] shufflePokemonIds() {
 		
-		int[] fusionIds = new int[Pokemon.CELEBI.ordinal() - Pokemon.BULBASAUR.ordinal()];
+		int[] fusionIds = new int[Constants.NUM_POKEMON];
 		
 		for (int i = Pokemon.BULBASAUR.ordinal() - 1 ; i <= Pokemon.CELEBI.ordinal() ; i ++ )
 			fusionIds[i] = i + 1;
