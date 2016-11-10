@@ -1,6 +1,4 @@
-package settings;
-
-import data.*;
+package data;
 
 public class Settings {
 	

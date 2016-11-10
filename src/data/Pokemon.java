@@ -257,7 +257,7 @@ public enum Pokemon {
 	private EvoTypes evoType;
 	
 	Pokemon (EvoTypes evoType) {
-		this.setEvoType(evoType);
+		this.evoType = evoType;
 	}
 
 	public EvoTypes getEvoType() {

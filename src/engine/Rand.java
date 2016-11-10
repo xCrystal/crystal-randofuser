@@ -1,4 +1,4 @@
-package misc;
+package engine;
 
 import java.util.Random;
 import data.*;
@@ -17,22 +17,22 @@ public class Rand {
 		return (byte) (min + rnd.nextInt(max - min + 1));
 	}
 	
-	public static int[] shufflePokemonIDs() {
+	public static int[] shufflePokemonIds() {
 		
-		int[] fusionIDs = new int[Pokemon.CELEBI.ordinal() - Pokemon.BULBASAUR.ordinal()];
+		int[] fusionIds = new int[Pokemon.CELEBI.ordinal() - Pokemon.BULBASAUR.ordinal()];
 		
 		for (int i = Pokemon.BULBASAUR.ordinal() - 1 ; i <= Pokemon.CELEBI.ordinal() ; i ++ )
-			fusionIDs[i] = i + 1;
+			fusionIds[i] = i + 1;
 		
 		for (int i = Pokemon.BULBASAUR.ordinal() - 1 ; i <= Pokemon.CELEBI.ordinal() ; i ++ ) {
 			
 			int rand = randomRange(Pokemon.BULBASAUR.ordinal() - 1, Pokemon.BULBASAUR.ordinal()) - 1;
-			int temp = fusionIDs[rand];
-			fusionIDs[rand] = fusionIDs[i];
-			fusionIDs[i] = temp;
+			int temp = fusionIds[rand];
+			fusionIds[rand] = fusionIds[i];
+			fusionIds[i] = temp;
 		}
 		
-		return fusionIDs;
+		return fusionIds;
 	}
 
 }
