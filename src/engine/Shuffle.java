@@ -26,10 +26,13 @@ public class Shuffle {
 		
 		for (int i = Pokemon.BULBASAUR.ordinal(), rand ; i <= Pokemon.CELEBI.ordinal() ; i ++ ) {
 			
+			// don't mess with unown
+			if (i == Pokemon.UNOWN.ordinal()) i ++;
+			
 			do {
 				do {
 					rand = randomRange(Pokemon.BULBASAUR.ordinal(), Pokemon.CELEBI.ordinal());
-				} while (i == rand); // make sure it's not fusing with itself
+				} while ((i == fusionIds[rand]) || (rand == Pokemon.UNOWN.ordinal())); // make sure it's not fusing with itself or unown
 			} while (Pokemon.values()[i].getEvoType() != Pokemon.values()[rand].getEvoType()); // assert same evolution type
 			
 			// swap the two ids in the fusionIds array

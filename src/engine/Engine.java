@@ -45,6 +45,8 @@ public class Engine {
 		
 		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
 			
+			if (i == Pokemon.UNOWN.ordinal()) i ++;
+					
 			r.position(i * Constants.NAMES_LENGTH);
 			r.get(name1);
 			r.position(fusionIds[i] * Constants.NAMES_LENGTH);
@@ -63,7 +65,7 @@ public class Engine {
 			w.position(i * Constants.NAMES_LENGTH);
 			w.put(name1, 0, (_i1+1)/2);
 			w.put(name2, (_i2/2), (_i2+1)/2);
-			if (w.position() != Constants.NAMES_LENGTH - 1)
+			if (w.position() != ((i + 1) * Constants.NAMES_LENGTH))
 				w.put((byte) 0x50);
 		}
 	}

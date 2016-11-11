@@ -23,23 +23,27 @@ public class Main {
 		
 		ByteBuffer buf_names_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.NAMES_LENGTH);
 		ByteBuffer buf_names_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.NAMES_LENGTH);
+		
+		ByteBuffer buf_pals_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.PALETTES_LENGTH);
+		ByteBuffer buf_pals_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.PALETTES_LENGTH);
 
 		try (
-				RandomAccessFile fin = new RandomAccessFile(Constants.FILE_NAME_IN,  "r" );
-				RandomAccessFile fout = new RandomAccessFile(Constants.FILE_NAME_OUT,  "rw" );
-				FileChannel chin  = fin.getChannel();
-				FileChannel chout = fout.getChannel();
-			) 	{
+			RandomAccessFile fin = new RandomAccessFile(Constants.FILE_NAME_IN,  "r" );
+			RandomAccessFile fout = new RandomAccessFile(Constants.FILE_NAME_OUT,  "rw" );
+			FileChannel chin  = fin.getChannel();
+			FileChannel chout = fout.getChannel();
+		) {
 			
 			if (Engine.verifyRom(chin) == false)
 				throw new FileNotFoundException();
 			
 			Engine.createRomCopy(chin, chout);
 			
-			Engine.readData (chin, buf_evosAttacks_r, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
-			Engine.readData (chin, buf_eggMoves_r, buf_eggMoves_w, Constants.EGG_MOVES);
-			Engine.readData (chin, buf_baseData_r, buf_baseData_w, Constants.BASE_DATA);
-			Engine.readData (chin, buf_names_r, buf_names_w, Constants.NAMES);
+			Engine.readData(chin, buf_evosAttacks_r, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
+			Engine.readData(chin, buf_eggMoves_r, buf_eggMoves_w, Constants.EGG_MOVES);
+			Engine.readData(chin, buf_baseData_r, buf_baseData_w, Constants.BASE_DATA);
+			Engine.readData(chin, buf_names_r, buf_names_w, Constants.NAMES);
+			Engine.readData(chin, buf_pals_r, buf_pals_w, Constants.PALETTES);
 			
 			int[] fusionIds = Shuffle.shufflePokemonIds();
 			
@@ -49,6 +53,7 @@ public class Main {
 			Engine.copyData(chout, buf_eggMoves_w, Constants.EGG_MOVES);
 			Engine.copyData(chout, buf_baseData_w, Constants.BASE_DATA);
 			Engine.copyData(chout, buf_names_w, Constants.NAMES);
+			Engine.copyData(chout, buf_pals_w, Constants.PALETTES);
 			
 			Engine.fixGlobalChecksum(chout);
 			

@@ -45,22 +45,6 @@ public class Constants {
 		public int getOffset() {
 			return offset;
 		}
-
 	}
-
+	
 }
-
-/*
-14:5425 BaseData0_Stats
-14:5433 BaseData0_HatchCycles
-14:5430 BaseData0_Item2
-14:542F BaseData0_Item1
-14:543A BaseData0_GrowthRate
-14:543C BaseData0_TMHM
-14:5431 BaseData0_Gender
-14:543B BaseData0_EggGroups
-14:542C BaseData0_Type2
-14:542B BaseData0_Type1
-14:542E BaseData0_BaseExp
-14:542D BaseData0_CatchRate
-*/
