@@ -113,6 +113,7 @@ public enum EvoLines {
 	_GLIGAR     (Pokemon.GLIGAR,     Pokemon.NONE,       Pokemon.NONE),
 	_SNUBBULL   (Pokemon.SNUBBULL,   Pokemon.GRANBULL,   Pokemon.NONE),
 	_QWILFISH   (Pokemon.QWILFISH,   Pokemon.NONE,       Pokemon.NONE),
+	_SCIZOR     (Pokemon.NONE,       Pokemon.NONE,       Pokemon.NONE),
 	_SHUCKLE    (Pokemon.SHUCKLE,    Pokemon.NONE,       Pokemon.NONE),
 	_HERACROSS  (Pokemon.HERACROSS,  Pokemon.NONE,       Pokemon.NONE),
 	_SNEASEL    (Pokemon.SNEASEL,    Pokemon.NONE,       Pokemon.NONE),

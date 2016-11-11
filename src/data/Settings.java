@@ -142,5 +142,123 @@ public class Settings {
 		pkmn.setEvoType(EvoTypes.EVOTYPE1OF1);
 		evoLine.setPkmn1(pkmn);
 	}
+	
+	public static void setLegends() {
+		
+		Pokemon.ARTICUNO.setEvoType(EvoTypes.LEGEND);
+		Pokemon.ZAPDOS.setEvoType(EvoTypes.LEGEND);
+		Pokemon.MOLTRES.setEvoType(EvoTypes.LEGEND);
+		Pokemon.MEWTWO.setEvoType(EvoTypes.LEGEND);
+		Pokemon.MEW.setEvoType(EvoTypes.LEGEND);
+		Pokemon.RAIKOU.setEvoType(EvoTypes.LEGEND);
+		Pokemon.ENTEI.setEvoType(EvoTypes.LEGEND);
+		Pokemon.SUICUNE.setEvoType(EvoTypes.LEGEND);
+		Pokemon.LUGIA.setEvoType(EvoTypes.LEGEND);
+		Pokemon.HO_OH.setEvoType(EvoTypes.LEGEND);
+		Pokemon.CELEBI.setEvoType(EvoTypes.LEGEND);
+	}
+	
+	public static void ignoreLegends() {
+		
+		Pokemon.ARTICUNO.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.ZAPDOS.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.MOLTRES.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.MEWTWO.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.MEW.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.RAIKOU.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.ENTEI.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.SUICUNE.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.LUGIA.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.HO_OH.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.CELEBI.setEvoType(EvoTypes.EVOTYPE1OF1);
+	}
+	
+	public static void setWeakThreeStageEvo(EvoLines el) {
+		el.getPkmn1().setEvoType(EvoTypes.EVOTYPE1OF3_WEAK);
+		el.getPkmn2().setEvoType(EvoTypes.EVOTYPE2OF3_WEAK);
+		el.getPkmn3().setEvoType(EvoTypes.EVOTYPE3OF3_WEAK);
+	}
+	
+	public static void ignoreWeakThreeStageEvo(EvoLines el) {
+		el.getPkmn1().setEvoType(EvoTypes.EVOTYPE1OF3);
+		el.getPkmn2().setEvoType(EvoTypes.EVOTYPE2OF3);
+		el.getPkmn3().setEvoType(EvoTypes.EVOTYPE3OF3);
+	}
+	
+	public static void setWeakThreeStageEvos() {
+		
+		setWeakThreeStageEvo(EvoLines._PICHU);
+		setWeakThreeStageEvo(EvoLines._IGGLYBUFF);
+		setWeakThreeStageEvo(EvoLines._CLEFFA);
+		setWeakThreeStageEvo(EvoLines._CATERPIE);
+		setWeakThreeStageEvo(EvoLines._WEEDLE);
+	}
+	
+	public static void ignoreWeakThreeStageEvos() {
+		
+		ignoreWeakThreeStageEvo(EvoLines._PICHU);
+		ignoreWeakThreeStageEvo(EvoLines._IGGLYBUFF);
+		ignoreWeakThreeStageEvo(EvoLines._CLEFFA);
+		ignoreWeakThreeStageEvo(EvoLines._CATERPIE);
+		ignoreWeakThreeStageEvo(EvoLines._WEEDLE);
+	}
+	
+	public static void setWeakOneStagePokemon() {
+		
+		Pokemon.TANGELA.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.GLIGAR.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.QWILFISH.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.SNEASEL.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.DUNSPARCE.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.SUDOWOODO.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.MURKROW.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.WOBBUFFET.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.YANMA.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.LICKITUNG.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.CORSOLA.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.AIPOM.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.FARFETCH_D.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.UNOWN.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.DELIBIRD.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.DITTO.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+		Pokemon.SMEARGLE.setEvoType(EvoTypes.EVOTYPE1OF1_WEAK);
+	}
+	
+	public static void ignoreWeakOneStagePokemon() {
+		
+		Pokemon.TANGELA.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.GLIGAR.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.QWILFISH.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.SNEASEL.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.DUNSPARCE.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.SUDOWOODO.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.MURKROW.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.WOBBUFFET.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.YANMA.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.LICKITUNG.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.CORSOLA.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.AIPOM.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.FARFETCH_D.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.UNOWN.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.DELIBIRD.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.DITTO.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.SMEARGLE.setEvoType(EvoTypes.EVOTYPE1OF1);
+	}
+	
+	public static void makeScytherScizorIndependent() {
+		
+		Pokemon.SCYTHER.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.SCIZOR.setEvoType(EvoTypes.EVOTYPE1OF1);
+		EvoLines._SCYTHER.setPkmn2(Pokemon.NONE);
+		EvoLines._SCIZOR.setPkmn1(Pokemon.SCIZOR);
+	}
+	
+	public static void keepScytherScizorEvolution() {
+		
+		Pokemon.SCYTHER.setEvoType(EvoTypes.EVOTYPE1OF2);
+		Pokemon.SCIZOR.setEvoType(EvoTypes.EVOTYPE2OF2);
+		EvoLines._SCYTHER.setPkmn2(Pokemon.SCIZOR);
+		EvoLines._SCIZOR.setPkmn1(Pokemon.NONE);
+	}
 
 }
