@@ -3,7 +3,7 @@ package engine;
 import java.util.Random;
 import data.*;
 
-public class Rand {
+public class Shuffle {
 	
 	private static final Random rnd = new Random();
 	
@@ -29,15 +29,19 @@ public class Rand {
 			do {
 				do {
 					rand = randomRange(Pokemon.BULBASAUR.ordinal(), Pokemon.CELEBI.ordinal());
-				} while (i == rand);
-			} while (Pokemon.values()[i].getEvoType() != Pokemon.values()[rand].getEvoType());
+				} while (i == rand); // make sure it's not fusing with itself
+			} while (Pokemon.values()[i].getEvoType() != Pokemon.values()[rand].getEvoType()); // assert same evolution type
 			
+			// swap the two ids in the fusionIds array
 			int temp = fusionIds[rand];
 			fusionIds[rand] = fusionIds[i];
 			fusionIds[i] = temp;
 			
+			// the following code makes sure ids of the save evolutionary line are also swapped
+			// no need to do anything else if lone evolution
 			if ((Pokemon.values()[i].getEvoType() != EvoTypes.EVOTYPE1OF1) && (Pokemon.values()[i].getEvoType() != EvoTypes.LEGEND)) {
 				
+				// find out to which evo line the mon with id i belongs to
 				int c1 = 0, f = 0, r = 0;
 				do {
 					if (EvoLines.values()[c1].getPkmn1() == Pokemon.values()[i]) { r = 1; f = 1; };
@@ -49,6 +53,7 @@ public class Rand {
 				c1 --;
 				r = 0;
 				
+				// find out to which evo line the mon with id rand belongs to
 				int c2 = 0;
 				do {
 					if (EvoLines.values()[c2].getPkmn1() == Pokemon.values()[rand]) r = 1;
@@ -60,6 +65,7 @@ public class Rand {
 				c2 --;
 				r = 0;
 				
+				// now swap the ids corresponding to the other mons in save evo line, except the two ids already swapped
 				if (f != 1) {
 					temp = fusionIds[EvoLines.values()[c1].getPkmn1().ordinal()];
 					fusionIds[EvoLines.values()[c1].getPkmn1().ordinal()] = fusionIds[EvoLines.values()[c2].getPkmn1().ordinal()];
