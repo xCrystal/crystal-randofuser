@@ -5,11 +5,11 @@ public class Constants {
 	public static final int ROM_SIZE = 0x200000;
 	
 	public static final String FILE_NAME_IN  = "pokecrystal-randofuser/pokecrystal.gbc";
-	public static final String FILE_NAME_OUT = "crystal_randofused.gbc";
+	public static final String FILE_NAME_OUT = "pokecrystal-randofuser/crystal_randofused.gbc";
 	
 	public static final int NUM_POKEMON = Pokemon.CELEBI.ordinal() - Pokemon.BULBASAUR.ordinal() + 1;
 	
-	public static final int EVOS_ATTACKS = 0x44000;
+	public static final int EVOS_ATTACKS = 0x40000;
 	public static final int EGG_MOVES = 0x1d4000;
 	public static final int BASE_DATA = 0x51424;
 	public static final int NAMES = 0x53384;
@@ -45,6 +45,16 @@ public class Constants {
 		public int getOffset() {
 			return offset;
 		}
+	}
+	
+	public enum EvolutionCategories {
+		
+		EVOLVE_NONE,
+		EVOLVE_LEVEL,
+		EVOLVE_ITEM,
+		EVOLVE_TRADE,
+		EVOLVE_HAPPINESS,
+		EVOLVE_STAT;
 	}
 	
 }

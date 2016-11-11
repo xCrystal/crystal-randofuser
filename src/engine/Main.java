@@ -48,6 +48,7 @@ public class Main {
 			int[] fusionIds = Shuffle.shufflePokemonIds();
 			
 			Engine.fuseNames(buf_names_r, buf_names_w, fusionIds);
+			Engine.fuseEvosAttacks(buf_evosAttacks_r, buf_evosAttacks_w, fusionIds);
 			
 			Engine.copyData(chout, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
 			Engine.copyData(chout, buf_eggMoves_w, Constants.EGG_MOVES);

@@ -3,6 +3,7 @@ package engine;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 
@@ -38,19 +39,22 @@ public class Engine {
 		ch.read(bbWrite);
 	}
 	
-	public static void fuseNames(ByteBuffer r, ByteBuffer w, int[] fusionIds) {
+	public static void fuseNames (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
 		
 		byte[] name1 = new byte[Constants.NAMES_LENGTH];
 		byte[] name2 = new byte[Constants.NAMES_LENGTH];		
 		
 		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
 			
+			Arrays.fill(name1, (byte) 0x00);
+			Arrays.fill(name2, (byte) 0x00);
+			
 			if (i == Pokemon.UNOWN.ordinal()) i ++;
 					
-			r.position(i * Constants.NAMES_LENGTH);
-			r.get(name1);
-			r.position(fusionIds[i] * Constants.NAMES_LENGTH);
-			r.get(name2);
+			in.position(i * Constants.NAMES_LENGTH);
+			in.get(name1);
+			in.position(fusionIds[i] * Constants.NAMES_LENGTH);
+			in.get(name2);
 			
 			int _i1, _i2;
 			
@@ -62,11 +66,63 @@ public class Engine {
 				if (name2[_i2] == 0x50) break;
 			}
 			
-			w.position(i * Constants.NAMES_LENGTH);
-			w.put(name1, 0, (_i1+1)/2);
-			w.put(name2, (_i2/2), (_i2+1)/2);
-			if (w.position() != ((i + 1) * Constants.NAMES_LENGTH))
-				w.put((byte) 0x50);
+			out.position(i * Constants.NAMES_LENGTH);
+			out.put(name1, 0, (_i1+1)/2); // first half of name1 rounded up
+			out.put(name2, (_i2/2), (_i2+1)/2); // second half of name2 rounded up
+			if (out.position() != ((i + 1) * Constants.NAMES_LENGTH))
+				out.put((byte) 0x50);
+		}
+	}
+	
+	public static void fuseEvosAttacks (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
+		
+		byte[] evosAttacks1 = new byte[Constants.EVOS_ATTACKS_LENGTH];
+		byte[] evosAttacks2 = new byte[Constants.EVOS_ATTACKS_LENGTH];
+		
+		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
+			
+			Arrays.fill(evosAttacks1, (byte) 0x00);
+			Arrays.fill(evosAttacks2, (byte) 0x00);
+			
+			if (i == Pokemon.UNOWN.ordinal()) i ++;
+			
+			int p1 = 1, p2 = 1; // offsets of learnset data, depends on whether mon has an evolution entry or not
+			int l = 1; // length of evo data of current mons
+			
+			in.position(i * Constants.EVOS_ATTACKS_LENGTH);
+			in.get(evosAttacks1, 0, 4); // read evolution data
+			in.position(fusionIds[i] * Constants.EVOS_ATTACKS_LENGTH);
+			in.get(evosAttacks2, 0, 4); // read evolution data
+			
+			if (evosAttacks1[0] != Constants.EvolutionCategories.EVOLVE_NONE.ordinal()) { p1 = 4; p2 = 4; l = 4; }
+			
+			// if either evolution is not level, keep evolution of mon 1
+			if (evosAttacks1[0] == Constants.EvolutionCategories.EVOLVE_LEVEL.ordinal() && 
+					evosAttacks2[0] == Constants.EvolutionCategories.EVOLVE_LEVEL.ordinal()) {
+				
+				// else, average the level requirement rounded down
+				out.position((i * Constants.EVOS_ATTACKS_LENGTH) + 1);
+				out.put((byte) ((evosAttacks1[1] + evosAttacks2[1]) / 2));
+			}
+			
+			// now combine the two level up learnsets
+			in.position(i * Constants.EVOS_ATTACKS_LENGTH + p1);
+			do { 
+				in.get(evosAttacks1, p1, 2);
+				p1 += 2;
+			} while (evosAttacks1[p1-2] != 0);
+			p1 -= 2;
+			
+			in.position(fusionIds[i] * Constants.EVOS_ATTACKS_LENGTH + p2);
+			do {
+				in.get(evosAttacks2, p2, 2);
+				p2 += 2;
+			} while (evosAttacks2[p2-2] != 0);
+			p2 -= 1; // keep the terminator 0x00
+			
+			out.position((i * Constants.EVOS_ATTACKS_LENGTH) + l);
+			out.put(evosAttacks1, l, p1-l);
+			out.put(evosAttacks2, l, p2-l);
 		}
 	}
 	
