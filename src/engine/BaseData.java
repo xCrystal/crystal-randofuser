@@ -3,6 +3,7 @@ package engine;
 import java.nio.ByteBuffer;
 
 import data.Constants;
+import data.Constants.GrowthRates;
 import data.Settings;
 
 public class BaseData {
@@ -155,14 +156,78 @@ public class BaseData {
 	
 	public static void fuseGrowthRates (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
+		if (!Settings.AverageBaseStats) return;
+		
+		// else, "average" the growth rates
+		byte gr1, gr2;
+		
+		in.position(i);
+		gr1 = in.get();
+		in.position(j);
+		gr2 = in.get();
+		
+		byte result = gr1;
+		
+		// Medium slow (parabolic) is related to starters and early game pokemon, don't bother if either pokemon has it
+		if (gr1 != GrowthRates.PARABOLIC.ordinal() && gr2 != GrowthRates.PARABOLIC.ordinal()) {
+			
+			if (gr1 != gr2) {
+				
+				if      (gr1 == GrowthRates.FAST.ordinal()   && gr2 == GrowthRates.SLOW.ordinal())   gr1 = (byte) GrowthRates.MEDIUM.ordinal();
+				else if (gr1 == GrowthRates.SLOW.ordinal()   && gr2 == GrowthRates.FAST.ordinal())   gr1 = (byte) GrowthRates.MEDIUM.ordinal();
+				else if (gr1 == GrowthRates.SLOW.ordinal()   && gr2 == GrowthRates.MEDIUM.ordinal()) gr1 = (byte) GrowthRates.SLIGHTLY_SLOW.ordinal();
+				else if (gr1 == GrowthRates.MEDIUM.ordinal() && gr2 == GrowthRates.SLOW.ordinal())   gr1 = (byte) GrowthRates.SLIGHTLY_SLOW.ordinal();
+				else if (gr1 == GrowthRates.FAST.ordinal()   && gr2 == GrowthRates.MEDIUM.ordinal()) gr1 = (byte) GrowthRates.SLIGHTLY_FAST.ordinal();
+				else if (gr1 == GrowthRates.MEDIUM.ordinal() && gr2 == GrowthRates.FAST.ordinal())   gr1 = (byte) GrowthRates.SLIGHTLY_FAST.ordinal();
+			}
+		}
+		
+		out.position(i);
+		out.put(result);
 	}
 
 	public static void fuseEggGroups (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
+		// egg group work like types, except they are nybbles
+		byte egi, egj, eg1i, eg2i, eg1j, eg2j;
+		
+		in.position(i);
+		egi = in.get();
+		eg1i = (byte) ((egi & 0xf0) >> 4);
+		eg2i = (byte)  (egi & 0x0f);
+		
+		in.position(j);
+		egj = in.get();
+		eg1j = (byte) ((egj & 0xf0) >> 4);
+		eg2j = (byte)  (egj & 0x0f);
+		
+		if ((egi != (byte) 0xff) && (egj != (byte) 0xff)) { // don't do anything if either mon can't breed
+		
+			if (eg1i != eg1j) { 
+				eg2i = eg1j; // use eg1 of mon1 and eg2 of mon2 if they differ
+			
+			} else if (eg1i == eg2i) { // if mon1 has one egg group,
+				if (eg1j != eg2j) {    // and if mon2 has two egg groups:
+					eg2i = eg2j;       // use eg2 of mon2
+				}
+			} // else, keep eg2 of mon1 (no changes)
+		
+		}
+		out.position(i);
+		out.put((byte) ((eg1i << 4) | eg2i));
 	}
 	
 	public static void combineTmHm (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
+		// tmhm flags are 8 bytes of data
+		long tmhm1, tmhm2;
+		
+		in.position(i);
+		tmhm1 = in.getLong();
+		in.position(j);
+		tmhm2 = in.getLong();
+		
+		out.put(ByteBuffer.allocate(8).putLong(tmhm1 | tmhm2).array());
 	}
 
 

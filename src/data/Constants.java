@@ -63,10 +63,10 @@ public class Constants {
 	
 	public enum GrowthRates {
 		
-		MEDIUM_FAST, // 1M
+		MEDIUM, // 1M
 		SLIGHTLY_FAST, // 0.89M (8/9)
 		SLIGHTLY_SLOW, // 1.11M (10/9)
-		MEDIUM_SLOW, // 1.06M (parabolic)
+		PARABOLIC, // 1.06M (parabolic)
 		FAST, // 0.8M
 		SLOW;  // 1.25M
 	}
