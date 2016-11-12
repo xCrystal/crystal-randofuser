@@ -8,6 +8,7 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 import data.Constants;
+import data.Constants.BaseDataFields;
 import data.Pokemon;
 
 public class Engine {
@@ -182,6 +183,30 @@ public class Engine {
 			out.position(i * Constants.PALETTES_LENGTH);
 			out.put(pal);
 		}	
+	}
+	
+	public static int baseDataPos (int curMon, BaseDataFields field) {
+		
+		return curMon * Constants.BASE_DATA_LENGTH + field.getOffset();
+	}
+	
+	public static void fuseBaseData (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
+		
+		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
+			
+			if (i == Pokemon.UNOWN.ordinal()) i ++;
+			
+			BaseData.fuseStats(in, out, fusionIds, baseDataPos(i, BaseDataFields.STATS), baseDataPos(fusionIds[i], BaseDataFields.STATS));
+			BaseData.fuseTypes(in, out, fusionIds, baseDataPos(i, BaseDataFields.TYPE_1), baseDataPos(fusionIds[i], BaseDataFields.TYPE_1));
+			BaseData.fuseCatchRates(in, out, fusionIds, baseDataPos(i, BaseDataFields.CATCH_RATE), baseDataPos(fusionIds[i], BaseDataFields.CATCH_RATE));
+			BaseData.fuseBaseExp(in, out, fusionIds, baseDataPos(i, BaseDataFields.BASE_EXP), baseDataPos(fusionIds[i], BaseDataFields.BASE_EXP));
+			BaseData.fuseHeldItems(in, out, fusionIds, baseDataPos(i, BaseDataFields.ITEM_1), baseDataPos(fusionIds[i], BaseDataFields.ITEM_1));
+			BaseData.fuseGenders(in, out, fusionIds, baseDataPos(i, BaseDataFields.GENDER), baseDataPos(fusionIds[i], BaseDataFields.GENDER));
+			BaseData.fuseHatchCycles(in, out, fusionIds, baseDataPos(i, BaseDataFields.HATCH_CYCLES), baseDataPos(fusionIds[i], BaseDataFields.HATCH_CYCLES));
+			BaseData.fuseGrowthRates(in, out, fusionIds, baseDataPos(i, BaseDataFields.GROWTH_RATE), baseDataPos(fusionIds[i], BaseDataFields.GROWTH_RATE));
+			BaseData.fuseEggGroups(in, out, fusionIds, baseDataPos(i, BaseDataFields.EGG_GROUPS), baseDataPos(fusionIds[i], BaseDataFields.EGG_GROUPS));
+			BaseData.combineTmHm(in, out, fusionIds, baseDataPos(i, BaseDataFields.TMHM), baseDataPos(fusionIds[i], BaseDataFields.TMHM));
+		}		
 	}
 	
 	static void copyData (FileChannel ch, ByteBuffer bbWrite, long pos) throws IOException {

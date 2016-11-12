@@ -8,6 +8,7 @@ public class Constants {
 	public static final String FILE_NAME_OUT = "pokecrystal-randofuser/crystal_randofused.gbc";
 	
 	public static final int NUM_POKEMON = Pokemon.CELEBI.ordinal() - Pokemon.BULBASAUR.ordinal() + 1;
+	public static final int NUM_STATS = 6;
 	
 	public static final int EVOS_ATTACKS = 0x40000;
 	public static final int EGG_MOVES = 0x1d4000;
@@ -21,7 +22,7 @@ public class Constants {
 	public static final int NAMES_LENGTH = 10;
 	public static final int PALETTES_LENGTH = 8;
 	
-	public enum BaseDataOffsets {
+	public enum BaseDataFields {
 		
 		STATS (0x51425 - 0x51424),
 		TYPE_1 (0x5142b - 0x51424),
@@ -38,7 +39,7 @@ public class Constants {
 		
 		private int offset;
 		
-		BaseDataOffsets (int offset) {
+		BaseDataFields (int offset) {
 			this.offset = offset;
 		}
 
@@ -55,6 +56,16 @@ public class Constants {
 		EVOLVE_TRADE,
 		EVOLVE_HAPPINESS,
 		EVOLVE_STAT;
+	}
+	
+	public enum GrowthRates {
+		
+		MEDIUM_FAST, // 1M
+		SLIGHTLY_FAST, // 0.89M (8/9)
+		SLIGHTLY_SLOW, // 1.11M (10/9)
+		MEDIUM_SLOW, // 1.06M (parabolic)
+		FAST, // 0.8M
+		SLOW;  // 1.25M
 	}
 	
 }

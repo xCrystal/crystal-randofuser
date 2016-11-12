@@ -51,6 +51,7 @@ public class Main {
 			Engine.fuseEvosAttacks(buf_evosAttacks_r, buf_evosAttacks_w, fusionIds);
 			Engine.fuseEggMoves(buf_eggMoves_r, buf_eggMoves_w, fusionIds);
 			Engine.switchPalettes(buf_pals_r, buf_pals_w, fusionIds);
+			Engine.fuseBaseData(buf_baseData_r, buf_baseData_w, fusionIds);
 			
 			Engine.copyData(chout, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
 			Engine.copyData(chout, buf_eggMoves_w, Constants.EGG_MOVES);

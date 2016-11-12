@@ -32,7 +32,7 @@ public class Shuffle {
 			do {
 				do {
 					rand = randomRange(Pokemon.BULBASAUR.ordinal(), Pokemon.CELEBI.ordinal());
-				} while ((i == fusionIds[rand]) || (rand == Pokemon.UNOWN.ordinal())); // make sure it's not fusing with itself or unown
+				} while ((fusionIds[i] == fusionIds[rand]) || (rand == Pokemon.UNOWN.ordinal())); // make sure it's not fusing with itself or unown
 			} while (Pokemon.values()[i].getEvoType() != Pokemon.values()[rand].getEvoType()); // assert same evolution type
 			
 			// swap the two ids in the fusionIds array
