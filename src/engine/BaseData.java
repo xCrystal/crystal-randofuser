@@ -48,6 +48,37 @@ public class BaseData {
 	
 	public static void fuseTypes (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
+		byte type1i, type2i, type1j, type2j;
+		
+		in.position(i);
+		type1i = in.get();
+		type2i = in.get();
+		in.position(j);
+		type1j = in.get();
+		type2j = in.get();
+		
+		//type 1 has priority, unless type is normal/flying
+		if ((type1i == Constants.NORMAL_T) && (type2i == Constants.FLYING_T)) {
+			type1i = Constants.FLYING_T;
+			type2i = Constants.NORMAL_T;
+		}
+		if ((type1j == Constants.NORMAL_T) && (type2j == Constants.FLYING_T)) {
+			type1j = Constants.FLYING_T;
+			type2j = Constants.NORMAL_T;
+		}
+		
+		if (type1i != type1j) { 
+			type2i = type1j; // use type1 of mon1 and type1 of mon2 if they differ
+			
+		} else if (type1i == type2i) { // if mon1 is monotype,
+			if (type1j != type2j) {    // and if mon2 has two types:
+				type2i = type2j;       // use type2 of mon2
+			}
+		} // else, keep type2 of mon1 (no changes)
+		
+		out.position(i);
+		out.put(type1i);
+		out.put(type2i);
 	}
 	
 	public static void fuseCatchRates (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
@@ -55,6 +86,27 @@ public class BaseData {
 	}
 	
 	public static void fuseBaseExp (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+		
+		byte be1, be2;
+		int f1, f2;
+		
+		// give more weight to base exp of mon 1 if bst is based solely on that mon
+		if (Settings.AverageBaseStats) {
+			f1 = 5; // be1 - 50% weight
+			f2 = 5; // be2 - 50% weight
+		} else {
+			f1 = 8; // be1 - 80% weight
+			f2 = 2; // be2 - 20% weight
+		}
+		
+		in.position(i);
+		be1 = in.get();
+		in.position(j);
+		be2 = in.get();
+		
+		out.position(i);
+		byte result = (byte) ((f1 * toUnsignedInt(be1) + f2 * toUnsignedInt(be2)) / 10);
+		out.put(result);
 		
 	}
 
@@ -64,9 +116,40 @@ public class BaseData {
 	
 	public static void fuseGenders (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
+		byte g1, g2;
+		
+		in.position(i);
+		g1 = in.get();
+		in.position(j);
+		g2 = in.get();
+		
+		out.position(i);
+		byte result = (byte) ((toUnsignedInt(g1) + toUnsignedInt(g2) + 1) / 2);
+		out.put(result);
 	}
 	
 	public static void fuseHatchCycles (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+		
+		byte hc1, hc2;
+		int f1, f2;
+		
+		// give more weight to hatch cycle of mon 1 if bst is based solely on that mon
+		if (Settings.AverageBaseStats) {
+			f1 = 5; // be1 - 50% weight
+			f2 = 5; // be2 - 50% weight
+		} else {
+			f1 = 8; // be1 - 80% weight
+			f2 = 2; // be2 - 20% weight
+		}
+		
+		in.position(i);
+		hc1 = in.get();
+		in.position(j);
+		hc2 = in.get();
+		
+		out.position(i);
+		byte result = (byte) ((f1 * toUnsignedInt(hc1) + f2 * toUnsignedInt(hc2)) / 10);
+		out.put(result);
 		
 	}
 	

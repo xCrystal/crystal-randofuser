@@ -22,6 +22,9 @@ public class Constants {
 	public static final int NAMES_LENGTH = 10;
 	public static final int PALETTES_LENGTH = 8;
 	
+	public static final int NORMAL_T = 0;
+	public static final int FLYING_T = 2;	
+	
 	public enum BaseDataFields {
 		
 		STATS (0x51425 - 0x51424),
