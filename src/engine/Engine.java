@@ -236,7 +236,8 @@ public class Engine {
 		int checksum = 0;
 		for (byte b : rom.array())
 			checksum += ((int) b) & 0xff;
-		checksum -= ((old_cs[0] + old_cs[1]) & 0xff);
+		checksum -= (old_cs[0] & 0xff);
+		checksum -= (old_cs[1] & 0xff);
 		
 		ch.position(0x14e);
 		byte[] cs = new byte[2];

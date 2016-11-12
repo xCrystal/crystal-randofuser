@@ -4,6 +4,9 @@ public class Settings {
 	
 	public static boolean AverageBaseStats = false; // if false, average base stats patterns only, keeping BST
 	
+	public static int JohtoLevelBump = 50; // percentage to raise Johto trainer levels by
+	public static int KantoLevelBump = 50; // percentage to raise Kanto trainer levels by
+	
 	public static void setSlowpokeSlowbro() {
 		
 		Pokemon.SLOWBRO.setEvoType(EvoTypes.EVOTYPE2OF2);

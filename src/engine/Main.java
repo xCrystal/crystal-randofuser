@@ -26,6 +26,8 @@ public class Main {
 		
 		ByteBuffer buf_pals_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.PALETTES_LENGTH);
 		ByteBuffer buf_pals_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.PALETTES_LENGTH);
+		
+		ByteBuffer buf_trainers = ByteBuffer.allocate(Constants.TRAINERS_END - Constants.TRAINERS);
 
 		try (
 			RandomAccessFile fin = new RandomAccessFile(Constants.FILE_NAME_IN,  "r" );
@@ -45,6 +47,8 @@ public class Main {
 			Engine.readData(chin, buf_names_r, buf_names_w, Constants.NAMES);
 			Engine.readData(chin, buf_pals_r, buf_pals_w, Constants.PALETTES);
 			
+			Engine.readData(chin, buf_trainers, buf_trainers, Constants.TRAINERS);
+			
 			int[] fusionIds = Shuffle.shufflePokemonIds();
 			
 			Engine.fuseNames(buf_names_r, buf_names_w, fusionIds);
@@ -53,11 +57,15 @@ public class Main {
 			Engine.switchPalettes(buf_pals_r, buf_pals_w, fusionIds);
 			Engine.fuseBaseData(buf_baseData_r, buf_baseData_w, fusionIds);
 			
+			Trainers.raiseLevels(buf_trainers);
+			
 			Engine.copyData(chout, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
 			Engine.copyData(chout, buf_eggMoves_w, Constants.EGG_MOVES);
 			Engine.copyData(chout, buf_baseData_w, Constants.BASE_DATA);
 			Engine.copyData(chout, buf_names_w, Constants.NAMES);
 			Engine.copyData(chout, buf_pals_w, Constants.PALETTES);
+			
+			Engine.copyData(chout, buf_trainers, Constants.TRAINERS);
 			
 			Engine.fixGlobalChecksum(chout);
 			
