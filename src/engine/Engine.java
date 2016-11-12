@@ -126,6 +126,64 @@ public class Engine {
 		}
 	}
 	
+	public static void fuseEggMoves (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
+		
+		byte[] eggMoves1 = new byte[Constants.EGG_MOVES_LENGTH];
+		byte[] eggMoves2 = new byte[Constants.EGG_MOVES_LENGTH];
+		
+		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
+			
+			Arrays.fill(eggMoves1, (byte) 0x00);
+			Arrays.fill(eggMoves2, (byte) 0x00);
+			
+			if (i == Pokemon.UNOWN.ordinal()) i ++;
+			
+			in.position(i * Constants.EGG_MOVES_LENGTH);
+			in.get(eggMoves1);
+			in.position(fusionIds[i] * Constants.EGG_MOVES_LENGTH);
+			in.get(eggMoves2);
+			
+			out.position(i * Constants.EGG_MOVES_LENGTH);
+			
+			int c = 0;
+			byte b;
+			do {
+				b = eggMoves1[c];
+				if ((b != (byte) 0xff) && (b != (byte) 0x00)) {
+					out.put(b);
+					c ++;
+				}
+			} while ((b != (byte) 0xff) && (b != (byte) 0x00));
+			
+			c = 0;
+			do {
+				b = eggMoves2[c];
+				if ((b != (byte) 0xff) && (b != (byte) 0x00)) { 
+					out.put(b);
+					c ++;
+				}
+			} while ((b != (byte) 0xff) && (b != (byte) 0x00));
+			
+			out.put((byte) 0xff);
+		}
+	}
+	
+	public static void switchPalettes (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
+		
+		byte[] pal = new byte[Constants.PALETTES_LENGTH];
+		
+		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
+			
+			if (i == Pokemon.UNOWN.ordinal()) i ++;
+			
+			in.position(fusionIds[i] * Constants.PALETTES_LENGTH);
+			in.get(pal);
+			
+			out.position(i * Constants.PALETTES_LENGTH);
+			out.put(pal);
+		}	
+	}
+	
 	static void copyData (FileChannel ch, ByteBuffer bbWrite, long pos) throws IOException {
 		
 		ch.position(pos);
