@@ -84,6 +84,25 @@ public class BaseData {
 	
 	public static void fuseCatchRates (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
+		byte cr1, cr2;
+		
+		in.position(i);
+		cr1 = in.get();
+		in.position(j);
+		cr2 = in.get();
+		
+		byte result;
+		
+		// do the geometric average of the two catch rates
+		// if bst's not averaged, catch rate of mon 1 weighs 80%
+		if (Settings.AverageBaseStats) {
+			result = (byte) (Math.pow(toUnsignedInt(cr1) * toUnsignedInt(cr2), 0.5) + 0.5);
+		} else {
+			result = (byte) (Math.pow(Math.pow(toUnsignedInt(cr1), 4) * toUnsignedInt(cr2), 0.2) + 0.5);
+		}
+		
+		out.position(i);
+		out.put(result);
 	}
 	
 	public static void fuseBaseExp (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
@@ -108,11 +127,25 @@ public class BaseData {
 		out.position(i);
 		byte result = (byte) ((f1 * toUnsignedInt(be1) + f2 * toUnsignedInt(be2)) / 10);
 		out.put(result);
-		
 	}
 
 	public static void fuseHeldItems (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
+		byte item1i, item2i, item1j, item2j;
+		
+		in.position(i);
+		item1i = in.get();
+		item2i = in.get();
+		in.position(j);
+		item1j = in.get();
+		item2j = in.get();
+		
+		if (item1i == 0x00) item1i = item1j;
+		if (item2i == 0x00) item2i = item2j;
+		
+		out.position(i);
+		out.put(item1i);
+		out.put(item2i);
 	}
 	
 	public static void fuseGenders (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
