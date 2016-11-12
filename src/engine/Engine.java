@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import data.Constants;
 import data.Constants.BaseDataFields;
 import data.Pokemon;
+import data.Settings;
 
 public class Engine {
 	
@@ -102,8 +103,14 @@ public class Engine {
 					evosAttacks2[0] == Constants.EvolutionCategories.EVOLVE_LEVEL.ordinal()) {
 				
 				// else, average the level requirement rounded down
+				// if bst's are not averaged, mon 1 weighs 80%
 				out.position((i * Constants.EVOS_ATTACKS_LENGTH) + 1);
-				out.put((byte) ((evosAttacks1[1] + evosAttacks2[1]) / 2));
+				
+				if (Settings.AverageBaseStats) { 
+					out.put((byte) ((evosAttacks1[1] + evosAttacks2[1]) / 2));
+				} else {
+					out.put((byte) ((4 * evosAttacks1[1] + evosAttacks2[1]) / 5));
+				}
 			}
 			
 			// now combine the two level up learnsets

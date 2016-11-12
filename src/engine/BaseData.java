@@ -9,7 +9,7 @@ import data.Settings;
 public class BaseData {
 	
 	public static int toUnsignedInt (byte b) {
-	    return ((int) b) & 0xff;
+		return ((int) b) & 0xff;
 	}
 	
 	public static void fuseStats (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
