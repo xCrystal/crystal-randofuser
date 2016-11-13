@@ -47,7 +47,7 @@ public class Main {
 			Engine.readData(chin, buf_names_r, buf_names_w, Constants.NAMES);
 			Engine.readData(chin, buf_pals_r, buf_pals_w, Constants.PALETTES);
 			
-			Engine.readData(chin, buf_trainers, buf_trainers, Constants.TRAINERS);
+			Engine.readData(chin, buf_trainers, Constants.TRAINERS);
 			
 			int[] fusionIds = Shuffle.shufflePokemonIds();
 			

@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import data.Constants;
 import data.Constants.BaseDataFields;
+import data.Names;
 import data.Pokemon;
 import data.Settings;
 
@@ -41,38 +42,36 @@ public class Engine {
 		ch.read(bbWrite);
 	}
 	
+	static void readData (FileChannel ch, ByteBuffer bb, long pos) throws IOException {
+		
+		ch.position(pos);
+		bb.rewind();
+		ch.read(bb);
+	}
+	
 	public static void fuseNames (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
 		
-		byte[] name1 = new byte[Constants.NAMES_LENGTH];
-		byte[] name2 = new byte[Constants.NAMES_LENGTH];		
+		byte[] name = new byte[Constants.NAMES_LENGTH];	
 		
 		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
 			
-			Arrays.fill(name1, (byte) 0x00);
-			Arrays.fill(name2, (byte) 0x00);
+			Arrays.fill(name, (byte) 0x50);
 			
 			if (i == Pokemon.UNOWN.ordinal()) i ++;
-					
-			in.position(i * Constants.NAMES_LENGTH);
-			in.get(name1);
-			in.position(fusionIds[i] * Constants.NAMES_LENGTH);
-			in.get(name2);
 			
-			int _i1, _i2;
+			byte[] prefix = Names.values()[i].getPrefix();
+			byte[] suffix = Names.values()[fusionIds[i]].getSuffix();
 			
-			for (_i1 = 0 ; _i1 < Constants.NAMES_LENGTH ; _i1++) {
-				if (name1[_i1] == 0x50) break;
-			}
+			prefix = Arrays.copyOf(prefix, prefix.length - 1); // get rid of the terminator
 			
-			for (_i2 = 0 ; _i2 < Constants.NAMES_LENGTH ; _i2++) {
-				if (name2[_i2] == 0x50) break;
-			}
+			if ((prefix.length + suffix.length) > 10)
+				suffix = Arrays.copyOf(suffix, 5); // get rid of the terminator if no need for it
+			
+			System.arraycopy(prefix, 0, name, 0, prefix.length);
+			System.arraycopy(suffix, 0, name, prefix.length, suffix.length);
 			
 			out.position(i * Constants.NAMES_LENGTH);
-			out.put(name1, 0, (_i1+1)/2); // first half of name1 rounded up
-			out.put(name2, (_i2/2), (_i2+1)/2); // second half of name2 rounded up
-			if (out.position() != ((i + 1) * Constants.NAMES_LENGTH))
-				out.put((byte) 0x50);
+			out.put(name);
 		}
 	}
 	

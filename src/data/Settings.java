@@ -4,8 +4,8 @@ public class Settings {
 	
 	public static boolean AverageBaseStats = false; // if false, average base stats patterns only, keeping BST
 	
-	public static int JohtoLevelBump = 50; // percentage to raise Johto trainer levels by
-	public static int KantoLevelBump = 50; // percentage to raise Kanto trainer levels by
+	public static int JohtoLevelBump = 0; // percentage to raise Johto trainer levels by
+	public static int KantoLevelBump = 0; // percentage to raise Kanto trainer levels by
 	
 	public static void setSlowpokeSlowbro() {
 		
@@ -13,7 +13,12 @@ public class Settings {
 		EvoLines._SLOWPOKE.setPkmn2(Pokemon.SLOWBRO);
 		
 		Pokemon.SLOWKING.setEvoType(EvoTypes.EVOTYPE1OF1);
-		EvoLines._SLOWKING.setPkmn1(Pokemon.SLOWKING);	
+		EvoLines._SLOWKING.setPkmn1(Pokemon.SLOWKING);
+		
+		Names.SLOWBRO.setPrefix("SLOW");
+		Names.SLOWBRO.setSuffix("OWBRO");
+		Names.SLOWKING.setPrefix("SLOW");
+		Names.SLOWKING.setPrefix("KING");
 	}
 	
 	public static void setSlowpokeSlowking() {
@@ -23,6 +28,11 @@ public class Settings {
 		
 		Pokemon.SLOWBRO.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._SLOWKING.setPkmn1(Pokemon.SLOWBRO);
+		
+		Names.SLOWBRO.setPrefix("SLOW");
+		Names.SLOWBRO.setSuffix("WBRO");
+		Names.SLOWKING.setPrefix("SLOW");
+		Names.SLOWKING.setPrefix("KING");
 	}
 	
 	public static void setOddishGloomVileplume() {
@@ -32,6 +42,11 @@ public class Settings {
 		
 		Pokemon.BELLOSSOM.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._BELLOSSOM.setPkmn1(Pokemon.BELLOSSOM);
+		
+		Names.VILEPLUME.setPrefix("VILEP");
+		Names.VILEPLUME.setSuffix("LUME");
+		Names.BELLOSSOM.setPrefix("BELLO");
+		Names.BELLOSSOM.setSuffix("SSOM");
 	}
 	
 	public static void setOddishGloomBellossom() {
@@ -41,6 +56,11 @@ public class Settings {
 		
 		Pokemon.VILEPLUME.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._BELLOSSOM.setPkmn1(Pokemon.VILEPLUME);
+		
+		Names.VILEPLUME.setPrefix("VILE");
+		Names.VILEPLUME.setSuffix("PLUME");
+		Names.BELLOSSOM.setPrefix("BELL");
+		Names.BELLOSSOM.setSuffix("OSSOM");
 	}
 	
 	public static void setPoliwagPoliwhirlPoliwrath() {
@@ -50,6 +70,11 @@ public class Settings {
 		
 		Pokemon.POLITOED.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._POLITOED.setPkmn1(Pokemon.POLITOED);
+		
+		Names.POLIWRATH.setPrefix("POLIW");
+		Names.POLIWRATH.setSuffix("WRATH");
+		Names.POLITOED.setPrefix("POLI");
+		Names.POLITOED.setSuffix("TOED");
 	}
 	
 	public static void setPoliwagPoliwhirlPolitoed() {
@@ -59,6 +84,11 @@ public class Settings {
 		
 		Pokemon.POLIWRATH.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._POLITOED.setPkmn1(Pokemon.POLIWRATH);
+		
+		Names.POLIWRATH.setPrefix("POLI");
+		Names.POLIWRATH.setSuffix("WRATH");
+		Names.POLITOED.setPrefix("POLIT");
+		Names.POLITOED.setSuffix("ITOED");
 	}
 	
 	public static void setTyrogueHitmontop() {
@@ -68,6 +98,13 @@ public class Settings {
 		
 		setPokemonAlone(Pokemon.HITMONLEE, EvoLines._HITMONLEE);	
 		setPokemonAlone(Pokemon.HITMONCHAN, EvoLines._HITMONCHAN);
+		
+		Names.HITMONCHAN.setPrefix("HITMO");
+		Names.HITMONCHAN.setSuffix("CHAN");
+		Names.HITMONLEE.setPrefix("HITMO");
+		Names.HITMONLEE.setSuffix("LEE");
+		Names.HITMONTOP.setPrefix("HIT");
+		Names.HITMONTOP.setSuffix("TOP");
 	}
 	
 	public static void setTyrogueHitmonlee() {
@@ -77,6 +114,13 @@ public class Settings {
 		
 		setPokemonAlone(Pokemon.HITMONCHAN, EvoLines._HITMONCHAN);
 		setPokemonAlone(Pokemon.HITMONTOP, EvoLines._HITMONLEE);
+		
+		Names.HITMONCHAN.setPrefix("HITMO");
+		Names.HITMONCHAN.setSuffix("CHAN");
+		Names.HITMONLEE.setPrefix("HIT");
+		Names.HITMONLEE.setSuffix("LEE");
+		Names.HITMONTOP.setPrefix("HITMO");
+		Names.HITMONTOP.setSuffix("TOP");
 	}
 	
 	public static void setTyrogueHitmonchan() {
@@ -86,6 +130,13 @@ public class Settings {
 		
 		setPokemonAlone(Pokemon.HITMONLEE, EvoLines._HITMONLEE);
 		setPokemonAlone(Pokemon.HITMONTOP, EvoLines._HITMONCHAN);
+		
+		Names.HITMONCHAN.setPrefix("HIT");
+		Names.HITMONCHAN.setSuffix("CHAN");
+		Names.HITMONLEE.setPrefix("HITMO");
+		Names.HITMONLEE.setSuffix("LEE");
+		Names.HITMONTOP.setPrefix("HITMO");
+		Names.HITMONTOP.setSuffix("TOP");
 	}
 	
 	public static void setEeveeVaporeon() {

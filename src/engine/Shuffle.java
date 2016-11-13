@@ -20,7 +20,7 @@ public class Shuffle {
 	static int[] shufflePokemonIds() {
 		
 		int[] fusionIds = new int[Constants.NUM_POKEMON];
-		
+			
 		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++ )
 			fusionIds[i] = i;
 		
