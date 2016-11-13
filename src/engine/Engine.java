@@ -49,7 +49,7 @@ public class Engine {
 		ch.read(bb);
 	}
 	
-	public static void fuseNames (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
+	public static void fuseNames (ByteBuffer out, int[] fusionIds) {
 		
 		byte[] name = new byte[Constants.NAMES_LENGTH];	
 		

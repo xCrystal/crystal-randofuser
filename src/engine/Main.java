@@ -12,6 +12,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		ByteBuffer buf_names = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.NAMES_LENGTH);
+		
 		ByteBuffer buf_evosAttacks_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.EVOS_ATTACKS_LENGTH);
 		ByteBuffer buf_evosAttacks_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.EVOS_ATTACKS_LENGTH);
 		
@@ -20,9 +22,6 @@ public class Main {
 		
 		ByteBuffer buf_baseData_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.BASE_DATA_LENGTH);
 		ByteBuffer buf_baseData_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.BASE_DATA_LENGTH);
-		
-		ByteBuffer buf_names_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.NAMES_LENGTH);
-		ByteBuffer buf_names_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.NAMES_LENGTH);
 		
 		ByteBuffer buf_pals_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.PALETTES_LENGTH);
 		ByteBuffer buf_pals_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.PALETTES_LENGTH);
@@ -41,30 +40,27 @@ public class Main {
 			
 			Engine.createRomCopy(chin, chout);
 			
+			Engine.readData(chin, buf_names, Constants.NAMES);
 			Engine.readData(chin, buf_evosAttacks_r, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
 			Engine.readData(chin, buf_eggMoves_r, buf_eggMoves_w, Constants.EGG_MOVES);
 			Engine.readData(chin, buf_baseData_r, buf_baseData_w, Constants.BASE_DATA);
-			Engine.readData(chin, buf_names_r, buf_names_w, Constants.NAMES);
 			Engine.readData(chin, buf_pals_r, buf_pals_w, Constants.PALETTES);
-			
 			Engine.readData(chin, buf_trainers, Constants.TRAINERS);
 			
 			int[] fusionIds = Shuffle.shufflePokemonIds();
 			
-			Engine.fuseNames(buf_names_r, buf_names_w, fusionIds);
+			Engine.fuseNames(buf_names, fusionIds);
 			Engine.fuseEvosAttacks(buf_evosAttacks_r, buf_evosAttacks_w, fusionIds);
 			Engine.fuseEggMoves(buf_eggMoves_r, buf_eggMoves_w, fusionIds);
-			Engine.switchPalettes(buf_pals_r, buf_pals_w, fusionIds);
 			Engine.fuseBaseData(buf_baseData_r, buf_baseData_w, fusionIds);
-			
+			Engine.switchPalettes(buf_pals_r, buf_pals_w, fusionIds);
 			Trainers.raiseLevels(buf_trainers);
 			
+			Engine.copyData(chout, buf_names, Constants.NAMES);
 			Engine.copyData(chout, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
 			Engine.copyData(chout, buf_eggMoves_w, Constants.EGG_MOVES);
 			Engine.copyData(chout, buf_baseData_w, Constants.BASE_DATA);
-			Engine.copyData(chout, buf_names_w, Constants.NAMES);
 			Engine.copyData(chout, buf_pals_w, Constants.PALETTES);
-			
 			Engine.copyData(chout, buf_trainers, Constants.TRAINERS);
 			
 			Engine.fixGlobalChecksum(chout);

@@ -15,10 +15,10 @@ public class Settings {
 		Pokemon.SLOWKING.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._SLOWKING.setPkmn1(Pokemon.SLOWKING);
 		
-		Names.SLOWBRO.setPrefix("SLOW");
-		Names.SLOWBRO.setSuffix("OWBRO");
-		Names.SLOWKING.setPrefix("SLOW");
-		Names.SLOWKING.setPrefix("KING");
+		Names.SLOWBRO.setPrefix("SLOW<");
+		Names.SLOWBRO.setSuffix("OWBRO<");
+		Names.SLOWKING.setPrefix("SLOW<");
+		Names.SLOWKING.setPrefix("KING<");
 	}
 	
 	public static void setSlowpokeSlowking() {
@@ -29,10 +29,10 @@ public class Settings {
 		Pokemon.SLOWBRO.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._SLOWKING.setPkmn1(Pokemon.SLOWBRO);
 		
-		Names.SLOWBRO.setPrefix("SLOW");
-		Names.SLOWBRO.setSuffix("WBRO");
-		Names.SLOWKING.setPrefix("SLOW");
-		Names.SLOWKING.setPrefix("KING");
+		Names.SLOWBRO.setPrefix("SLOW<");
+		Names.SLOWBRO.setSuffix("WBRO<");
+		Names.SLOWKING.setPrefix("SLOW<");
+		Names.SLOWKING.setPrefix("KING<");
 	}
 	
 	public static void setOddishGloomVileplume() {
@@ -43,10 +43,10 @@ public class Settings {
 		Pokemon.BELLOSSOM.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._BELLOSSOM.setPkmn1(Pokemon.BELLOSSOM);
 		
-		Names.VILEPLUME.setPrefix("VILEP");
-		Names.VILEPLUME.setSuffix("LUME");
-		Names.BELLOSSOM.setPrefix("BELLO");
-		Names.BELLOSSOM.setSuffix("SSOM");
+		Names.VILEPLUME.setPrefix("VILEP<");
+		Names.VILEPLUME.setSuffix("LUME<");
+		Names.BELLOSSOM.setPrefix("BELLO<");
+		Names.BELLOSSOM.setSuffix("SSOM<");
 	}
 	
 	public static void setOddishGloomBellossom() {
@@ -57,10 +57,10 @@ public class Settings {
 		Pokemon.VILEPLUME.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._BELLOSSOM.setPkmn1(Pokemon.VILEPLUME);
 		
-		Names.VILEPLUME.setPrefix("VILE");
-		Names.VILEPLUME.setSuffix("PLUME");
-		Names.BELLOSSOM.setPrefix("BELL");
-		Names.BELLOSSOM.setSuffix("OSSOM");
+		Names.VILEPLUME.setPrefix("VILE<");
+		Names.VILEPLUME.setSuffix("PLUME<");
+		Names.BELLOSSOM.setPrefix("BELL<");
+		Names.BELLOSSOM.setSuffix("OSSOM<");
 	}
 	
 	public static void setPoliwagPoliwhirlPoliwrath() {
@@ -71,10 +71,10 @@ public class Settings {
 		Pokemon.POLITOED.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._POLITOED.setPkmn1(Pokemon.POLITOED);
 		
-		Names.POLIWRATH.setPrefix("POLIW");
-		Names.POLIWRATH.setSuffix("WRATH");
-		Names.POLITOED.setPrefix("POLI");
-		Names.POLITOED.setSuffix("TOED");
+		Names.POLIWRATH.setPrefix("POLIW<");
+		Names.POLIWRATH.setSuffix("WRATH<");
+		Names.POLITOED.setPrefix("POLI<");
+		Names.POLITOED.setSuffix("TOED<");
 	}
 	
 	public static void setPoliwagPoliwhirlPolitoed() {
@@ -85,10 +85,10 @@ public class Settings {
 		Pokemon.POLIWRATH.setEvoType(EvoTypes.EVOTYPE1OF1);
 		EvoLines._POLITOED.setPkmn1(Pokemon.POLIWRATH);
 		
-		Names.POLIWRATH.setPrefix("POLI");
-		Names.POLIWRATH.setSuffix("WRATH");
-		Names.POLITOED.setPrefix("POLIT");
-		Names.POLITOED.setSuffix("ITOED");
+		Names.POLIWRATH.setPrefix("POLI<");
+		Names.POLIWRATH.setSuffix("WRATH<");
+		Names.POLITOED.setPrefix("POLIT<");
+		Names.POLITOED.setSuffix("ITOED<");
 	}
 	
 	public static void setTyrogueHitmontop() {
@@ -99,12 +99,12 @@ public class Settings {
 		setPokemonAlone(Pokemon.HITMONLEE, EvoLines._HITMONLEE);	
 		setPokemonAlone(Pokemon.HITMONCHAN, EvoLines._HITMONCHAN);
 		
-		Names.HITMONCHAN.setPrefix("HITMO");
-		Names.HITMONCHAN.setSuffix("CHAN");
-		Names.HITMONLEE.setPrefix("HITMO");
-		Names.HITMONLEE.setSuffix("LEE");
-		Names.HITMONTOP.setPrefix("HIT");
-		Names.HITMONTOP.setSuffix("TOP");
+		Names.HITMONCHAN.setPrefix("HITMO<");
+		Names.HITMONCHAN.setSuffix("CHAN<");
+		Names.HITMONLEE.setPrefix("HITMO<");
+		Names.HITMONLEE.setSuffix("LEE<");
+		Names.HITMONTOP.setPrefix("HIT<");
+		Names.HITMONTOP.setSuffix("TOP<");
 	}
 	
 	public static void setTyrogueHitmonlee() {
@@ -115,12 +115,12 @@ public class Settings {
 		setPokemonAlone(Pokemon.HITMONCHAN, EvoLines._HITMONCHAN);
 		setPokemonAlone(Pokemon.HITMONTOP, EvoLines._HITMONLEE);
 		
-		Names.HITMONCHAN.setPrefix("HITMO");
-		Names.HITMONCHAN.setSuffix("CHAN");
-		Names.HITMONLEE.setPrefix("HIT");
-		Names.HITMONLEE.setSuffix("LEE");
-		Names.HITMONTOP.setPrefix("HITMO");
-		Names.HITMONTOP.setSuffix("TOP");
+		Names.HITMONCHAN.setPrefix("HITMO<");
+		Names.HITMONCHAN.setSuffix("CHAN<");
+		Names.HITMONLEE.setPrefix("HIT<");
+		Names.HITMONLEE.setSuffix("LEE<");
+		Names.HITMONTOP.setPrefix("HITMO<");
+		Names.HITMONTOP.setSuffix("TOP<");
 	}
 	
 	public static void setTyrogueHitmonchan() {
@@ -131,12 +131,12 @@ public class Settings {
 		setPokemonAlone(Pokemon.HITMONLEE, EvoLines._HITMONLEE);
 		setPokemonAlone(Pokemon.HITMONTOP, EvoLines._HITMONCHAN);
 		
-		Names.HITMONCHAN.setPrefix("HIT");
-		Names.HITMONCHAN.setSuffix("CHAN");
-		Names.HITMONLEE.setPrefix("HITMO");
-		Names.HITMONLEE.setSuffix("LEE");
-		Names.HITMONTOP.setPrefix("HITMO");
-		Names.HITMONTOP.setSuffix("TOP");
+		Names.HITMONCHAN.setPrefix("HIT<");
+		Names.HITMONCHAN.setSuffix("CHAN<");
+		Names.HITMONLEE.setPrefix("HITMO<");
+		Names.HITMONLEE.setSuffix("LEE<");
+		Names.HITMONTOP.setPrefix("HITMO<");
+		Names.HITMONTOP.setSuffix("TOP<");
 	}
 	
 	public static void setEeveeVaporeon() {
@@ -301,20 +301,30 @@ public class Settings {
 		Pokemon.SMEARGLE.setEvoType(EvoTypes.EVOTYPE1OF1);
 	}
 	
-	public static void makeScytherScizorIndependent() {
-		
-		Pokemon.SCYTHER.setEvoType(EvoTypes.EVOTYPE1OF1);
-		Pokemon.SCIZOR.setEvoType(EvoTypes.EVOTYPE1OF1);
-		EvoLines._SCYTHER.setPkmn2(Pokemon.NONE);
-		EvoLines._SCIZOR.setPkmn1(Pokemon.SCIZOR);
-	}
-	
 	public static void keepScytherScizorEvolution() {
 		
 		Pokemon.SCYTHER.setEvoType(EvoTypes.EVOTYPE1OF2);
 		Pokemon.SCIZOR.setEvoType(EvoTypes.EVOTYPE2OF2);
 		EvoLines._SCYTHER.setPkmn2(Pokemon.SCIZOR);
 		EvoLines._SCIZOR.setPkmn1(Pokemon.NONE);
+		
+		Names.SCYTHER.setPrefix("SCYTH<");
+		Names.SCYTHER.setSuffix("YTHER<");
+		Names.SCIZOR.setPrefix("SCIZ<");
+		Names.SCIZOR.setSuffix("IZOR<");
+	}
+	
+	public static void makeScytherScizorIndependent() {
+		
+		Pokemon.SCYTHER.setEvoType(EvoTypes.EVOTYPE1OF1);
+		Pokemon.SCIZOR.setEvoType(EvoTypes.EVOTYPE1OF1);
+		EvoLines._SCYTHER.setPkmn2(Pokemon.NONE);
+		EvoLines._SCIZOR.setPkmn1(Pokemon.SCIZOR);
+		
+		Names.SCYTHER.setPrefix("SCY<");
+		Names.SCYTHER.setSuffix("THER<");
+		Names.SCIZOR.setPrefix("SCI<");
+		Names.SCIZOR.setSuffix("CIZOR<");
 	}
 
 }
