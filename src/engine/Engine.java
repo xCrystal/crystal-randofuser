@@ -222,6 +222,82 @@ public class Engine {
 		ch.write(bbWrite);
 	}
 	
+	public static void writeToRom (FileChannel ch, long pos, byte[] bytes) throws IOException {
+		
+		ch.position(pos);
+		ch.write(ByteBuffer.wrap(bytes));
+	}
+	
+	public static void setSlowpokeSlowing (FileChannel ch) throws IOException {
+		
+		// EVOLVE_LEVEL, 37, SLOWBRO -> EVOLVE_LEVEL, 37, SLOWKING
+		byte[] bytes = {(byte) Pokemon.SLOWKING.ordinal()};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.SLOWPOKE.ordinal() + 2, bytes);
+	}
+	
+	public static void setGloomBellossom (FileChannel ch) throws IOException {
+		
+		// 	EVOLVE_ITEM, LEAF_STONE, VILEPLUME -> EVOLVE_ITEM, SUN_STONE, BELLOSSOM
+		byte[] bytes = {Constants.SUN_STONE, (byte) Pokemon.BELLOSSOM.ordinal()};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.GLOOM.ordinal() + 1, bytes);
+	}
+	
+	public static void setPoliwhirlPolitoed (FileChannel ch) throws IOException {
+		
+		// EVOLVE_ITEM, WATER_STONE, POLIWRATH -> EVOLVE_ITEM, WATER_STONE, POLITOED
+		byte[] bytes = {(byte) Pokemon.POLITOED.ordinal()};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.POLIWHIRL.ordinal() + 2, bytes);
+	}
+	
+	public static void setTyrogueHitmonlee (FileChannel ch) throws IOException {
+		
+		// 	EVOLVE_LEVEL, 20, HITMONTOP -> EVOLVE_LEVEL, 20, HITMONLEE
+		byte[] bytes = {(byte) Pokemon.HITMONLEE.ordinal()};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.TYROGUE.ordinal() + 2, bytes);
+	}
+	
+	public static void setTyrogueHitmonchan (FileChannel ch) throws IOException {
+		
+		// 	EVOLVE_LEVEL, 20, HITMONTOP -> EVOLVE_LEVEL, 20, HITMONCHAN
+		byte[] bytes = {(byte) Pokemon.HITMONCHAN.ordinal()};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.TYROGUE.ordinal() + 2, bytes);
+	}
+	
+	public static void setEeveeJolteon (FileChannel ch) throws IOException {
+		
+		// 	EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_ITEM, THUNDERSTONE, JOLTEON
+		byte[] bytes = {Constants.THUNDERSTONE, (byte) Pokemon.JOLTEON.ordinal()};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal() + 1, bytes);
+	}
+	
+	public static void setEeveeFlareon (FileChannel ch) throws IOException {
+		
+		// 	EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_ITEM, FIRE_STONE, FLAREON
+		byte[] bytes = {Constants.FIRE_STONE, (byte) Pokemon.FLAREON.ordinal()};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal() + 1, bytes);
+	}
+	
+	public static void setEeveeEspeon (FileChannel ch) throws IOException {
+		
+		// 	EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_HAPPINESS, TR_MORNDAY, ESPEON
+		byte[] bytes = {Constants.EVOLVE_HAPPINESS, Constants.TR_MORNDAY, (byte) Pokemon.ESPEON.ordinal()};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal(), bytes);
+	}
+	
+	public static void setEeveeUmbreon (FileChannel ch) throws IOException {
+		
+		// 	EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_HAPPINESS, TR_NITE, UMBREON
+		byte[] bytes = {Constants.EVOLVE_HAPPINESS, Constants.TR_NITE, (byte) Pokemon.UMBREON.ordinal()};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal(), bytes);
+	}
+	
+	public static void makeScytherScizorIndependent (FileChannel ch) throws IOException {
+		
+		// EVOLVE_LEVEL, 40, SCIZOR -> EVOLVE_LEVEL, 101, SCIZOR
+		byte[] bytes = {(byte) 101};
+		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.SCYTHER.ordinal() + 1, bytes);
+	}
+	
 	static void fixGlobalChecksum (FileChannel ch) throws IOException {
 		
 		ch.position(0);
@@ -238,11 +314,11 @@ public class Engine {
 		checksum -= (old_cs[0] & 0xff);
 		checksum -= (old_cs[1] & 0xff);
 		
-		ch.position(0x14e);
 		byte[] cs = new byte[2];
 		cs[0] = (byte) ((checksum >> 8) & 0xff);
 		cs[1] = (byte) (checksum & 0xff);
-		ch.write(ByteBuffer.wrap(cs));
+		
+		writeToRom(ch, 0x14e, cs);
 	}
 	
 	public static void print (String str) {

@@ -25,7 +25,19 @@ public class Constants {
 	public static final int PALETTES_LENGTH = 8;
 	
 	public static final int NORMAL_T = 0;
-	public static final int FLYING_T = 2;	
+	public static final int FLYING_T = 2;
+	
+	public static final byte MOON_STONE = 0x08;
+	public static final byte FIRE_STONE = 0x16;
+	public static final byte THUNDERSTONE = 0x17;
+	public static final byte WATER_STONE = 0x18;
+	public static final byte LEAF_STONE = 0x22;
+	public static final byte SUN_STONE = (byte) 0xa2;
+	
+	public static final byte EVOLVE_HAPPINESS = 0x04;
+	public static final byte TR_MORNDAY = 0x02;
+	public static final byte TR_NITE = 0x03;
+	
 	
 	public enum BaseDataFields {
 		
