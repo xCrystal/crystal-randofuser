@@ -125,7 +125,7 @@ public class BaseData {
 		be2 = in.get();
 		
 		out.position(i);
-		byte result = (byte) ((f1 * toUnsignedInt(be1) + f2 * toUnsignedInt(be2)) / 10);
+		byte result = (byte) ((f1 * toUnsignedInt(be1) + f2 * toUnsignedInt(be2) + 9) / 10);
 		out.put(result);
 	}
 
@@ -199,8 +199,6 @@ public class BaseData {
 		in.position(j);
 		gr2 = in.get();
 		
-		byte result = gr1;
-		
 		// Medium slow (parabolic) is related to starters and early game pokemon, don't bother if either pokemon has it
 		if (gr1 != GrowthRates.PARABOLIC.ordinal() && gr2 != GrowthRates.PARABOLIC.ordinal()) {
 			
@@ -216,7 +214,7 @@ public class BaseData {
 		}
 		
 		out.position(i);
-		out.put(result);
+		out.put(gr1);
 	}
 
 	public static void fuseEggGroups (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
