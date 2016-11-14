@@ -7,6 +7,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 import data.Constants;
+import data.Pokemon;
 
 public class Main {
 	
@@ -47,7 +48,20 @@ public class Main {
 			Engine.readData(chin, buf_pals_r, buf_pals_w, Constants.PALETTES);
 			Engine.readData(chin, buf_trainers, Constants.TRAINERS);
 			
-			int[] fusionIds = Shuffle.shufflePokemonIds();
+			boolean anyNotFused;
+			int[] fusionIds;
+			
+			// can't seem to figure out why some pokemon might fuse with themselves
+			// so here's this dirty workaround.
+			do {
+				anyNotFused = false;
+				fusionIds = Shuffle.shufflePokemonIds();
+			
+				for (int i = 0 ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
+					if (i == fusionIds[i] && i != Pokemon.UNOWN.ordinal())
+						anyNotFused = true;
+				}
+			} while (anyNotFused);
 			
 			Engine.fuseNames(buf_names, fusionIds);
 			Engine.fuseEvosAttacks(buf_evosAttacks_r, buf_evosAttacks_w, fusionIds);
