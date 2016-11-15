@@ -35,6 +35,34 @@ public class GuiController implements Initializable {
 	
 	@FXML private Button classic, balanced, difficult, crazy;
 	
+	@FXML private ToggleGroup gloom;
+	@FXML private RadioButton vileplume;
+	@FXML private RadioButton bellossom;
+	
+	@FXML private ToggleGroup poliwhirl;
+	@FXML private RadioButton poliwrath;
+	@FXML private RadioButton politoed;
+	
+	@FXML private ToggleGroup slowpoke;
+	@FXML private RadioButton slowbro;
+	@FXML private RadioButton slowking;
+	
+	@FXML private ToggleGroup scyther;
+	@FXML private RadioButton scizor;
+	@FXML private RadioButton none;
+	
+	@FXML private ToggleGroup tyrogue;
+	@FXML private RadioButton hitmontop;
+	@FXML private RadioButton hitmonlee;
+	@FXML private RadioButton hitmonchan;
+	
+	@FXML private ToggleGroup eevee;
+	@FXML private RadioButton vaporeon;
+	@FXML private RadioButton jolteon;
+	@FXML private RadioButton flareon;
+	@FXML private RadioButton espeon;
+	@FXML private RadioButton umbreon;
+	
 	public static GuiController getGuicontroller() {
 		return guiController;
 	}
@@ -53,13 +81,25 @@ public class GuiController implements Initializable {
 		johto.setValue(0);
 		kanto.setValue(0);
 	}
+	
+	private void selectDefaultEvoLines() {
+		
+		vileplume.setSelected(true);
+		poliwrath.setSelected(true);
+		slowbro.setSelected(true);
+		scizor.setSelected(true);
+		hitmontop.setSelected(true);
+		vaporeon.setSelected(true);
+	}
 
 	@Override
 	public void initialize (URL location, ResourceBundle resources) {
+		
 		averageBaseStatPatterns.setSelected(true);
 		separateLegends.setSelected(true);
 		initChoiceBoxes();
 		choiceBoxesListener();
+		selectDefaultEvoLines();
 	}
 	
 	@FXML
@@ -191,6 +231,86 @@ public class GuiController implements Initializable {
 		separateWeak1StageEvos.setSelected(false);
 		Settings.ignoreWeakThreeStageEvos();
 		separateWeak3StageEvos.setSelected(false);
+	}
+	
+	@FXML
+	private void handleVileplumeClick() {
+		Settings.setOddishGloomVileplume();
+	}
+	
+	@FXML
+	private void handleBellossomClick() {
+		Settings.setOddishGloomBellossom();
+	}
+	
+	@FXML
+	private void handlePoliwrathClick() {
+		Settings.setPoliwagPoliwhirlPoliwrath();
+	}
+	
+	@FXML
+	private void handlePolitoedClick() {
+		Settings.setPoliwagPoliwhirlPolitoed();
+	}
+	
+	@FXML
+	private void handleSlowbroClick() {
+		Settings.setSlowpokeSlowbro();
+	}
+	
+	@FXML
+	private void handleSlowkingClick() {
+		Settings.setSlowpokeSlowking();
+	}
+	
+	@FXML
+	private void handleHitmontopClick() {
+		Settings.setTyrogueHitmontop();
+	}
+	
+	@FXML
+	private void handleHitmonleeClick() {
+		Settings.setTyrogueHitmonlee();
+	}
+	
+	@FXML
+	private void handleHitmonchanClick() {
+		Settings.setTyrogueHitmonchan();
+	}
+	
+	@FXML
+	private void handleScizorClick() {
+		Settings.keepScytherScizorEvolution();
+	}
+	
+	@FXML
+	private void handleNoneClick() {
+		Settings.makeScytherScizorIndependent();
+	}
+	
+	@FXML
+	private void handleVaporeonClick() {
+		Settings.setEeveeVaporeon();
+	}
+	
+	@FXML
+	private void handleJolteonClick() {
+		Settings.setEeveeJolteon();
+	}
+	
+	@FXML
+	private void handleFlareonClick() {
+		Settings.setEeveeFlareon();
+	}
+	
+	@FXML
+	private void handleEspeonClick() {
+		Settings.setEeveeEspeon();
+	}
+	
+	@FXML
+	private void handleUmbreonClick() {
+		Settings.setEeveeUmbreon();
 	}
 	
 	private void choiceBoxesListener() {

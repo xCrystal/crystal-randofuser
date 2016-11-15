@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GuiController">
+<AnchorPane prefHeight="750.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GuiController">
    <children>
       <RadioButton fx:id="averageBaseStats" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#handleAverageBaseStatsClick" text="Average Base Stats and BST">
          <toggleGroup>
@@ -19,7 +19,7 @@
       </RadioButton>
       <RadioButton fx:id="averageBaseStatPatterns" layoutX="25.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#handleAverageBaseStatPatternsClick" text="Average Base Stat patterns only" toggleGroup="$baseStats" />
       <CheckBox fx:id="homogenizeGrowthRates" layoutX="312.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#handleHomogenizeGrowthRatesClick" text="Homogenize Growth Rates" />
-      <Button contentDisplay="CENTER" layoutX="250.0" layoutY="741.0" mnemonicParsing="false" onMouseClicked="#beginProgram" text="Randofuse!" textAlignment="CENTER">
+      <Button contentDisplay="CENTER" layoutX="249.0" layoutY="692.0" mnemonicParsing="false" onMouseClicked="#beginProgram" text="Randofuse!" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -37,5 +37,39 @@
       <Button fx:id="crazy" layoutX="472.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#defaultCrazy" text="CRAZY" />
       <Label layoutX="43.0" layoutY="361.0" text="Defaults:" />
       <Line endX="100.0" layoutX="300.0" layoutY="423.0" startX="-100.0" />
+      <RadioButton fx:id="vileplume" layoutX="26.0" layoutY="453.0" mnemonicParsing="false" onMouseClicked="#handleVileplumeClick" text="Gloom - Vileplume">
+         <toggleGroup>
+            <ToggleGroup fx:id="gloom" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="bellossom" layoutX="26.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#handleBellossomClick" text="Gloom - Bellossom" toggleGroup="$gloom" />
+      <RadioButton fx:id="poliwrath" layoutX="26.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#handlePoliwrathClick" text="Poliwhirl - Poliwrath">
+         <toggleGroup>
+            <ToggleGroup fx:id="poliwhirl" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="politoed" layoutX="26.0" layoutY="560.0" mnemonicParsing="false" onMouseClicked="#handlePolitoedClick" text="Poliwhirl - Politoed" toggleGroup="$poliwhirl" />
+      <RadioButton fx:id="slowbro" layoutX="26.0" layoutY="604.0" mnemonicParsing="false" onMouseClicked="#handleSlowbroClick" text="Slowpoke - Slowbro">
+         <toggleGroup>
+            <ToggleGroup fx:id="slowpoke" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="slowking" layoutX="26.0" layoutY="634.0" mnemonicParsing="false" onMouseClicked="#handleSlowkingClick" text="Slowpoke - Slowking" toggleGroup="$slowpoke" />
+      <RadioButton fx:id="scizor" layoutX="216.0" layoutY="453.0" mnemonicParsing="false" onMouseClicked="#handleScizorClick" text="Scyther - Scizor">
+         <toggleGroup>
+            <ToggleGroup fx:id="scyther" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="none" layoutX="216.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#handleNoneClick" text="Scyther - None" toggleGroup="$scyther" />
+      <RadioButton fx:id="hitmonlee" layoutX="216.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#handleHitmonleeClick" text="Tyrogue - Hitmonlee">
+         <toggleGroup>
+            <ToggleGroup fx:id="tyrogue" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="hitmonchan" layoutX="216.0" layoutY="560.0" mnemonicParsing="false" onMouseClicked="#handleHitmonchanClick" text="Tyrogue - Hitmonchan" toggleGroup="$tyrogue" />
+      <RadioButton fx:id="hitmontop" layoutX="216.0" layoutY="591.0" mnemonicParsing="false" onMouseClicked="#handleHitmontopClick" text="Tyrogue - Hitmontop" toggleGroup="$tyrogue" />
+      <RadioButton fx:id="vaporeon" layoutX="421.0" layoutY="453.0" mnemonicParsing="false" onMouseClicked="#handleVaporeonClick" text="Eevee - Vaporeon">
+         <toggleGroup>
+            <ToggleGroup fx:id="eevee" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="jolteon" layoutX="421.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#handleJolteonClick" text="Eevee - Jolteon" toggleGroup="$eevee" />
+      <RadioButton fx:id="flareon" layoutX="421.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#handleFlareonClick" text="Eevee - Flareon" toggleGroup="$eevee" />
+      <RadioButton fx:id="espeon" layoutX="421.0" layoutY="548.0" mnemonicParsing="false" onMouseClicked="#handleEspeonClick" text="Eevee - Espeon" toggleGroup="$eevee" />
+      <RadioButton fx:id="umbreon" layoutX="421.0" layoutY="579.0" mnemonicParsing="false" onMouseClicked="#handleUmbreonClick" text="Eevee - Umbreon" toggleGroup="$eevee" />
 	</children>
 </AnchorPane>
