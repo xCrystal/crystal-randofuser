@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GuiController">
    <children>
-      <ButtonBar buttonMinWidth="75.0" layoutX="337.0" layoutY="646.0" prefHeight="46.0" prefWidth="92.0" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="171.0" AnchorPane.topAnchor="646.0" />
       <RadioButton fx:id="averageBaseStats" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#handleAverageBaseStatsClick" text="Average Base Stats and BST">
          <toggleGroup>
             <ToggleGroup fx:id="baseStats" />
@@ -20,17 +19,23 @@
       </RadioButton>
       <RadioButton fx:id="averageBaseStatPatterns" layoutX="25.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#handleAverageBaseStatPatternsClick" text="Average Base Stat patterns only" toggleGroup="$baseStats" />
       <CheckBox fx:id="homogenizeGrowthRates" layoutX="312.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#handleHomogenizeGrowthRatesClick" text="Homogenize Growth Rates" />
-      <Button contentDisplay="CENTER" layoutX="262.0" layoutY="758.0" mnemonicParsing="false" onMouseClicked="#beginProgram" text="Randofuse!" textAlignment="CENTER">
+      <Button contentDisplay="CENTER" layoutX="250.0" layoutY="741.0" mnemonicParsing="false" onMouseClicked="#beginProgram" text="Randofuse!" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
       <Label layoutX="46.0" layoutY="245.0" text="Johto trainer level increase (%)" />
       <Label layoutX="333.0" layoutY="245.0" text="Kanto trainer level increase (%)" />
-      <ChoiceBox layoutX="72.0" layoutY="276.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="361.0" layoutY="276.0" prefWidth="150.0" />
-      <CheckBox fx:id="separateLegends" layoutX="25.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#handleSeparateLegendsClick" text="Separate between Legendary Pokémon and one-stage evolution Pokémon" />
-      <CheckBox fx:id="separateWeak1StageEvos" layoutX="25.0" layoutY="145.0" mnemonicParsing="false" onMouseClicked="#handleSeparateWeak1StageEvosClick" text="Separate weak one-stage evolution Pokémon" />
-      <CheckBox fx:id="separateWeak3StageEvos" layoutX="25.0" layoutY="180.0" mnemonicParsing="false" onMouseClicked="#handleSeparateWeak3StageEvos" text="Separate weak three-stage evolution Pokémon" />
+      <ChoiceBox fx:id="johto" layoutX="72.0" layoutY="276.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="kanto" layoutX="360.0" layoutY="276.0" prefWidth="150.0" />
+      <CheckBox fx:id="separateLegends" layoutX="25.0" layoutY="113.0" mnemonicParsing="false" onMouseClicked="#handleSeparateLegendsClick" text="Separate between Legendary Pokémon and one-stage evolution Pokémon" />
+      <CheckBox fx:id="separateWeak1StageEvos" layoutX="25.0" layoutY="148.0" mnemonicParsing="false" onMouseClicked="#handleSeparateWeak1StageEvosClick" text="Separate weak one-stage evolution Pokémon" />
+      <CheckBox fx:id="separateWeak3StageEvos" layoutX="25.0" layoutY="183.0" mnemonicParsing="false" onMouseClicked="#handleSeparateWeak3StageEvos" text="Separate weak three-stage evolution Pokémon" />
+      <Button fx:id="classic" layoutX="123.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#defaultClassic" text="CLASSIC" />
+      <Button fx:id="balanced" layoutX="228.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#defaultBalanced" text="BALANCED" />
+      <Button fx:id="difficult" layoutX="353.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#defaultDifficult" text="DIFFICULT" />
+      <Button fx:id="crazy" layoutX="472.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#defaultCrazy" text="CRAZY" />
+      <Label layoutX="43.0" layoutY="361.0" text="Defaults:" />
+      <Line endX="100.0" layoutX="300.0" layoutY="423.0" startX="-100.0" />
 	</children>
 </AnchorPane>

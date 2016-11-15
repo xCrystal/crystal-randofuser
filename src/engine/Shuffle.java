@@ -42,7 +42,9 @@ public class Shuffle {
 			
 			// the following code makes sure ids of the save evolutionary line are also swapped
 			// no need to do anything else if lone evolution
-			if ((Pokemon.values()[i].getEvoType() != EvoTypes.EVOTYPE1OF1) && (Pokemon.values()[i].getEvoType() != EvoTypes.LEGEND)) {
+			if ((Pokemon.values()[i].getEvoType() != EvoTypes.EVOTYPE1OF1)
+					&& (Pokemon.values()[i].getEvoType() != EvoTypes.LEGEND)
+					&& (Pokemon.values()[i].getEvoType() != EvoTypes.EVOTYPE1OF1_WEAK)) {
 				
 				// find out to which evo line the mon with id i belongs to
 				int c1 = 0, f = 0, r = 0;
