@@ -11,7 +11,7 @@ import data.Pokemon;
 
 public class Main {
 	
-	public static void main(String[] args) {
+	public static void main() {
 		
 		ByteBuffer buf_names = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.NAMES_LENGTH);
 		

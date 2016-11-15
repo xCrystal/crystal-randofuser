@@ -4,7 +4,7 @@ public class Settings {
 	
 	public static boolean averageBaseStats = true; // if false, average base stats patterns only, keeping BST
 	
-	public static boolean homogenizeGrowthRates = true;
+	public static boolean homogenizeGrowthRates = false;
 	
 	public static int johtoLevelBump = 0; // percentage to raise Johto trainer levels by
 	public static int kantoLevelBump = 0; // percentage to raise Kanto trainer levels by
