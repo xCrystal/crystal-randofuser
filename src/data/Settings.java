@@ -2,10 +2,12 @@ package data;
 
 public class Settings {
 	
-	public static boolean AverageBaseStats = true; // if false, average base stats patterns only, keeping BST
+	public static boolean averageBaseStats = true; // if false, average base stats patterns only, keeping BST
 	
-	public static int JohtoLevelBump = 0; // percentage to raise Johto trainer levels by
-	public static int KantoLevelBump = 0; // percentage to raise Kanto trainer levels by
+	public static boolean homogenizeGrowthRates = true;
+	
+	public static int johtoLevelBump = 0; // percentage to raise Johto trainer levels by
+	public static int kantoLevelBump = 0; // percentage to raise Kanto trainer levels by
 	
 	public static void setSlowpokeSlowbro() {
 		

@@ -8,7 +8,7 @@ public class Trainers {
 
 	public static void raiseLevels(ByteBuffer buf) {
 		
-		if (Settings.JohtoLevelBump == 0 && Settings.KantoLevelBump == 0) return;
+		if (Settings.johtoLevelBump == 0 && Settings.kantoLevelBump == 0) return;
 		
 		buf.rewind();
 		byte b = 0;
@@ -27,7 +27,7 @@ public class Trainers {
 			
 				do {
 					f = buf.get(buf.position());
-					f *= (float) ((100 + Settings.JohtoLevelBump)) / 100;
+					f *= (float) ((100 + Settings.johtoLevelBump)) / 100;
 					buf.put((byte) f);
 					buf.position(buf.position() + 1);
 				} while (buf.get(buf.position()) != (byte) 0xff);
@@ -36,7 +36,7 @@ public class Trainers {
 			
 				do {
 					f = buf.get(buf.position());
-					f *= (float) ((100 + Settings.JohtoLevelBump)) / 100;
+					f *= (float) ((100 + Settings.johtoLevelBump)) / 100;
 					buf.put((byte) f);
 					buf.position(buf.position() + 2);
 				} while (buf.get(buf.position()) != (byte) 0xff);
@@ -46,7 +46,7 @@ public class Trainers {
 			
 				do {
 					f = buf.get(buf.position());
-					f *= (float) ((100 + Settings.KantoLevelBump)) / 100;
+					f *= (float) ((100 + Settings.kantoLevelBump)) / 100;
 					buf.put((byte) f);
 					buf.position(buf.position() + 1);
 				} while (buf.get(buf.position()) != (byte) 0xff);
@@ -55,7 +55,7 @@ public class Trainers {
 			
 				do {
 					f = buf.get(buf.position());
-					f *= (float) ((100 + Settings.KantoLevelBump)) / 100;
+					f *= (float) ((100 + Settings.kantoLevelBump)) / 100;
 					buf.put((byte) f);
 					buf.position(buf.position() + 2);
 				} while (buf.get(buf.position()) != (byte) 0xff);

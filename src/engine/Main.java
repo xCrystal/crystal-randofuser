@@ -75,7 +75,9 @@ public class Main {
 			Engine.copyData(chout, buf_eggMoves_w, Constants.EGG_MOVES);
 			Engine.copyData(chout, buf_baseData_w, Constants.BASE_DATA);
 			Engine.copyData(chout, buf_pals_w, Constants.PALETTES);
-			Engine.copyData(chout, buf_trainers, Constants.TRAINERS);
+			Engine.copyData(chout, buf_trainers, Constants.TRAINERS);	
+			Engine.writeEvolutionChangesToRomIfAny(chout);
+			Engine.writeModifiedParabolicGrowthRateIfSelected(chout);
 			
 			Engine.fixGlobalChecksum(chout);
 			

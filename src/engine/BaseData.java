@@ -18,7 +18,7 @@ public class BaseData {
 		int sum1 = 0, sum2 = 0;
 		float bstFactor = 1;
 		
-		if (!Settings.AverageBaseStats) {
+		if (!Settings.averageBaseStats) {
 			
 			for (int s = 0 ; s < Constants.NUM_STATS ; s ++) {
 				
@@ -95,7 +95,7 @@ public class BaseData {
 		
 		// do the geometric average of the two catch rates
 		// if bst's not averaged, catch rate of mon 1 weighs 80%
-		if (Settings.AverageBaseStats) {
+		if (Settings.averageBaseStats) {
 			result = (byte) (Math.pow(toUnsignedInt(cr1) * toUnsignedInt(cr2), 0.5) + 0.5);
 		} else {
 			result = (byte) (Math.pow(Math.pow(toUnsignedInt(cr1), 4) * toUnsignedInt(cr2), 0.2) + 0.5);
@@ -111,7 +111,7 @@ public class BaseData {
 		int f1, f2;
 		
 		// give more weight to base exp of mon 1 if bst is based solely on that mon
-		if (Settings.AverageBaseStats) {
+		if (Settings.averageBaseStats) {
 			f1 = 5; // be1 - 50% weight
 			f2 = 5; // be2 - 50% weight
 		} else {
@@ -168,7 +168,7 @@ public class BaseData {
 		int f1, f2;
 		
 		// give more weight to hatch cycle of mon 1 if bst is based solely on that mon
-		if (Settings.AverageBaseStats) {
+		if (Settings.averageBaseStats) {
 			f1 = 5; // be1 - 50% weight
 			f2 = 5; // be2 - 50% weight
 		} else {
@@ -183,13 +183,27 @@ public class BaseData {
 		
 		out.position(i);
 		byte result = (byte) ((f1 * toUnsignedInt(hc1) + f2 * toUnsignedInt(hc2)) / 10);
-		out.put(result);
-		
+		out.put(result);	
+	}
+	
+	public static void homogenizeGrowthRates (ByteBuffer out, int i) {
+	// this changes the growth rate of all Pokemon to "PARABLOIC". 
+	// If this option is selected, the PARABOLIC formula will also be slightly balanced.
+		out.position(i);
+		out.put((byte) GrowthRates.PARABOLIC.ordinal());
 	}
 	
 	public static void fuseGrowthRates (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
-		if (!Settings.AverageBaseStats) return;
+		if (Settings.homogenizeGrowthRates) {
+			homogenizeGrowthRates (out, i);
+			return;
+		}
+		
+		// if user didn't select to homogenize growth rates, and chose to keep BST unchanged, 
+		// don't do anything with growth rate data.
+		if (!Settings.averageBaseStats) 
+			return;
 		
 		// else, "average" the growth rates
 		byte gr1, gr2;

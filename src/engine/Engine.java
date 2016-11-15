@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import data.Constants;
 import data.Constants.BaseDataFields;
+import data.EvoLines;
 import data.Names;
 import data.Pokemon;
 import data.Settings;
@@ -105,7 +106,7 @@ public class Engine {
 				// if bst's are not averaged, mon 1 weighs 80%
 				out.position((i * Constants.EVOS_ATTACKS_LENGTH) + 1);
 				
-				if (Settings.AverageBaseStats) { 
+				if (Settings.averageBaseStats) { 
 					out.put((byte) ((evosAttacks1[1] + evosAttacks2[1]) / 2));
 				} else {
 					out.put((byte) ((4 * evosAttacks1[1] + evosAttacks2[1]) / 5));
@@ -237,7 +238,7 @@ public class Engine {
 	
 	public static void setGloomBellossom (FileChannel ch) throws IOException {
 		
-		// 	EVOLVE_ITEM, LEAF_STONE, VILEPLUME -> EVOLVE_ITEM, SUN_STONE, BELLOSSOM
+		// EVOLVE_ITEM, LEAF_STONE, VILEPLUME -> EVOLVE_ITEM, SUN_STONE, BELLOSSOM
 		byte[] bytes = {Constants.SUN_STONE, (byte) Pokemon.BELLOSSOM.ordinal()};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.GLOOM.ordinal() + 1, bytes);
 	}
@@ -251,42 +252,42 @@ public class Engine {
 	
 	public static void setTyrogueHitmonlee (FileChannel ch) throws IOException {
 		
-		// 	EVOLVE_LEVEL, 20, HITMONTOP -> EVOLVE_LEVEL, 20, HITMONLEE
+		// EVOLVE_LEVEL, 20, HITMONTOP -> EVOLVE_LEVEL, 20, HITMONLEE
 		byte[] bytes = {(byte) Pokemon.HITMONLEE.ordinal()};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.TYROGUE.ordinal() + 2, bytes);
 	}
 	
 	public static void setTyrogueHitmonchan (FileChannel ch) throws IOException {
 		
-		// 	EVOLVE_LEVEL, 20, HITMONTOP -> EVOLVE_LEVEL, 20, HITMONCHAN
+		// EVOLVE_LEVEL, 20, HITMONTOP -> EVOLVE_LEVEL, 20, HITMONCHAN
 		byte[] bytes = {(byte) Pokemon.HITMONCHAN.ordinal()};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.TYROGUE.ordinal() + 2, bytes);
 	}
 	
 	public static void setEeveeJolteon (FileChannel ch) throws IOException {
 		
-		// 	EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_ITEM, THUNDERSTONE, JOLTEON
+		// EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_ITEM, THUNDERSTONE, JOLTEON
 		byte[] bytes = {Constants.THUNDERSTONE, (byte) Pokemon.JOLTEON.ordinal()};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal() + 1, bytes);
 	}
 	
 	public static void setEeveeFlareon (FileChannel ch) throws IOException {
 		
-		// 	EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_ITEM, FIRE_STONE, FLAREON
+		// EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_ITEM, FIRE_STONE, FLAREON
 		byte[] bytes = {Constants.FIRE_STONE, (byte) Pokemon.FLAREON.ordinal()};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal() + 1, bytes);
 	}
 	
 	public static void setEeveeEspeon (FileChannel ch) throws IOException {
 		
-		// 	EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_HAPPINESS, TR_MORNDAY, ESPEON
+		// EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_HAPPINESS, TR_MORNDAY, ESPEON
 		byte[] bytes = {Constants.EVOLVE_HAPPINESS, Constants.TR_MORNDAY, (byte) Pokemon.ESPEON.ordinal()};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal(), bytes);
 	}
 	
 	public static void setEeveeUmbreon (FileChannel ch) throws IOException {
 		
-		// 	EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_HAPPINESS, TR_NITE, UMBREON
+		// EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_HAPPINESS, TR_NITE, UMBREON
 		byte[] bytes = {Constants.EVOLVE_HAPPINESS, Constants.TR_NITE, (byte) Pokemon.UMBREON.ordinal()};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal(), bytes);
 	}
@@ -296,6 +297,30 @@ public class Engine {
 		// EVOLVE_LEVEL, 40, SCIZOR -> EVOLVE_LEVEL, 101, SCIZOR
 		byte[] bytes = {(byte) 101};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.SCYTHER.ordinal() + 1, bytes);
+	}
+	
+	public static void writeEvolutionChangesToRomIfAny (FileChannel ch) throws IOException {
+		
+		// apply corresponding evolution changes if any non-default evolution line was selected by the user
+		if (EvoLines._SLOWPOKE.getPkmn2() == Pokemon.SLOWKING) setSlowpokeSlowing(ch);
+		if (EvoLines._ODDISH.getPkmn3() == Pokemon.BELLOSSOM) setGloomBellossom(ch);
+		if (EvoLines._POLIWAG.getPkmn3() == Pokemon.POLITOED) setPoliwhirlPolitoed(ch);
+		if (EvoLines._TYROGUE.getPkmn2() == Pokemon.HITMONCHAN) setTyrogueHitmonchan(ch);
+		if (EvoLines._TYROGUE.getPkmn2() == Pokemon.HITMONLEE) setTyrogueHitmonlee(ch);
+		if (EvoLines._EEVEE.getPkmn2() == Pokemon.JOLTEON) setEeveeJolteon(ch);
+		if (EvoLines._EEVEE.getPkmn2() == Pokemon.FLAREON) setEeveeFlareon(ch);
+		if (EvoLines._EEVEE.getPkmn2() == Pokemon.ESPEON) setEeveeEspeon(ch);
+		if (EvoLines._EEVEE.getPkmn2() == Pokemon.UMBREON) setEeveeUmbreon(ch);
+	}
+	
+	public static void writeModifiedParabolicGrowthRateIfSelected (FileChannel ch) throws IOException {
+		
+		if (Settings.homogenizeGrowthRates) {
+			
+			// (7/8)*x^3 - 7*x^2 + 30*x - 28
+			byte[] bytes = {(byte) ((7 << 4) + 8), (byte) 0x87, 30, 28};
+			writeToRom(ch, 0x50efa + 12, bytes);
+		}
 	}
 	
 	static void fixGlobalChecksum (FileChannel ch) throws IOException {
