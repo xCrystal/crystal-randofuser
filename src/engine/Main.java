@@ -63,7 +63,7 @@ public class Main {
 				}
 			} while (anyNotFused);
 			
-			Engine.fuseNames(buf_names, fusionIds);
+			Engine.fuseNames(chout, buf_names, fusionIds);
 			Engine.fuseEvosAttacks(buf_evosAttacks_r, buf_evosAttacks_w, fusionIds);
 			Engine.fuseEggMoves(buf_eggMoves_r, buf_eggMoves_w, fusionIds);
 			Engine.fuseBaseData(buf_baseData_r, buf_baseData_w, fusionIds);

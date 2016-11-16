@@ -38,6 +38,8 @@ public class Constants {
 	public static final byte TR_MORNDAY = 0x02;
 	public static final byte TR_NITE = 0x03;
 	
+	public static final int GOLDENROD_GAME_CORNER = 0x56db8 + 2;
+	public static final int CELADON_GAME_CORNER = 0x7287f + 2;
 	
 	public enum BaseDataFields {
 		

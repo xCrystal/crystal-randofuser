@@ -50,7 +50,7 @@ public class Engine {
 		ch.read(bb);
 	}
 	
-	public static void fuseNames (ByteBuffer out, int[] fusionIds) {
+	public static void fuseNames (FileChannel chout, ByteBuffer out, int[] fusionIds) throws IOException {
 		
 		byte[] name = new byte[Constants.NAMES_LENGTH];	
 		
@@ -73,6 +73,30 @@ public class Engine {
 			
 			out.position(i * Constants.NAMES_LENGTH);
 			out.put(name);
+			
+			// while we're at it, directly replace hardcoded names in the game corner
+			
+			for (int j = 0 ; j < name.length ; j ++) {
+				if (name[j] == 0x50) name[j] = 0x7f;
+			}
+			
+			if (i == Pokemon.ABRA.ordinal())
+				writeToRom(chout, Constants.GOLDENROD_GAME_CORNER, name);
+			
+			if (i == Pokemon.CUBONE.ordinal())
+				writeToRom(chout, Constants.GOLDENROD_GAME_CORNER + 16, name);
+			
+			if (i == Pokemon.WOBBUFFET.ordinal())
+				writeToRom(chout, Constants.GOLDENROD_GAME_CORNER + 32, name);
+			
+			if (i == Pokemon.PIKACHU.ordinal())
+				writeToRom(chout, Constants.CELADON_GAME_CORNER, name);
+			
+			if (i == Pokemon.PORYGON.ordinal())
+				writeToRom(chout, Constants.CELADON_GAME_CORNER + 16, name);
+			
+			if (i == Pokemon.LARVITAR.ordinal())
+				writeToRom(chout, Constants.CELADON_GAME_CORNER + 32, name);
 		}
 	}
 	

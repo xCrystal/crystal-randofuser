@@ -151,7 +151,7 @@ public enum Names {
 	ZAPDOS     ("ZAPDO<", "PDOS<"),
 	MOLTRES    ("MOL<",   "TRES<"),
 	DRATINI    ("DRAT<",  "ATINI<"),
-	DRAGONAIR  ("DRAG<",  "ONAIT<"),
+	DRAGONAIR  ("DRAG<",  "ONAIR<"),
 	DRAGONITE  ("DRAG<",  "ONITE<"),
 	MEWTWO     ("MEW<",   "WTWO<"),
 	MEW        ("MEW<",   "MEW<"),
