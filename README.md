@@ -34,6 +34,19 @@ In all cases, Normal/Flying Pokemon are treated as Flying/Normal Pokemon instead
 into a Flying/Fighting Pokemon.
 
 #### <b>Moves</b>
-Learnsets are combined, including level-up, egg, and TM/HM moves. For example, if Cyndaquil gets fused with Gastly, it will learn Ember at level 12 and Mean Look at level 13, and will be able to learn both Fire Blast and Shadow Ball via TM. Moreover, level-up moves are arranged by level. When the moveset of a wild or trainer Pokemon is filled, it will end up with the last four moves that the two original Pokemon could learn by that level. For example, a level 30 "Gyarasect", will show up with Bite, Dragon Rage, Spore and Leer.
+Learnsets are combined, including level-up, egg, and TM/HM moves. For example, if Cyndaquil gets fused with Gastly, it will learn Ember at level 12 and Mean Look at level 13, and will be able to learn both Fire Blast and Shadow Ball via TM. Moreover, level-up moves are arranged by level. When the moveset of a wild or trainer Pokemon is filled, it will end up with the last four moves that the two original Pokemon could learn by that level. For example, a level 30 "Gyarasect", will show up with Bite, Dragon Rage, Spore and Leer. Trainers no longer may have custom movesets.
 
 Pokemon such as Raichu, Arcanine or Starmie that could only learn a subset of moves compared to their pre-evolutions have had their movesets updated to match the moves learnable by their pre-evolutions, although with a small level delay similar to the patterns found in other evolved Pokemon.
+
+#### <b>Base Stats</b>
+The user can choose wether each Base Stat is averaged or whether only the base stat patterns are averaged, keeping the BST (base stat total) of the base Pokemon unchanged. The second option differs from the first in that the resulting values of the base stats are then multiplied by a "BST factor", which is the quotient of the BST of the base Pokemon and the BST of the secondary Pokemon. This way, trainer and wild Pokemon can keep their original strength.
+
+#### <b>Growth rates</b>
+If 'average base stat patterns only' is chosen, the Growth Rate of the base Pokemon is retained. Otherwise, if either Pokemon's Growth Rate is parabolic, the base's Pokemon Growth Rate is also retained. The parabolic Growth Rate is a special one related to Pokemon that appear early in the game (such as the starters) in order to make them grow fast at lower levels and slow-ish at higher levels. Otherwise, that is, when the Growth Rates of both original Pokemon are linear, and the experience requirement to grow levels is averaged, introducing two sub-types of Growth Rates for this purpose.
+
+Additioanlly, there is a selectable option to homogenize the Growth Rates, ignoring all the other rules. This option will make all Pokemon use a custom Growth Rate with characteristics from both the parabolic and fast growth rates. It makes all Pokemon grow relatively fast at all level ranges, which is ideal to soften any necessity of grinding.
+
+#### <b>Other data</b>
+- Base Experience: the average of the two original Pokemon. If 'average base stat patterns only' is selected, the base experience of the base Pokemon weighs 80% of the total.
+- Catch Rates: calculated with the geometric mean of the catch rate of the original Pokemon, i.e. the square root of the product of the two values.  If 'average base stat patterns only' is selected, the catch rate value of the base Pokemon weighs 80% of the total.
+- 
