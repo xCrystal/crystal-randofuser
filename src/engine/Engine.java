@@ -104,11 +104,13 @@ public class Engine {
 		
 		byte[] evosAttacks1 = new byte[Constants.EVOS_ATTACKS_LENGTH];
 		byte[] evosAttacks2 = new byte[Constants.EVOS_ATTACKS_LENGTH];
+		byte[] attacksUnsorted = new byte[Constants.EVOS_ATTACKS_LENGTH - 4];
 		
 		for (int i = Pokemon.BULBASAUR.ordinal() ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
 			
 			Arrays.fill(evosAttacks1, (byte) 0x00);
 			Arrays.fill(evosAttacks2, (byte) 0x00);
+			Arrays.fill(attacksUnsorted, (byte) 0x00);
 			
 			if (i == Pokemon.UNOWN.ordinal()) i ++;
 			
@@ -137,7 +139,7 @@ public class Engine {
 				}
 			}
 			
-			// now combine the two level up learnsets
+			// now read the two level up learnsets
 			in.position(i * Constants.EVOS_ATTACKS_LENGTH + p1);
 			do { 
 				in.get(evosAttacks1, p1, 2);
@@ -150,11 +152,36 @@ public class Engine {
 				in.get(evosAttacks2, p2, 2);
 				p2 += 2;
 			} while (evosAttacks2[p2-2] != 0);
-			p2 -= 1; // keep the terminator 0x00
+			p2 -= 2;
+			
+			// finally combine and arrange the moves by their level
+			System.arraycopy(evosAttacks1, l, attacksUnsorted, 0, p1-l);
+			System.arraycopy(evosAttacks2, l, attacksUnsorted, p1-l, p2-l);
+			byte[] attacksSorted = Arrays.copyOf(attacksUnsorted, p1-l + p2-l);
+			boolean changed;
+			
+			do {
+				changed = false;
+				byte tempx, tempy;
+				
+				for (int j = 0 ; j < (attacksSorted.length - 2) ; j += 2) {
+				
+					if (attacksSorted[j] > attacksSorted[j+2]) {
+						
+						changed = true;
+						tempx = attacksSorted[j];
+						tempy = attacksSorted[j+1];
+						attacksSorted[j] = attacksSorted[j+2];
+						attacksSorted[j+1] = attacksSorted[j+3];
+						attacksSorted[j+2] = tempx;
+						attacksSorted[j+3] = tempy;
+					}
+				}
+				
+			} while (changed);
 			
 			out.position((i * Constants.EVOS_ATTACKS_LENGTH) + l);
-			out.put(evosAttacks1, l, p1-l);
-			out.put(evosAttacks2, l, p2-l);
+			out.put(attacksSorted, 0, attacksSorted.length);
 		}
 	}
 	
