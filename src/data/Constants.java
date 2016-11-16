@@ -4,8 +4,8 @@ public class Constants {
 	
 	public static final int ROM_SIZE = 0x200000;
 	
-	public static final String FILE_NAME_IN  = "pokecrystal-randofuser/pokecrystal.gbc";
-	public static final String FILE_NAME_OUT = "pokecrystal-randofuser/crystal_randofused.gbc";
+	public static final String FILE_NAME_IN  = "crystal.gbc";
+	public static final String FILE_NAME_OUT = "crystal_randofused.gbc";
 	
 	public static final int NUM_POKEMON = Pokemon.CELEBI.ordinal() - Pokemon.BULBASAUR.ordinal() + 1;
 	public static final int NUM_STATS = 6;
