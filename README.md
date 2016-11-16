@@ -4,6 +4,14 @@ This is a special randomizer tool compatible with Pokemon Crystal. It fuses each
 existing one at random with matching evolution stage. All the data and characteristics of the
 Pokemon such as moves and base stats are combined in different ways, as described below.
 
+## Table of contents
+
+- [How Pokemon data gets fused] (https://github.com/xCrystal/crystal-randofuser#how-pokemon-data-gets-fused)
+- [Settings] (https://github.com/xCrystal/crystal-randofuser#settings)
+- [Other notes] (https://github.com/xCrystal/crystal-randofuser#other-notes)
+- [Download & How to use] (https://github.com/xCrystal/crystal-randofuser/#download--how-to-use)
+- [Some pics] (https://github.com/xCrystal/crystal-randofuser#some-pics)
+
 ## How Pokemon data gets fused
 
 The base Pokemon retains the Pokedex number, sprite, cry, and first half of the name, while the secondary
@@ -85,4 +93,19 @@ These settings are independent from the other ones and let the user choose which
 - The Battle Tower is not available
 - The odd egg has Pokemon has random DVs
 
-## How to use
+## Download & How to use
+- Download [crystal-randofuser.zip](https://github.com/xCrystal/crystal-randofuser/releases/download/v1.0/crystal-randofuser.zip?raw=true) and extract the .jar file and the .ips file
+- Get yourself the following ROM: <b>Pokemon - Crystal Version (UE) (V1.0) [C][!]</b>
+- Apply the .ips patch to the ROM with [Lunar IPS](http://fusoya.eludevisibility.org/lips/), and save the result as 'crystal.gbc' in the directory where you extracted the .jar file
+- Execute crystal-randofuser.jar. Choose your desired settings and click on the "Randofuse!" button to generate a ready-to-play "randofused" ROM that will named crystal_randofused.gbc
+
+## Some pics
+![1](https://raw.githubusercontent.com/xCrystal/crystal-randofuser/master/media/pic1.png)
+![2](https://raw.githubusercontent.com/xCrystal/crystal-randofuser/master/media/pic5.png)
+![3](https://raw.githubusercontent.com/xCrystal/crystal-randofuser/master/media/pic3.png)
+![4](https://raw.githubusercontent.com/xCrystal/crystal-randofuser/master/media/pic4.png)
+
+![5](https://raw.githubusercontent.com/xCrystal/crystal-randofuser/master/media/pic6.png)
+![6](https://raw.githubusercontent.com/xCrystal/crystal-randofuser/master/media/pic2.png)
+![7](https://raw.githubusercontent.com/xCrystal/crystal-randofuser/master/media/pic7.png)
+![8](https://raw.githubusercontent.com/xCrystal/crystal-randofuser/master/media/pic8.png)
