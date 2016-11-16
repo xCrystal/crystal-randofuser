@@ -12,20 +12,20 @@ suffix so that the names are properly merged and the secondary Pokemon can be ea
 
 #### <b>Evolutions</b>
 Pokemon will only be merged with another Pokemon of the same evolution category. For example, Charmander might
-be fused with a Mareep, but not with an Ekans. The combinations will be consistent across an evolutionary line; say Venonat 
+be fused with Mareep, but not with Ekans. The combinations will be consistent across an evolutionary line; say Venonat 
 is merged with Slugma, then Venomoth will be merged with Magcargo. Evolution categories can be further filtered before the randomization,
 for example to make Legendary Pokemon independent from other 1/1 evolution Pokemon.
 
 Branched evolutions have been removed. Which Pokemon retains its evolutionary line is selectable. For example, if the user
-chooses Politoed to be the evolution of Poliwhril, Poliwrath will be independent and will be merged with another independent Pokemon
-like Heracross or Mr. Mime. Note that the independent Pokemon will be unobtainable due to not appearing as a wild Pokemon.
+chooses Politoed to be the evolution of Poliwhirl, Poliwrath will be independent and will be merged with another independent Pokemon
+like Heracross or Mr. Mime. Note that the independent Pokemon will most likely be unobtainable due to not appearing as a wild Pokemon.
 
 Trade evolutions have been replaced with reasonable level-based evolutions. If two Pokemon with level-based evolutions are fused, the
 resulting Pokemon will evolve at the average of the two. If either Pokemon evolves through other method (happiness, stone), the evolution
-type of the base Pokemon will be tranferred unchanged.
+type of the base Pokemon will be tranferred to the resulting Pokemon unchanged.
 
 #### <b>Types</b>
-The first type of the base Pokemon will always be chosen as the first type of the resulting Pokemon. The secondary type will 
+The first type of the base Pokemon will always be chosen from the first type of the resulting Pokemon. The secondary type will 
 be taken from the first type of the secondary Pokemon, unless the types match. If so, a secondary type of one of the fused 
 Pokemon will be used, if possible. For example, Nidorino plus Gloom will yield a Poison/Grass Pokemon while Lanturn fused with
 Gyarados will output a Water/Electric Pokemon. Marill fused with Goldeen will simply yield a Water-type Pokemon.
@@ -39,12 +39,12 @@ Learnsets are combined, including level-up, egg, and TM/HM moves. For example, i
 Pokemon such as Raichu, Arcanine or Starmie that could only learn a subset of moves compared to their pre-evolutions have had their movesets updated to match the moves learnable by their pre-evolutions, although with a small level delay similar to the patterns found in other evolved Pokemon.
 
 #### <b>Base Stats</b>
-The user can choose wether each Base Stat is averaged or whether only the base stat patterns are averaged, keeping the BST (base stat total) of the base Pokemon unchanged. The second option differs from the first in that the resulting values of the base stats are then multiplied by a "BST factor", which is the quotient of the BST of the base Pokemon and the BST of the secondary Pokemon. This way, trainer and wild Pokemon can keep their original strength.
+The user can choose whether each Base Stat is averaged or whether only the base stat patterns are averaged, keeping the BST (base stat total) of the base Pokemon unchanged. The second option differs from the first in that the resulting values of the base stats are then multiplied by a "BST factor", which is the quotient of the BST of the base Pokemon and the BST of the secondary Pokemon. This way, trainer and wild Pokemon can keep their original strength.
 
 #### <b>Growth rates</b>
-If 'average base stat patterns only' is chosen, the Growth Rate of the base Pokemon is retained. Otherwise, if either Pokemon's Growth Rate is parabolic, the base's Pokemon Growth Rate is also retained. The parabolic Growth Rate is a special one related to Pokemon that appear early in the game (such as the starters) in order to make them grow fast at lower levels and slow-ish at higher levels. Otherwise, that is, when the Growth Rates of both original Pokemon are linear, and the experience requirement to grow levels is averaged, introducing two sub-types of Growth Rates for this purpose.
+If 'average base stat patterns only' is chosen, the Growth Rate of the base Pokemon is retained. If not, yet either Pokemon's Growth Rate is parabolic, the base Pokemon's Growth Rate is also retained. The parabolic Growth Rate is a special one related to Pokemon that appear early in the game (such as the starters) in order to make them grow fast at lower levels and slow-ish at higher levels. Otherwise, that is, when the Growth Rates of both original Pokemon are linear, the experience requirement to grow levels is averaged, introducing two sub-types of Growth Rates for this purpose.
 
-Additioanlly, there is a selectable option to homogenize the Growth Rates, ignoring all the other rules. This option will make all Pokemon use a custom Growth Rate with characteristics from both the parabolic and fast growth rates. It makes all Pokemon grow relatively fast at all level ranges, which is ideal to soften any necessity of grinding.
+Additionally, there is a selectable option to homogenize Growth Rates, ignoring all the other rules. This option will make all Pokemon use a custom Growth Rate with characteristics from the parabolic and fast growth rates. It makes all Pokemon grow relatively fast at all level ranges, which is ideal to soften any necessity of grinding.
 
 #### <b>Other data</b>
 - <b>Base Experience</b>: the average of the two original Pokemon. If 'average base stat patterns only' is selected, the base experience value of the base Pokemon weighs 80% of the total.
@@ -73,15 +73,15 @@ There are some suggested defaults available to be chosen.
 - Classic: A stable option with unchanged BSTs that stays true to the trainer leves of the original game.
 - Balanced: Like classic, but balances the Kanto trainers and homogenizes the growth rates to soften grinding. A good idea for nuzlocke and similar runs.
 - Difficult: A more challenging setup that averages the BSTs, but adds additional filters to prevent extreme combinations.
-- Crazy: The toughest and least predictable option. Trainer levels are considerably raised. Hardcore players may try this along with the "Homogenize Growth Rates" for a very challenging nuzlocke run.
+- Crazy: The toughest and least predictable option. Trainer levels are considerably raised. Hardcore players may try this along with "Homogenize Growth Rates" for a very challenging nuzlocke run.
 
 ####<b>Evolutionary Lines</b>
-These settings are independent from the other ones and let the user choose which Pokemon follows its original evolutionary line. It also includes an option to separate Scyther and Scizor, as they have the same BST. Keep in mind that the Pokemon that you leave unselected are not obtainable, and may only show up in trainer parties.
+These settings are independent from the other ones and let the user choose which Pokemon follow its original evolutionary line. It also includes an option to separate Scyther and Scizor, as they have the same BST. Keep in mind that the Pokemon that you leave unselected are not obtainable, and may only show up in trainer parties.
 
 ## Other notes
 
 - There may be hardcoded references to Pokemon in the games that still use non-fused names. If so, they refer to the base Pokemon.
-- Unown is not fused, and neither any Pokemon may be fused with Unown
+- Unown is not fused with any Pokemon, and neither any Pokemon may be fused with Unown
 - The Battle Tower is not available
 - The odd egg has Pokemon has random DVs
 
