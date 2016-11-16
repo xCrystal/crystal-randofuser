@@ -75,7 +75,7 @@ public class GuiController implements Initializable {
 	private void initChoiceBoxes() {
 		
 		johtoLevels.addAll(Arrays.asList(0, 10, 20));
-		kantoLevels.addAll(Arrays.asList(0, 10, 20, 30, 40));
+		kantoLevels.addAll(Arrays.asList(0, 10, 20, 30, 40, 50));
 		johto.getItems().addAll(johtoLevels);
 		kanto.getItems().addAll(kantoLevels);
 		johto.setValue(0);
@@ -221,9 +221,9 @@ public class GuiController implements Initializable {
 		homogenizeGrowthRates.setSelected(false);
 		
 		Settings.johtoLevelBump = 20;
-		Settings.kantoLevelBump = 40;
+		Settings.kantoLevelBump = 50;
 		johto.setValue(20);
-		kanto.setValue(40);
+		kanto.setValue(50);
 		
 		Settings.ignoreLegends();
 		separateLegends.setSelected(false);
