@@ -18,7 +18,7 @@ for example to make Legendary Pokemon independent from other 1/1 evolution Pokem
 
 Branched evolutions have been removed. Which Pokemon retains its evolutionary line is selectable. For example, if the user
 chooses Politoed to be the evolution of Poliwhril, Poliwrath will be independent and will be merged with another independent Pokemon
-like Heracross or Mr. Mime.
+like Heracross or Mr. Mime. Note that the independent Pokemon will be unobtainable due to not appearing as a wild Pokemon.
 
 Trade evolutions have been replaced with reasonable level-based evolutions. If two Pokemon with level-based evolutions are fused, the
 resulting Pokemon will evolve at the average of the two. If either Pokemon evolves through other method (happiness, stone), the evolution
@@ -34,3 +34,6 @@ In all cases, Normal/Flying Pokemon are treated as Flying/Normal Pokemon instead
 into a Flying/Fighting Pokemon.
 
 #### <b>Moves</b>
+Learnsets are combined, including level-up, egg, and TM/HM moves. For example, if Cyndaquil gets fused with Gastly, it will learn Ember at level 12 and Mean Look at level 13, and will be able to learn both Fire Blast and Shadow Ball via TM. Moreover, level-up moves are arranged by level. When the moveset of a wild or trainer Pokemon is filled, it will end up with the last four moves that the two original Pokemon could learn by that level. For example, a level 30 "Gyarasect", will show up with Bite, Dragon Rage, Spore and Leer.
+
+Pokemon such as Raichu, Arcanine or Starmie that could only learn a subset of moves compared to their pre-evolutions have had their movesets updated to match the moves learnable by their pre-evolutions, although with a small level delay similar to the patterns found in other evolved Pokemon.
