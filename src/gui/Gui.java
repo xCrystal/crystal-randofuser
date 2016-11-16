@@ -20,7 +20,7 @@ public class Gui extends Application {
 		
 		setPrimaryStage(primaryStage);
 		FXMLLoader loader = new FXMLLoader();	
-		loader.setLocation(getClass().getResource("Gui.fxml"));
+		loader.setLocation(getClass().getResource("gui.fxml"));
 		ap = loader.load();
 		primaryStage.setTitle("Pokémon Crystal Randofuser");
 		primaryStage.setScene(new Scene(ap));
