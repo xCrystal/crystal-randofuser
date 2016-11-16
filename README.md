@@ -47,9 +47,22 @@ If 'average base stat patterns only' is chosen, the Growth Rate of the base Poke
 Additioanlly, there is a selectable option to homogenize the Growth Rates, ignoring all the other rules. This option will make all Pokemon use a custom Growth Rate with characteristics from both the parabolic and fast growth rates. It makes all Pokemon grow relatively fast at all level ranges, which is ideal to soften any necessity of grinding.
 
 #### <b>Other data</b>
-- Base Experience: the average of the two original Pokemon. If 'average base stat patterns only' is selected, the base experience value of the base Pokemon weighs 80% of the total.
-- Catch Rates: calculated with the geometric mean of the catch rate of the original Pokemon, i.e. the square root of the product of the two values.  If 'average base stat patterns only' is selected, the catch rate value of the base Pokemon weighs 80% of the total.
-- Gender: the average of the two original Pokemon. For example, if one Pokemon has a 2/16 chance to be female and the other Pokemon a 8/16 chance, the resulting Pokemon will be female 5/16 of the times.
-- Wild Held Items: follow the same logic used to obtain the types
-- Egg Groups: follow the same logic used to obtain the types
-- Hatch Cycles: the average of the two orginal Pokemon. If 'average base stat patterns only' is selected, the hatch cycles value of the base Pokemon weighs 80% of the total.
+- <b>Base Experience</b>: the average of the two original Pokemon. If 'average base stat patterns only' is selected, the base experience value of the base Pokemon weighs 80% of the total.
+- <b>Catch Rates</b>: calculated with the geometric mean of the catch rate of the original Pokemon, i.e. the square root of the product of the two values.  If 'average base stat patterns only' is selected, the catch rate value of the base Pokemon weighs 80% of the total.
+- <b>Gender</b>: the average of the two original Pokemon. For example, if one Pokemon has a 2/16 chance to be female and the other Pokemon a 8/16 chance, the resulting Pokemon will be female 5/16 of the times.
+- <b>Wild Held Items</b>: follow the same logic used to obtain the types
+- <b>Egg Groups</b>: follow the same logic used to obtain the types
+- <b>Hatch Cycles</b>: the average of the two orginal Pokemon. If 'average base stat patterns only' is selected, the hatch cycles value of the base Pokemon weighs 80% of the total.
+
+## Settings
+
+#### <b>Base Stat Total</b>
+Select whether the base stat total should be retained from the base Pokemon or also averaged, as described above. Choose "Average Base Stats and BST" if you prefer unpredictability and variability, or choose "Average Base Stat patterns only" for a more stable experience.
+
+#### <b>Homogenize Growth Rates</b>
+As described above, choose this option if you want all Pokemon to grow at the same speed and also relatively fast. A good idea if you are planning to bump the trainer Pokemon levels and/or looking for a nuzlocke run.
+
+####<b>Trainer Level increase</b>
+Choose whether you'd like to increase the level of all trainer Pokemon by a custom percentage. Kanto trainers include all post-League content except the battle against Red. This part is known for being considerably easier than the Johto part, so increasing the levels in Kanto can be a good idea to maintain a decent challenge.
+
+####<b>Evolution category filters</b>
