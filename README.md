@@ -66,3 +66,23 @@ As described above, choose this option if you want all Pokemon to grow at the sa
 Choose whether you'd like to increase the level of all trainer Pokemon by a custom percentage. Kanto trainers include all post-League content except the battle against Red. This part is known for being considerably easier than the Johto part, so increasing the levels in Kanto can be a good idea to maintain a decent challenge.
 
 ####<b>Evolution category filters</b>
+Choose whether you'd like to further filter which Pokemon can be fused with which Pokemon. The legendary filter is good for purity while the other two are intended to provide stability if averaging BST is selected. A total of 16 Pokemon are included in the 1-stage filter (BST-based, up to Tangela) and a total of just 5 in the 3-stage evolution filter (Pichu, Cleffa, Igglybuff, Caterpie, and Weedle lines). Keep in mind that these filters cut versatility in the randomization, especially the 3-stage one.
+
+####<b>Defaults</b>
+There are some suggested defaults available to be chosen.
+- Classic: A stable option with unchanged BSTs that stays true to the trainer leves of the original game.
+- Balanced: Like classic, but balances the Kanto trainers and homogenizes the growth rates to soften grinding. A good idea for nuzlocke and similar runs.
+- Difficult: A more challenging setup that averages the BSTs, but adds additional filters to prevent extreme combinations.
+- Crazy: The toughest and least predictable option. Trainer levels are considerably raised. Hardcore players may try this along with the "Homogenize Growth Rates" for a very challenging nuzlocke run.
+
+####<b>Evolutionary Lines</b>
+These settings are independent from the other ones and let the user choose which Pokemon follows its original evolutionary line. It also includes an option to separate Scyther and Scizor, as they have the same BST. Keep in mind that the Pokemon that you leave unselected are not obtainable, and may only show up in trainer parties.
+
+## Other notes
+
+- There may be hardcoded references to Pokemon in the games that still use non-fused names. If so, they refer to the base Pokemon.
+- Unown is not fused, and neither any Pokemon may be fused with Unown
+- The Battle Tower is not available
+- The odd egg has Pokemon has random DVs
+
+## How to use
