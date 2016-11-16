@@ -42,7 +42,7 @@ public class Trainers {
 				} while (buf.get(buf.position()) != (byte) 0xff);
 					
 			// KANTO
-			} else if (b == 0x80) { // level, mon
+			} else if (b == (byte) 0x80) { // level, mon
 			
 				do {
 					f = buf.get(buf.position());
@@ -51,7 +51,7 @@ public class Trainers {
 					buf.position(buf.position() + 1);
 				} while (buf.get(buf.position()) != (byte) 0xff);
 			
-			} else if (b == 0x82) { // level, mon, item
+			} else if (b == (byte) 0x82) { // level, mon, item
 			
 				do {
 					f = buf.get(buf.position());
