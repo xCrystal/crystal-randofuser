@@ -28,7 +28,7 @@ type of the base Pokemon will be tranferred unchanged.
 The first type of the base Pokemon will always be chosen as the first type of the resulting Pokemon. The secondary type will 
 be taken from the first type of the secondary Pokemon, unless the types match. If so, a secondary type of one of the fused 
 Pokemon will be used, if possible. For example, Nidorino plus Gloom will yield a Poison/Grass Pokemon while Lanturn fused with
-Gyarados will output a Water/Electric Pokemon.
+Gyarados will output a Water/Electric Pokemon. Marill fused with Goldeen will simply yield a Water-type Pokemon.
 
 In all cases, Normal/Flying Pokemon are treated as Flying/Normal Pokemon instead. For example, Pidgey plus Machop will turn 
 into a Flying/Fighting Pokemon.
@@ -47,6 +47,9 @@ If 'average base stat patterns only' is chosen, the Growth Rate of the base Poke
 Additioanlly, there is a selectable option to homogenize the Growth Rates, ignoring all the other rules. This option will make all Pokemon use a custom Growth Rate with characteristics from both the parabolic and fast growth rates. It makes all Pokemon grow relatively fast at all level ranges, which is ideal to soften any necessity of grinding.
 
 #### <b>Other data</b>
-- Base Experience: the average of the two original Pokemon. If 'average base stat patterns only' is selected, the base experience of the base Pokemon weighs 80% of the total.
+- Base Experience: the average of the two original Pokemon. If 'average base stat patterns only' is selected, the base experience value of the base Pokemon weighs 80% of the total.
 - Catch Rates: calculated with the geometric mean of the catch rate of the original Pokemon, i.e. the square root of the product of the two values.  If 'average base stat patterns only' is selected, the catch rate value of the base Pokemon weighs 80% of the total.
-- 
+- Gender: the average of the two original Pokemon. For example, if one Pokemon has a 2/16 chance to be female and the other Pokemon a 8/16 chance, the resulting Pokemon will be female 5/16 of the times.
+- Wild Held Items: follow the same logic used to obtain the types
+- Egg Groups: follow the same logic used to obtain the types
+- Hatch Cycles: the average of the two orginal Pokemon. If 'average base stat patterns only' is selected, the hatch cycles value of the base Pokemon weighs 80% of the total.
