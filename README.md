@@ -93,13 +93,18 @@ These settings are independent from the other ones and let the user choose which
 - There may be hardcoded references to Pokemon in the games that still use non-fused names. If so, they refer to the base Pokemon.
 - Unown is not fused with any Pokemon, and neither any Pokemon may be fused with Unown
 - The Battle Tower is not available
-- The odd egg has Pokemon has random DVs
+- The odd egg Pokemon has random DVs
 
 ## Download & How to use
 - Download [crystal-randofuser.zip](https://github.com/xCrystal/crystal-randofuser/releases/download/v1.0/crystal-randofuser.zip?raw=true) and extract the .jar file and the .ips file
 - Get yourself the following ROM: <b>Pokemon - Crystal Version (UE) (V1.0) [C][!]</b>
 - Apply the .ips patch to the ROM with [Lunar IPS](http://fusoya.eludevisibility.org/lips/), and save the result as 'crystal.gbc' in the directory where you extracted the .jar file
 - Execute crystal-randofuser.jar. Choose your desired settings and click on the "Randofuse!" button to generate a ready-to-play "randofused" ROM that will named crystal_randofused.gbc
+- Do not combine this tool with any other hacking tool or randomized
+
+## Suggestions & Bug reports
+
+If you think you've found a bug, feel free to let me know about it by opening an issue in this repository. Likewise, if you have a suggestion about what you'd like to see implemented in this tool, you can do the same. I'm probably not going to work on this project short term though, but depending on how popular it becomes, I may add new features in the future.
 
 ## Some pics
 ![1](https://raw.githubusercontent.com/xCrystal/crystal-randofuser/master/media/pic1.png)
