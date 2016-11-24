@@ -98,8 +98,8 @@ These settings are independent from the other ones and let the user choose which
 ## Download & How to use
 - Download [crystal-randofuser.zip](https://github.com/xCrystal/crystal-randofuser/releases/download/v1.0/crystal-randofuser.zip?raw=true) and extract the .jar file and the .ips file
 - Get yourself the following ROM: <b>Pokemon - Crystal Version (UE) (V1.0) [C][!]</b>
-- Apply the .ips patch to the ROM with [Lunar IPS](http://fusoya.eludevisibility.org/lips/), and save the result as 'crystal.gbc' in the directory where you extracted the .jar file
-- Execute crystal-randofuser.jar. Choose your desired settings and click on the "Randofuse!" button to generate a ready-to-play "randofused" ROM that will named crystal_randofused.gbc
+- Apply the .ips patch to the ROM with [Lunar IPS](http://fusoya.eludevisibility.org/lips/), and save the result as *crystal.gbc* in the directory where you extracted the .jar file. Note that in *crystal.gbc*, .gbc is the extension. If your system doesn't display the extension suffix as part of the filename, name the file just *crystal* instead.
+- Execute *crystal-randofuser.jar*. Choose your desired settings and click on the "Randofuse!" button to generate a ready-to-play "randofused" ROM that will named *crystal_randofused.gbc*
 - Do not combine this tool with any other hacking tool or randomizer
 
 ## Suggestions & Bug reports
