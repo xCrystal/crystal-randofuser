@@ -18,7 +18,7 @@
          </toggleGroup>
       </RadioButton>
       <RadioButton fx:id="averageBaseStatPatterns" layoutX="25.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#handleAverageBaseStatPatternsClick" text="Average Base Stat patterns only" toggleGroup="$baseStats" />
-      <CheckBox fx:id="homogenizeGrowthRates" layoutX="312.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#handleHomogenizeGrowthRatesClick" text="Homogenize Growth Rates" />
+      <CheckBox fx:id="homogenizeGrowthRates" layoutX="312.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#handleHomogenizeGrowthRatesClick" text="Homogenize Growth Rates" />
       <Button contentDisplay="CENTER" layoutX="249.0" layoutY="692.0" mnemonicParsing="false" onMouseClicked="#beginProgram" text="Randofuse!" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -71,5 +71,6 @@
       <RadioButton fx:id="flareon" layoutX="421.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#handleFlareonClick" text="Eevee - Flareon" toggleGroup="$eevee" />
       <RadioButton fx:id="espeon" layoutX="421.0" layoutY="548.0" mnemonicParsing="false" onMouseClicked="#handleEspeonClick" text="Eevee - Espeon" toggleGroup="$eevee" />
       <RadioButton fx:id="umbreon" layoutX="421.0" layoutY="579.0" mnemonicParsing="false" onMouseClicked="#handleUmbreonClick" text="Eevee - Umbreon" toggleGroup="$eevee" />
+      <CheckBox fx:id="replaceHappinessEvos" layoutX="312.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#handleReplaceHappinessEvosClick" text="Replace Happiness evolutions" />
 	</children>
 </AnchorPane>

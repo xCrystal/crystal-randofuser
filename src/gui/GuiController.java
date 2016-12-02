@@ -27,6 +27,7 @@ public class GuiController implements Initializable {
 	@FXML private RadioButton averageBaseStatPatterns;
 	
 	@FXML private CheckBox homogenizeGrowthRates;
+	@FXML private CheckBox replaceHappinessEvos;	
 	@FXML private CheckBox separateLegends, separateWeak1StageEvos, separateWeak3StageEvos;
 	
 	private List<Integer> johtoLevels = new ArrayList<Integer>();
@@ -118,6 +119,11 @@ public class GuiController implements Initializable {
 	}
 	
 	@FXML
+	private void handleReplaceHappinessEvosClick() {
+		Settings.replaceHappinessEvos ^= true;
+	}
+	
+	@FXML
 	private void handleSeparateWeak1StageEvosClick() {
 		if (separateWeak1StageEvos.isSelected())
 			Settings.setWeakOneStagePokemon();
@@ -150,6 +156,8 @@ public class GuiController implements Initializable {
 		
 		Settings.homogenizeGrowthRates = false;
 		homogenizeGrowthRates.setSelected(false);
+		Settings.replaceHappinessEvos = false;
+		replaceHappinessEvos.setSelected(false);
 		
 		Settings.johtoLevelBump = 0;
 		Settings.kantoLevelBump = 0;
@@ -173,6 +181,8 @@ public class GuiController implements Initializable {
 		
 		Settings.homogenizeGrowthRates = true;
 		homogenizeGrowthRates.setSelected(true);
+		Settings.replaceHappinessEvos = true;
+		replaceHappinessEvos.setSelected(true);
 		
 		Settings.johtoLevelBump = 0;
 		Settings.kantoLevelBump = 20;
@@ -196,6 +206,8 @@ public class GuiController implements Initializable {
 		
 		Settings.homogenizeGrowthRates = false;
 		homogenizeGrowthRates.setSelected(false);
+		Settings.replaceHappinessEvos = false;
+		replaceHappinessEvos.setSelected(false);
 		
 		Settings.johtoLevelBump = 10;
 		Settings.kantoLevelBump = 30;
@@ -219,6 +231,8 @@ public class GuiController implements Initializable {
 		
 		Settings.homogenizeGrowthRates = false;
 		homogenizeGrowthRates.setSelected(false);
+		Settings.replaceHappinessEvos = false;
+		replaceHappinessEvos.setSelected(false);
 		
 		Settings.johtoLevelBump = 20;
 		Settings.kantoLevelBump = 50;

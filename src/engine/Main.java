@@ -63,9 +63,13 @@ public class Main {
 				}
 			} while (anyNotFused);
 			
+			Engine.writeEvolutionChangesToRomIfAny(chout);
+			Engine.replaceHappinessEvosIfSelected(chout);
+			Engine.writeModifiedParabolicGrowthRateIfSelected(chout);			
+			
 			Engine.fuseNames(chout, buf_names, fusionIds);
-			Engine.fuseEvosAttacks(buf_evosAttacks_r, buf_evosAttacks_w, fusionIds);
-			Engine.fuseEggMoves(buf_eggMoves_r, buf_eggMoves_w, fusionIds);
+			EvosAttacks.fuseEvosAttacks(buf_evosAttacks_r, buf_evosAttacks_w, fusionIds);
+			EvosAttacks.fuseEggMoves(buf_eggMoves_r, buf_eggMoves_w, fusionIds);
 			Engine.fuseBaseData(buf_baseData_r, buf_baseData_w, fusionIds);
 			Engine.switchPalettes(buf_pals_r, buf_pals_w, fusionIds);
 			Trainers.raiseLevels(buf_trainers);
@@ -75,9 +79,7 @@ public class Main {
 			Engine.copyData(chout, buf_eggMoves_w, Constants.EGG_MOVES);
 			Engine.copyData(chout, buf_baseData_w, Constants.BASE_DATA);
 			Engine.copyData(chout, buf_pals_w, Constants.PALETTES);
-			Engine.copyData(chout, buf_trainers, Constants.TRAINERS);	
-			Engine.writeEvolutionChangesToRomIfAny(chout);
-			Engine.writeModifiedParabolicGrowthRateIfSelected(chout);
+			Engine.copyData(chout, buf_trainers, Constants.TRAINERS);
 			
 			Engine.fixGlobalChecksum(chout);
 			

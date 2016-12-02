@@ -193,7 +193,7 @@ public class BaseData {
 	}
 	
 	public static void homogenizeGrowthRates (ByteBuffer out, int i) {
-	// this changes the growth rate of all Pokemon to "PARABLOIC". 
+	// this changes the growth rate of all Pokemon to "PARABOLIC". 
 	// If this option is selected, the PARABOLIC formula will also be slightly balanced.
 		out.position(i);
 		out.put((byte) GrowthRates.PARABOLIC.ordinal());
