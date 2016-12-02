@@ -4,3 +4,5 @@
 *.sn*
 *.rtc
 /bin/
+*.zip
+*.txt
