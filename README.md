@@ -12,7 +12,9 @@ Pokemon such as moves and base stats are combined in different ways, as describe
 - [Settings] (https://github.com/xCrystal/crystal-randofuser#settings)
 - [Other notes] (https://github.com/xCrystal/crystal-randofuser#other-notes)
 - [Download & How to use] (https://github.com/xCrystal/crystal-randofuser/#download--how-to-use)
+- [Suggestions & Bug reports] (https://github.com/xCrystal/crystal-randofuser/#suggestions--bug-reports)
 - [Some pics] (https://github.com/xCrystal/crystal-randofuser#some-pics)
+- [Changelog] (https://github.com/xCrystal/crystal-randofuser/#changelog)
 
 ## How Pokemon data gets fused
 
