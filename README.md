@@ -91,7 +91,7 @@ There are some suggested defaults available to be chosen.
 These settings are independent from the other ones and let the user choose which Pokemon follow its original evolutionary line. It also includes an option to separate Scyther and Scizor, as they have the same BST. Keep in mind that the Pokemon that you leave unselected are not obtainable, and may only show up in trainer parties.
 
 ####<b>Catch 'Em All mode</b>
-Two .ips patches are provided with the download. *crystal-randofuser.ips* is the normal patch, while *crystal-randofuser-catchemall.ips* incorporates additional changes to make all 251 Pokemon obtainable, including those that may become unattainable as a result of the *Evolutionary Line* settings. More information on how to use these patches in *Download & How to use*. For information on where the new Pokemon can be found, refer to the *catchemall.txt* file.
+Two .ips patches are provided with the download. *crystal-randofuser.ips* is the normal patch, while *crystal-randofuser-catchemall.ips* incorporates additional changes to make all 251 Pokemon obtainable, including those that may become unattainable as a result of the *Evolutionary Line* settings. Even if you're not interested in completing the Pokédex, the Catch 'Em All option provides more variety to the Pokemon you can build your team with. With the Catch 'Em All patch you will also be able to purchase the evolutionary stones, except Moon and Sun, in the Ecruteak Mart. More information on how to use these patches in *Download & How to use*. For information on where the new Pokemon can be found, refer to the *catchemall.txt* file.
 
 ## Other notes
 
