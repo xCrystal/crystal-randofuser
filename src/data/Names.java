@@ -191,7 +191,7 @@ public enum Names {
 	SUDOWOODO  ("SUDO<",  "WOODO<"),
 	POLITOED   ("POLI<",  "TOED<"),
 	HOPPIP     ("HOP<",   "OPPIP<"),
-	SKIPLOOM   ("SKIP<",  "LOOM<"),
+	SKIPLOOM   ("SKIP<",  "PLOOM<"),
 	JUMPLUFF   ("JUMP<",  "LUFF<"),
 	AIPOM      ("AIPO<",  "POM<"),
 	SUNKERN    ("SUNK<",  "KERN<"),

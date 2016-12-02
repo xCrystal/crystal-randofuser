@@ -158,7 +158,13 @@ public class BaseData {
 		g2 = in.get();
 		
 		out.position(i);
-		byte result = (byte) ((toUnsignedInt(g1) + toUnsignedInt(g2) + 1) / 2);
+		byte result;
+		
+		if ((toUnsignedInt(g1) != 0xff) && (toUnsignedInt(g2) != 0xff)) {
+			result = (byte) ((toUnsignedInt(g1) + toUnsignedInt(g2) + 1) / 2);
+		} else {
+			result = g1;
+		}
 		out.put(result);
 	}
 	
