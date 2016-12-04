@@ -33,7 +33,7 @@ like Heracross or Mr. Mime. Note that the independent Pokemon will most likely b
 
 Trade evolutions have been replaced with reasonable level-based evolutions. If selected by the user, happiness evolutions will also be replaced with reasonable level-based evolutions.
 
-If two Pokemon with level-based evolutions are fused, the resulting Pokemon will evolve at the average of the two. If either Pokemon evolves through other method (happiness, stone), the evolution type of the base Pokemon will be tranferred to the resulting Pokemon unchanged.
+If two Pokemon with level-based evolutions are fused, the resulting Pokemon will evolve at the average of the two. If the "Average Base Stat patterns only" setting is selected, however, the base Pokemon's evolution level will weigh 80% of the total. Refer to the *Settings* section for more information. If either Pokemon evolves through other method (happiness, stone), the evolution type of the base Pokemon will be tranferred to the resulting Pokemon unchanged.
 
 #### <b>Types</b>
 The first type of the base Pokemon will always be chosen from the first type of the resulting Pokemon. The secondary type will 
@@ -90,7 +90,7 @@ There are some suggested defaults available to be chosen.
 - Crazy: The toughest and least predictable option. Trainer levels are considerably raised. Hardcore players may try this along with "Homogenize Growth Rates" for a very challenging nuzlocke run.
 
 ####<b>Evolutionary Lines</b>
-These settings are independent from the other ones and let the user choose which Pokemon follow its original evolutionary line. It also includes an option to separate Scyther and Scizor, as they have the same BST. Keep in mind that the Pokemon that you leave unselected are not obtainable, and may only show up in trainer parties.
+These settings are independent from the other ones and let the user choose which Pokemon follow its original evolutionary line. It also includes an option to separate Scyther and Scizor, as they have the same BST. Keep in mind that the Pokemon that you leave unselected will most likely become unobtainable, unless you play Catch 'Em All mode (see below).
 
 ####<b>Catch 'Em All mode</b>
 Two .ips patches are provided with the download. *crystal-randofuser.ips* is the normal patch, while *crystal-randofuser-catchemall.ips* incorporates additional changes to make all 251 Pokemon obtainable, including those that may become unattainable as a result of the *Evolutionary Line* settings. Even if you're not interested in completing the Pokédex, the Catch 'Em All option provides more variety to the Pokemon you can build your team with. With the Catch 'Em All patch you will also be able to purchase the evolutionary stones, except Moon and Sun, in the Ecruteak Mart. More information on how to use these patches in *Download & How to use*. For information on where the new Pokemon can be found, refer to the *catchemall.txt* file.
