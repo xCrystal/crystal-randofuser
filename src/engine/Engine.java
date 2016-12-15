@@ -156,56 +156,56 @@ public class Engine {
 	public static void setSlowpokeSlowing (FileChannel ch) throws IOException {
 		
 		// EVOLVE_LEVEL, 37, SLOWBRO -> EVOLVE_LEVEL, 37, SLOWKING
-		byte[] bytes = {(byte) Pokemon.SLOWKING.ordinal()};
+		byte[] bytes = {(byte) (Pokemon.SLOWKING.ordinal() + 1)};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.SLOWPOKE.ordinal() + 2, bytes);
 	}
 	
 	public static void setGloomBellossom (FileChannel ch) throws IOException {
 		
 		// EVOLVE_ITEM, LEAF_STONE, VILEPLUME -> EVOLVE_ITEM, SUN_STONE, BELLOSSOM
-		byte[] bytes = {Constants.SUN_STONE, (byte) Pokemon.BELLOSSOM.ordinal()};
+		byte[] bytes = {Constants.SUN_STONE, (byte) (Pokemon.BELLOSSOM.ordinal() + 1)};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.GLOOM.ordinal() + 1, bytes);
 	}
 	
 	public static void setPoliwhirlPolitoed (FileChannel ch) throws IOException {
 		
 		// EVOLVE_ITEM, WATER_STONE, POLIWRATH -> EVOLVE_ITEM, WATER_STONE, POLITOED
-		byte[] bytes = {(byte) Pokemon.POLITOED.ordinal()};
+		byte[] bytes = {(byte) (Pokemon.POLITOED.ordinal() + 1)};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.POLIWHIRL.ordinal() + 2, bytes);
 	}
 	
 	public static void setTyrogueHitmonlee (FileChannel ch) throws IOException {
 		
 		// EVOLVE_LEVEL, 20, HITMONTOP -> EVOLVE_LEVEL, 20, HITMONLEE
-		byte[] bytes = {(byte) Pokemon.HITMONLEE.ordinal()};
+		byte[] bytes = {(byte) (Pokemon.HITMONLEE.ordinal() + 1)};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.TYROGUE.ordinal() + 2, bytes);
 	}
 	
 	public static void setTyrogueHitmonchan (FileChannel ch) throws IOException {
 		
 		// EVOLVE_LEVEL, 20, HITMONTOP -> EVOLVE_LEVEL, 20, HITMONCHAN
-		byte[] bytes = {(byte) Pokemon.HITMONCHAN.ordinal()};
+		byte[] bytes = {(byte) (Pokemon.HITMONCHAN.ordinal() + 1)};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.TYROGUE.ordinal() + 2, bytes);
 	}
 	
 	public static void setEeveeJolteon (FileChannel ch) throws IOException {
 		
 		// EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_ITEM, THUNDERSTONE, JOLTEON
-		byte[] bytes = {Constants.THUNDERSTONE, (byte) Pokemon.JOLTEON.ordinal()};
+		byte[] bytes = {Constants.THUNDERSTONE, (byte) (Pokemon.JOLTEON.ordinal() + 1)};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal() + 1, bytes);
 	}
 	
 	public static void setEeveeFlareon (FileChannel ch) throws IOException {
 		
 		// EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_ITEM, FIRE_STONE, FLAREON
-		byte[] bytes = {Constants.FIRE_STONE, (byte) Pokemon.FLAREON.ordinal()};
+		byte[] bytes = {Constants.FIRE_STONE, (byte) (Pokemon.FLAREON.ordinal() + 1)};
 		writeToRom(ch, Constants.EVOS_ATTACKS + Constants.EVOS_ATTACKS_LENGTH * Pokemon.EEVEE.ordinal() + 1, bytes);
 	}
 	
 	public static void setEeveeEspeon (FileChannel ch) throws IOException {
 		
 		// EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_HAPPINESS, TR_MORNDAY, ESPEON
-		byte[] bytes = {Constants.EVOLVE_HAPPINESS, Constants.TR_MORNDAY, (byte) Pokemon.ESPEON.ordinal()};
+		byte[] bytes = {Constants.EVOLVE_HAPPINESS, Constants.TR_MORNDAY, (byte) (Pokemon.ESPEON.ordinal() + 1)};
 		if (Settings.replaceHappinessEvos) {
 			bytes[0] = Constants.EVOLVE_LEVEL;
 			bytes[1] = 30;
@@ -216,7 +216,7 @@ public class Engine {
 	public static void setEeveeUmbreon (FileChannel ch) throws IOException {
 		
 		// EVOLVE_ITEM, WATER_STONE, VAPOREON -> EVOLVE_HAPPINESS, TR_NITE, UMBREON
-		byte[] bytes = {Constants.EVOLVE_HAPPINESS, Constants.TR_NITE, (byte) Pokemon.UMBREON.ordinal()};
+		byte[] bytes = {Constants.EVOLVE_HAPPINESS, Constants.TR_NITE, (byte) (Pokemon.UMBREON.ordinal() + 1)};
 		if (Settings.replaceHappinessEvos) {
 			bytes[0] = Constants.EVOLVE_LEVEL;
 			bytes[1] = 30;
