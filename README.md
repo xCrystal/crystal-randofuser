@@ -130,3 +130,7 @@ If you think you've found a bug, feel free to let me know about it by opening an
 - Added catch 'em all mode
 - Added option to turn happiness evolutions into level-based evolutions
 - Minor bug fixes and improvements
+
+### v1.2
+- Fix wrong species bug with special evolutions
+- Johto starters are now available to be caught in the catch 'em ll mode
