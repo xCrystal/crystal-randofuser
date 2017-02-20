@@ -61,11 +61,7 @@ public class Main {
 					if (i == fusionIds[i] && i != Pokemon.UNOWN.ordinal())
 						anyNotFused = true;
 				}
-			} while (anyNotFused);
-			
-			Engine.writeEvolutionChangesToRomIfAny(chout);
-			Engine.replaceHappinessEvosIfSelected(chout);
-			Engine.writeModifiedParabolicGrowthRateIfSelected(chout);			
+			} while (anyNotFused);		
 			
 			Engine.fuseNames(chout, buf_names, fusionIds);
 			EvosAttacks.fuseEvosAttacks(buf_evosAttacks_r, buf_evosAttacks_w, fusionIds);
@@ -80,6 +76,10 @@ public class Main {
 			Engine.copyData(chout, buf_baseData_w, Constants.BASE_DATA);
 			Engine.copyData(chout, buf_pals_w, Constants.PALETTES);
 			Engine.copyData(chout, buf_trainers, Constants.TRAINERS);
+			
+			Engine.writeEvolutionChangesToRomIfAny(chout);
+			Engine.replaceHappinessEvosIfSelected(chout);
+			Engine.writeModifiedParabolicGrowthRateIfSelected(chout);			
 			
 			Engine.fixGlobalChecksum(chout);
 			
