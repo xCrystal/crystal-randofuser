@@ -8,13 +8,13 @@ Pokemon such as moves and base stats are combined in different ways, as describe
 
 ## Table of contents
 
-- [How Pokemon data gets fused] (https://github.com/xCrystal/crystal-randofuser#how-pokemon-data-gets-fused)
-- [Settings] (https://github.com/xCrystal/crystal-randofuser#settings)
-- [Other notes] (https://github.com/xCrystal/crystal-randofuser#other-notes)
-- [Download & How to use] (https://github.com/xCrystal/crystal-randofuser/#download--how-to-use)
-- [Suggestions & Bug reports] (https://github.com/xCrystal/crystal-randofuser/#suggestions--bug-reports)
-- [Some pics] (https://github.com/xCrystal/crystal-randofuser#some-pics)
-- [Changelog] (https://github.com/xCrystal/crystal-randofuser/#changelog)
+- [How Pokemon data gets fused](https://github.com/xCrystal/crystal-randofuser#how-pokemon-data-gets-fused)
+- [Settings](https://github.com/xCrystal/crystal-randofuser#settings)
+- [Other notes](https://github.com/xCrystal/crystal-randofuser#other-notes)
+- [Download & How to use](https://github.com/xCrystal/crystal-randofuser/#download--how-to-use)
+- [Suggestions & Bug reports](https://github.com/xCrystal/crystal-randofuser/#suggestions--bug-reports)
+- [Some pics](https://github.com/xCrystal/crystal-randofuser#some-pics)
+- [Changelog](https://github.com/xCrystal/crystal-randofuser/#changelog)
 
 ## How Pokemon data gets fused
 
@@ -76,23 +76,23 @@ As described above, choose this option if you want all Pokemon to grow at the sa
 #### <b>Replace Happiness evolutions</b>
 If this option is selected, Pokemon that evolve via happiness will be replaced with level-based evolutions, evolving at a reasonable level based on their overall strength. It's especially useful for balancing baby Pokemon like Togepi and Pichu.
 
-####<b>Trainer Level increase</b>
+#### <b>Trainer Level increase</b>
 Choose whether you'd like to increase the level of all trainer Pokemon by a custom percentage. Kanto trainers include all post-League content except the battle against Red. This part is known for being considerably easier than the Johto part, so increasing the levels in Kanto can be a good idea to maintain a decent challenge.
 
-####<b>Evolution category filters</b>
+#### <b>Evolution category filters</b>
 Choose whether you'd like to further filter which Pokemon can be fused with which Pokemon. The legendary filter is good for purity while the other two are intended to provide stability if averaging BST is selected. A total of 16 Pokemon are included in the 1-stage filter (BST-based, up to Tangela) and a total of just 5 in the 3-stage evolution filter (Pichu, Cleffa, Igglybuff, Caterpie, and Weedle lines). Keep in mind that these filters cut versatility in the randomization, especially the 3-stage one.
 
-####<b>Defaults</b>
+#### <b>Defaults</b>
 There are some suggested defaults available to be chosen.
 - Classic: A stable option with unchanged BSTs that stays true to the trainer leves of the original game.
 - Balanced: Like classic, but balances the Kanto trainers and homogenizes the growth rates to soften grinding. A good idea for nuzlocke and similar runs.
 - Difficult: A more challenging setup that averages the BSTs, but adds additional filters to prevent extreme combinations.
 - Crazy: The toughest and least predictable option. Trainer levels are considerably raised. Hardcore players may try this along with "Homogenize Growth Rates" for a very challenging nuzlocke run.
 
-####<b>Evolutionary Lines</b>
+#### <b>Evolutionary Lines</b>
 These settings are independent from the other ones and let the user choose which Pokemon follow its original evolutionary line. It also includes an option to separate Scyther and Scizor, as they have the same BST. Keep in mind that the Pokemon that you leave unselected will most likely become unobtainable, unless you play Catch 'Em All mode (see below).
 
-####<b>Catch 'Em All mode</b>
+#### <b>Catch 'Em All mode</b>
 Two .ips patches are provided with the download. *crystal-randofuser.ips* is the normal patch, while *crystal-randofuser-catchemall.ips* incorporates additional changes to make all 251 Pokemon obtainable, including those that may become unattainable as a result of the *Evolutionary Line* settings. Even if you're not interested in completing the Pokédex, the Catch 'Em All option provides more variety to the Pokemon you can build your team with. With the Catch 'Em All patch you will also be able to purchase the evolutionary stones, except Moon and Sun, in the Ecruteak Mart. More information on how to use these patches in *Download & How to use*. For information on where the new Pokemon can be found, refer to the *catchemall.txt* file.
 
 ## Other notes
@@ -133,4 +133,4 @@ If you think you've found a bug, feel free to let me know about it by opening an
 
 ### v1.2
 - Fix wrong species bug with special evolutions
-- Johto starters are now available to be caught in the catch 'em ll mode
+- Johto starters are now available to be caught in the catch 'em all mode
