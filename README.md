@@ -137,4 +137,4 @@ If you think you've found a bug, feel free to let me know about it by opening an
 
 ### v1.3
 - Added type priorities
-- Ready-to-randofuse ROMs are provided rather than .ips patch files. Don't tell your uncle who works at Nintendo about this
+- Ready-to-randofuse ROMs are provided rather than .ips patch files. Don't tell your uncle who works at Nintendo about this!
