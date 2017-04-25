@@ -17,60 +17,94 @@
             <ToggleGroup fx:id="baseStats" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="averageBaseStatPatterns" layoutX="25.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#handleAverageBaseStatPatternsClick" text="Average Base Stat patterns only" toggleGroup="$baseStats" />
+      <RadioButton fx:id="averageBaseStatPatterns" layoutX="25.0" layoutY="53.0" mnemonicParsing="false" onMouseClicked="#handleAverageBaseStatPatternsClick" text="Average Base Stat patterns only" toggleGroup="$baseStats" />
       <CheckBox fx:id="homogenizeGrowthRates" layoutX="312.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#handleHomogenizeGrowthRatesClick" text="Homogenize Growth Rates" />
-      <Button contentDisplay="CENTER" layoutX="249.0" layoutY="692.0" mnemonicParsing="false" onMouseClicked="#beginProgram" text="Randofuse!" textAlignment="CENTER">
+      <Button contentDisplay="CENTER" layoutX="249.0" layoutY="699.0" mnemonicParsing="false" onMouseClicked="#beginProgram" text="Randofuse!" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Label layoutX="46.0" layoutY="245.0" text="Johto trainer level increase (%)" />
-      <Label layoutX="333.0" layoutY="245.0" text="Kanto trainer level increase (%)" />
-      <ChoiceBox fx:id="johto" layoutX="72.0" layoutY="276.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="kanto" layoutX="360.0" layoutY="276.0" prefWidth="150.0" />
-      <CheckBox fx:id="separateLegends" layoutX="25.0" layoutY="113.0" mnemonicParsing="false" onMouseClicked="#handleSeparateLegendsClick" text="Separate between Legendary Pokémon and one-stage evolution Pokémon" />
-      <CheckBox fx:id="separateWeak1StageEvos" layoutX="25.0" layoutY="148.0" mnemonicParsing="false" onMouseClicked="#handleSeparateWeak1StageEvosClick" text="Separate weak one-stage evolution Pokémon" />
-      <CheckBox fx:id="separateWeak3StageEvos" layoutX="25.0" layoutY="183.0" mnemonicParsing="false" onMouseClicked="#handleSeparateWeak3StageEvos" text="Separate weak three-stage evolution Pokémon" />
-      <Button fx:id="classic" layoutX="123.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#defaultClassic" text="CLASSIC" />
-      <Button fx:id="balanced" layoutX="228.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#defaultBalanced" text="BALANCED" />
-      <Button fx:id="difficult" layoutX="353.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#defaultDifficult" text="DIFFICULT" />
-      <Button fx:id="crazy" layoutX="472.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#defaultCrazy" text="CRAZY" />
-      <Label layoutX="43.0" layoutY="361.0" text="Defaults:" />
-      <Line endX="100.0" layoutX="300.0" layoutY="423.0" startX="-100.0" />
-      <RadioButton fx:id="vileplume" layoutX="26.0" layoutY="453.0" mnemonicParsing="false" onMouseClicked="#handleVileplumeClick" text="Gloom - Vileplume">
+      <Label layoutX="46.0" layoutY="199.0" text="Johto trainer level increase (%)" />
+      <Label layoutX="333.0" layoutY="199.0" text="Kanto trainer level increase (%)" />
+      <ChoiceBox fx:id="johto" layoutX="72.0" layoutY="227.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="kanto" layoutX="360.0" layoutY="227.0" prefWidth="150.0" />
+      <CheckBox fx:id="separateLegends" layoutX="26.0" layoutY="96.0" mnemonicParsing="false" onMouseClicked="#handleSeparateLegendsClick" text="Separate between Legendary Pokémon and one-stage evolution Pokémon" />
+      <CheckBox fx:id="separateWeak1StageEvos" layoutX="26.0" layoutY="126.0" mnemonicParsing="false" onMouseClicked="#handleSeparateWeak1StageEvosClick" text="Separate weak one-stage evolution Pokémon" />
+      <CheckBox fx:id="separateWeak3StageEvos" layoutX="26.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#handleSeparateWeak3StageEvos" text="Separate weak three-stage evolution Pokémon" />
+      <Button fx:id="classic" layoutX="123.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#defaultClassic" text="CLASSIC" />
+      <Button fx:id="balanced" layoutX="228.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#defaultBalanced" text="BALANCED" />
+      <Button fx:id="difficult" layoutX="351.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#defaultDifficult" text="DIFFICULT" />
+      <Button fx:id="crazy" layoutX="471.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#defaultCrazy" text="CRAZY" />
+      <Label layoutX="43.0" layoutY="289.0" text="Defaults:" />
+      <Line endX="100.0" layoutX="300.0" layoutY="341.0" startX="-100.0" />
+      <RadioButton fx:id="vileplume" layoutX="26.0" layoutY="362.0" mnemonicParsing="false" onMouseClicked="#handleVileplumeClick" text="Gloom - Vileplume">
          <toggleGroup>
             <ToggleGroup fx:id="gloom" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="bellossom" layoutX="26.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#handleBellossomClick" text="Gloom - Bellossom" toggleGroup="$gloom" />
-      <RadioButton fx:id="poliwrath" layoutX="26.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#handlePoliwrathClick" text="Poliwhirl - Poliwrath">
+      <RadioButton fx:id="bellossom" layoutX="26.0" layoutY="387.0" mnemonicParsing="false" onMouseClicked="#handleBellossomClick" text="Gloom - Bellossom" toggleGroup="$gloom" />
+      <RadioButton fx:id="poliwrath" layoutX="26.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#handlePoliwrathClick" text="Poliwhirl - Poliwrath">
          <toggleGroup>
             <ToggleGroup fx:id="poliwhirl" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="politoed" layoutX="26.0" layoutY="560.0" mnemonicParsing="false" onMouseClicked="#handlePolitoedClick" text="Poliwhirl - Politoed" toggleGroup="$poliwhirl" />
-      <RadioButton fx:id="slowbro" layoutX="26.0" layoutY="604.0" mnemonicParsing="false" onMouseClicked="#handleSlowbroClick" text="Slowpoke - Slowbro">
+      <RadioButton fx:id="politoed" layoutX="26.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#handlePolitoedClick" text="Poliwhirl - Politoed" toggleGroup="$poliwhirl" />
+      <RadioButton fx:id="slowbro" layoutX="26.0" layoutY="477.0" mnemonicParsing="false" onMouseClicked="#handleSlowbroClick" text="Slowpoke - Slowbro">
          <toggleGroup>
             <ToggleGroup fx:id="slowpoke" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="slowking" layoutX="26.0" layoutY="634.0" mnemonicParsing="false" onMouseClicked="#handleSlowkingClick" text="Slowpoke - Slowking" toggleGroup="$slowpoke" />
-      <RadioButton fx:id="scizor" layoutX="216.0" layoutY="453.0" mnemonicParsing="false" onMouseClicked="#handleScizorClick" text="Scyther - Scizor">
+      <RadioButton fx:id="slowking" layoutX="26.0" layoutY="501.0" mnemonicParsing="false" onMouseClicked="#handleSlowkingClick" text="Slowpoke - Slowking" toggleGroup="$slowpoke" />
+      <RadioButton fx:id="scizor" layoutX="216.0" layoutY="362.0" mnemonicParsing="false" onMouseClicked="#handleScizorClick" text="Scyther - Scizor">
          <toggleGroup>
             <ToggleGroup fx:id="scyther" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="none" layoutX="216.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#handleNoneClick" text="Scyther - None" toggleGroup="$scyther" />
-      <RadioButton fx:id="hitmonlee" layoutX="216.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#handleHitmonleeClick" text="Tyrogue - Hitmonlee">
+      <RadioButton fx:id="none" layoutX="216.0" layoutY="387.0" mnemonicParsing="false" onMouseClicked="#handleNoneClick" text="Scyther - None" toggleGroup="$scyther" />
+      <RadioButton fx:id="hitmonlee" layoutX="216.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#handleHitmonleeClick" text="Tyrogue - Hitmonlee">
          <toggleGroup>
             <ToggleGroup fx:id="tyrogue" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="hitmonchan" layoutX="216.0" layoutY="560.0" mnemonicParsing="false" onMouseClicked="#handleHitmonchanClick" text="Tyrogue - Hitmonchan" toggleGroup="$tyrogue" />
-      <RadioButton fx:id="hitmontop" layoutX="216.0" layoutY="591.0" mnemonicParsing="false" onMouseClicked="#handleHitmontopClick" text="Tyrogue - Hitmontop" toggleGroup="$tyrogue" />
-      <RadioButton fx:id="vaporeon" layoutX="421.0" layoutY="453.0" mnemonicParsing="false" onMouseClicked="#handleVaporeonClick" text="Eevee - Vaporeon">
+      <RadioButton fx:id="hitmonchan" layoutX="216.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#handleHitmonchanClick" text="Tyrogue - Hitmonchan" toggleGroup="$tyrogue" />
+      <RadioButton fx:id="hitmontop" layoutX="216.0" layoutY="470.0" mnemonicParsing="false" onMouseClicked="#handleHitmontopClick" text="Tyrogue - Hitmontop" toggleGroup="$tyrogue" />
+      <RadioButton fx:id="vaporeon" layoutX="421.0" layoutY="362.0" mnemonicParsing="false" onMouseClicked="#handleVaporeonClick" text="Eevee - Vaporeon">
          <toggleGroup>
             <ToggleGroup fx:id="eevee" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="jolteon" layoutX="421.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#handleJolteonClick" text="Eevee - Jolteon" toggleGroup="$eevee" />
-      <RadioButton fx:id="flareon" layoutX="421.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#handleFlareonClick" text="Eevee - Flareon" toggleGroup="$eevee" />
-      <RadioButton fx:id="espeon" layoutX="421.0" layoutY="548.0" mnemonicParsing="false" onMouseClicked="#handleEspeonClick" text="Eevee - Espeon" toggleGroup="$eevee" />
-      <RadioButton fx:id="umbreon" layoutX="421.0" layoutY="579.0" mnemonicParsing="false" onMouseClicked="#handleUmbreonClick" text="Eevee - Umbreon" toggleGroup="$eevee" />
-      <CheckBox fx:id="replaceHappinessEvos" layoutX="312.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#handleReplaceHappinessEvosClick" text="Replace Happiness evolutions" />
+      <RadioButton fx:id="jolteon" layoutX="421.0" layoutY="387.0" mnemonicParsing="false" onMouseClicked="#handleJolteonClick" text="Eevee - Jolteon" toggleGroup="$eevee" />
+      <RadioButton fx:id="flareon" layoutX="421.0" layoutY="413.0" mnemonicParsing="false" onMouseClicked="#handleFlareonClick" text="Eevee - Flareon" toggleGroup="$eevee" />
+      <RadioButton fx:id="espeon" layoutX="421.0" layoutY="439.0" mnemonicParsing="false" onMouseClicked="#handleEspeonClick" text="Eevee - Espeon" toggleGroup="$eevee" />
+      <RadioButton fx:id="umbreon" layoutX="421.0" layoutY="464.0" mnemonicParsing="false" onMouseClicked="#handleUmbreonClick" text="Eevee - Umbreon" toggleGroup="$eevee" />
+      <CheckBox fx:id="replaceHappinessEvos" layoutX="312.0" layoutY="53.0" mnemonicParsing="false" onMouseClicked="#handleReplaceHappinessEvosClick" text="Replace Happiness evolutions" />
+      <Label layoutX="29.0" layoutY="544.0" text="Normal:" />
+      <Label layoutX="41.0" layoutY="579.0" text="Grass:" />
+      <ChoiceBox fx:id="normal" layoutX="86.0" layoutY="540.0" prefHeight="31.0" prefWidth="65.0" />
+      <Label layoutX="53.0" layoutY="616.0" text="Fire:" />
+      <Label layoutX="37.0" layoutY="650.0" text="Water:" />
+      <ChoiceBox fx:id="grass" layoutX="86.0" layoutY="575.0" prefHeight="31.0" prefWidth="65.0" />
+      <ChoiceBox fx:id="fire" layoutX="86.0" layoutY="610.0" prefHeight="31.0" prefWidth="65.0" />
+      <ChoiceBox fx:id="water" layoutX="86.0" layoutY="645.0" prefHeight="31.0" prefWidth="65.0" />
+      <Label layoutX="192.0" layoutY="544.0" text="Bug:" />
+      <Label layoutX="174.0" layoutY="579.0" text="Poison:" />
+      <ChoiceBox fx:id="bug" layoutX="226.0" layoutY="540.0" prefHeight="31.0" prefWidth="65.0" />
+      <Label layoutX="179.0" layoutY="616.0" text="Flying:" />
+      <Label layoutX="165.0" layoutY="650.0" text="Fighting:" />
+      <ChoiceBox fx:id="poison" layoutX="226.0" layoutY="575.0" prefHeight="31.0" prefWidth="65.0" />
+      <ChoiceBox fx:id="flying" layoutX="226.0" layoutY="610.0" prefHeight="31.0" prefWidth="65.0" />
+      <ChoiceBox fx:id="fighting" layoutX="226.0" layoutY="645.0" prefHeight="31.0" prefWidth="65.0" />
+      <Label layoutX="321.0" layoutY="546.0" text="Rock:" />
+      <Label layoutX="304.0" layoutY="581.0" text="Ground:" />
+      <ChoiceBox fx:id="rock" layoutX="362.0" layoutY="542.0" prefHeight="31.0" prefWidth="65.0" />
+      <Label layoutX="306.0" layoutY="618.0" text="Electric:" />
+      <Label layoutX="306.0" layoutY="652.0" text="Psychic:" />
+      <ChoiceBox fx:id="ground" layoutX="362.0" layoutY="577.0" prefHeight="31.0" prefWidth="65.0" />
+      <ChoiceBox fx:id="electric" layoutX="362.0" layoutY="612.0" prefHeight="31.0" prefWidth="65.0" />
+      <ChoiceBox fx:id="psychic" layoutX="362.0" layoutY="647.0" prefHeight="31.0" prefWidth="65.0" />
+      <Label layoutX="470.0" layoutY="528.0" text="Ice:" />
+      <Label layoutX="450.0" layoutY="563.0" text="Ghost:" />
+      <ChoiceBox fx:id="ice" layoutX="498.0" layoutY="524.0" prefHeight="31.0" prefWidth="65.0" />
+      <Label layoutX="440.0" layoutY="600.0" text="Dragon:" />
+      <Label layoutX="459.0" layoutY="634.0" text="Darḱ:" />
+      <ChoiceBox fx:id="ghost" layoutX="498.0" layoutY="559.0" prefHeight="31.0" prefWidth="65.0" />
+      <ChoiceBox fx:id="dragon" layoutX="498.0" layoutY="594.0" prefHeight="31.0" prefWidth="65.0" />
+      <ChoiceBox fx:id="dark" layoutX="498.0" layoutY="629.0" prefHeight="31.0" prefWidth="65.0" />
+      <Label layoutX="457.0" layoutY="669.0" text="Steel:" />
+      <ChoiceBox fx:id="steel" layoutX="498.0" layoutY="664.0" prefHeight="31.0" prefWidth="65.0" />
 	</children>
 </AnchorPane>

@@ -9,6 +9,7 @@ public class Constants {
 	
 	public static final int NUM_POKEMON = Pokemon.CELEBI.ordinal() - Pokemon.BULBASAUR.ordinal() + 1;
 	public static final int NUM_STATS = 6;
+	public static final int NUM_TYPES = 17;	
 	
 	public static final int EVOS_ATTACKS = 0x40000;
 	public static final int EGG_MOVES = 0x1d4000;
@@ -25,7 +26,23 @@ public class Constants {
 	public static final int PALETTES_LENGTH = 8;
 	
 	public static final int NORMAL_T = 0;
+	public static final int FIGHTING_T = 1;
 	public static final int FLYING_T = 2;
+	public static final int POISON_T = 3;
+	public static final int GROUND_T = 4;
+	public static final int ROCK_T = 5;
+	public static final int BIRD_T = 6;
+	public static final int BUG_T = 7;
+	public static final int GHOST_T = 8;
+	public static final int STEEL_T = 9;
+	public static final int FIRE_T = 20;
+	public static final int WATER_T = 21;
+	public static final int GRASS_T = 22;
+	public static final int ELECTRIC_T = 23;
+	public static final int PSYCHIC_T = 24;
+	public static final int ICE_T = 25;
+	public static final int DRAGON_T = 26;
+	public static final int DARK_T = 27;
 	
 	public static final byte MOON_STONE = 0x08;
 	public static final byte FIRE_STONE = 0x16;

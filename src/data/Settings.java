@@ -10,6 +10,13 @@ public class Settings {
 	public static int johtoLevelBump = 0; // percentage to raise Johto trainer levels by
 	public static int kantoLevelBump = 0; // percentage to raise Kanto trainer levels by
 	
+	public static int normal = 7;
+	public static int grass = 8, fire = 8, water = 8, bug = 8;
+	public static int poison = 8, flying = 8, fighting = 8, rock = 8;
+	public static int ground = 8, electric = 8, psychic = 8, ice = 8;
+	public static int ghost = 8, dragon = 8, dark = 8, steel = 8;
+			
+	
 	public static void setSlowpokeSlowbro() {
 		
 		Pokemon.SLOWBRO.setEvoType(EvoTypes.EVOTYPE2OF2);

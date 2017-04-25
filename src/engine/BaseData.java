@@ -49,7 +49,7 @@ public class BaseData {
 	
 	public static void fuseTypes (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
-		byte type1i, type2i, type1j, type2j;
+		byte type1i, type2i, type1j, type2j, type1o, type2o;
 		
 		in.position(i);
 		type1i = in.get();
@@ -58,28 +58,115 @@ public class BaseData {
 		type1j = in.get();
 		type2j = in.get();
 		
-		//type 1 has priority, unless type is normal/flying
-		if ((type1i == Constants.NORMAL_T) && (type2i == Constants.FLYING_T)) {
-			type1i = Constants.FLYING_T;
-			type2i = Constants.NORMAL_T;
-		}
-		if ((type1j == Constants.NORMAL_T) && (type2j == Constants.FLYING_T)) {
-			type1j = Constants.FLYING_T;
-			type2j = Constants.NORMAL_T;
+		// score each type based on the order and the custom type priorities
+		int[] typeScore1 = {type1i, 4};
+		int[] typeScore2 = {type1j, 3};
+		int[] typeScore3 = {type2i, 2};
+		int[] typeScore4 = {type2j, 1};
+		
+		int[][] typeMap = {
+				{Constants.NORMAL_T, Settings.normal},
+				{Constants.GRASS_T, Settings.grass},
+				{Constants.FIRE_T, Settings.fire},
+				{Constants.WATER_T, Settings.water},
+				{Constants.BUG_T, Settings.bug},
+				{Constants.POISON_T, Settings.poison},
+				{Constants.FLYING_T, Settings.flying},
+				{Constants.FIGHTING_T, Settings.fighting},
+				{Constants.ROCK_T, Settings.rock},
+				{Constants.GROUND_T, Settings.ground},
+				{Constants.ELECTRIC_T, Settings.electric},
+				{Constants.PSYCHIC_T, Settings.psychic},
+				{Constants.ICE_T, Settings.ice},
+				{Constants.GHOST_T, Settings.ghost},
+				{Constants.DRAGON_T, Settings.dragon},
+				{Constants.DARK_T, Settings.dark},
+				{Constants.STEEL_T, Settings.steel}
+		};
+		
+		// don't repeat types (monotype) unless all 4 types are the same
+		if (type1j == type1i) typeScore2[1] = 0;
+		if (type2i == type1i || type2i == type1j) typeScore3[1] = 0;
+		if (type2j == type1i || type2j == type1j || type2j == type2i) typeScore4[1] = 0;
+		
+		// add type priorities to score
+		if (typeScore1[1] != 0) {
+			for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
+				if (typeMap[x][0] == type1i) {
+					typeScore1[1] += (typeMap[x][1] * 4);
+					break;
+				}
+			}
 		}
 		
-		if (type1i != type1j) { 
-			type2i = type1j; // use type1 of mon1 and type1 of mon2 if they differ
-			
-		} else if (type1i == type2i) { // if mon1 is monotype,
-			if (type1j != type2j) {    // and if mon2 has two types:
-				type2i = type2j;       // use type2 of mon2
+		if (typeScore2[1] != 0) {
+			for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
+				if (typeMap[x][0] == type1j) {
+					typeScore2[1] += (typeMap[x][1] * 4);
+					break;
+				}
 			}
-		} // else, keep type2 of mon1 (no changes)
+		}
+			
+		if (typeScore3[1] != 0) {
+			for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
+				if (typeMap[x][0] == type2i) {
+					typeScore3[1] += (typeMap[x][1] * 4);
+					break;
+				}
+			}
+		}
+		
+		if (typeScore4[1] != 0) {
+			for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
+				if (typeMap[x][0] == type2j) {
+					typeScore4[1] += (typeMap[x][1] * 4);
+					break;
+				}
+			}
+		}
+		
+		// the resulting Pokemon should retrieve one type from each Pokemon if possible
+		if (typeScore1[1] > typeScore3[1]) {
+			typeScore1[1] += 100;
+		} else if (typeScore1[1] < typeScore3[1]) {
+			typeScore3[1] += 100;
+		} // if they are equal, they are also 0 so it's a repeated type
+		
+		if (typeScore2[1] > typeScore4[1]) {
+			typeScore2[1] += 100;
+		} else if (typeScore2[1] < typeScore4[1]) {
+			typeScore4[1] += 100;
+		} // if they are equal, they are also 0 so it's a repeated type
+		
+		// Extract the highest scoring types
+		if (typeScore1[1] > typeScore2[1] && typeScore1[1] > typeScore3[1] && typeScore1[1] > typeScore4[1]) {
+			type1o = type1i;
+			typeScore1[1] = 0;
+		} else if(typeScore2[1] > typeScore1[1] && typeScore2[1] > typeScore3[1] && typeScore2[1] > typeScore4[1]) {
+			type1o = type1j;
+			typeScore2[1] = 0;
+		} else if(typeScore3[1] > typeScore1[1] && typeScore3[1] > typeScore2[1] && typeScore3[1] > typeScore4[1]) {
+			type1o = type2i;
+			typeScore3[1] = 0;
+		} else {
+			type1o = type2j;
+			typeScore4[1] = 0;
+		}
+		
+		if (typeScore1[1] > typeScore2[1] && typeScore1[1] > typeScore3[1] && typeScore1[1] > typeScore4[1]) {
+			type2o = type1i;
+		} else if(typeScore2[1] > typeScore1[1] && typeScore2[1] > typeScore3[1] && typeScore2[1] > typeScore4[1]) {
+			type2o = type1j;
+		} else if(typeScore3[1] > typeScore1[1] && typeScore3[1] > typeScore2[1] && typeScore3[1] > typeScore4[1]) {
+			type2o = type2i;
+		} else {
+			type2o = type2j;
+		}		
 		
 		out.position(i);
-		out.put(type1i);
-		out.put(type2i);
+		out.put(type1o);
+		out.put(type2o);
 	}
 	
 	public static void fuseCatchRates (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {

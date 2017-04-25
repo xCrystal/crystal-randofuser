@@ -64,6 +64,10 @@ public class GuiController implements Initializable {
 	@FXML private RadioButton espeon;
 	@FXML private RadioButton umbreon;
 	
+	private List<Integer> typePriorities = new ArrayList<Integer>();	
+	@FXML private ChoiceBox<Integer> normal, grass, fire, water, bug, poison, flying, fighting;
+	@FXML private ChoiceBox<Integer> rock, ground, electric, psychic, ice, ghost, dragon, dark, steel;	
+	
 	public static GuiController getGuicontroller() {
 		return guiController;
 	}
@@ -81,6 +85,42 @@ public class GuiController implements Initializable {
 		kanto.getItems().addAll(kantoLevels);
 		johto.setValue(0);
 		kanto.setValue(0);
+		
+		typePriorities.addAll(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16));
+		normal.getItems().addAll(typePriorities);
+		grass.getItems().addAll(typePriorities);
+		fire.getItems().addAll(typePriorities);
+		water.getItems().addAll(typePriorities);
+		bug.getItems().addAll(typePriorities);
+		poison.getItems().addAll(typePriorities);
+		flying.getItems().addAll(typePriorities);
+		fighting.getItems().addAll(typePriorities);
+		rock.getItems().addAll(typePriorities);
+		ground.getItems().addAll(typePriorities);
+		electric.getItems().addAll(typePriorities);
+		psychic.getItems().addAll(typePriorities);
+		ice.getItems().addAll(typePriorities);
+		ghost.getItems().addAll(typePriorities);
+		dragon.getItems().addAll(typePriorities);
+		dark.getItems().addAll(typePriorities);
+		steel.getItems().addAll(typePriorities);
+		normal.setValue(7);
+		grass.setValue(8);
+		fire.setValue(8);
+		water.setValue(8);
+		bug.setValue(8);
+		poison.setValue(8);
+		flying.setValue(8);
+		fighting.setValue(8);
+		rock.setValue(8);
+		ground.setValue(8);
+		electric.setValue(8);
+		psychic.setValue(8);
+		ice.setValue(8);
+		ghost.setValue(8);
+		dragon.setValue(8);
+		dark.setValue(8);
+		steel.setValue(8);
 	}
 	
 	private void selectDefaultEvoLines() {
@@ -342,6 +382,142 @@ public class GuiController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
 				Settings.kantoLevelBump = kantoLevels.get(newValue.intValue());
+			}
+		});
+		
+		normal.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.normal = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		grass.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.grass = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		fire.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.fire = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		water.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.water = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		bug.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.bug = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		poison.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.poison = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		flying.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.flying = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		fighting.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.fighting = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		rock.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.rock = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		ground.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.ground = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		electric.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.electric = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		psychic.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.psychic = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		ice.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.ice = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		ghost.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.ghost = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		dragon.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.dragon = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		dark.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.dark = typePriorities.get(newValue.intValue());
+			}
+		});
+		
+		steel.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
+				Settings.steel = typePriorities.get(newValue.intValue());
 			}
 		});
 	}
