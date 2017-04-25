@@ -84,45 +84,32 @@ public class BaseData {
 				{Constants.STEEL_T, Settings.steel}
 		};
 		
-		// don't repeat types (monotype) unless all 4 types are the same
-		if (type1j == type1i) typeScore2[1] = 0;
-		if (type2i == type1i || type2i == type1j) typeScore3[1] = 0;
-		if (type2j == type1i || type2j == type1j || type2j == type2i) typeScore4[1] = 0;
-		
 		// add type priorities to score
-		if (typeScore1[1] != 0) {
-			for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
-				if (typeMap[x][0] == type1i) {
-					typeScore1[1] += (typeMap[x][1] * 4);
-					break;
-				}
+		for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
+			if (typeMap[x][0] == type1i) {
+				typeScore1[1] += (typeMap[x][1] * 4);
+				break;
 			}
 		}
 		
-		if (typeScore2[1] != 0) {
-			for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
-				if (typeMap[x][0] == type1j) {
-					typeScore2[1] += (typeMap[x][1] * 4);
-					break;
-				}
-			}
-		}
-			
-		if (typeScore3[1] != 0) {
-			for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
-				if (typeMap[x][0] == type2i) {
-					typeScore3[1] += (typeMap[x][1] * 4);
-					break;
-				}
+		for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
+			if (typeMap[x][0] == type1j) {
+				typeScore2[1] += (typeMap[x][1] * 4);
+				break;
 			}
 		}
 		
-		if (typeScore4[1] != 0) {
-			for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
-				if (typeMap[x][0] == type2j) {
-					typeScore4[1] += (typeMap[x][1] * 4);
-					break;
-				}
+		for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
+			if (typeMap[x][0] == type2i) {
+				typeScore3[1] += (typeMap[x][1] * 4);
+				break;
+			}
+		}
+		
+		for (int x = 0 ; x < Constants.NUM_TYPES ; x ++) {
+			if (typeMap[x][0] == type2j) {
+				typeScore4[1] += (typeMap[x][1] * 4);
+				break;
 			}
 		}
 		
@@ -131,13 +118,13 @@ public class BaseData {
 			typeScore1[1] += 100;
 		} else if (typeScore1[1] < typeScore3[1]) {
 			typeScore3[1] += 100;
-		} // if they are equal, they are also 0 so it's a repeated type
+		}
 		
 		if (typeScore2[1] > typeScore4[1]) {
 			typeScore2[1] += 100;
 		} else if (typeScore2[1] < typeScore4[1]) {
 			typeScore4[1] += 100;
-		} // if they are equal, they are also 0 so it's a repeated type
+		}
 		
 		// Extract the highest scoring types
 		if (typeScore1[1] > typeScore2[1] && typeScore1[1] > typeScore3[1] && typeScore1[1] > typeScore4[1]) {
@@ -154,15 +141,21 @@ public class BaseData {
 			typeScore4[1] = 0;
 		}
 		
-		if (typeScore1[1] > typeScore2[1] && typeScore1[1] > typeScore3[1] && typeScore1[1] > typeScore4[1]) {
-			type2o = type1i;
-		} else if(typeScore2[1] > typeScore1[1] && typeScore2[1] > typeScore3[1] && typeScore2[1] > typeScore4[1]) {
-			type2o = type1j;
-		} else if(typeScore3[1] > typeScore1[1] && typeScore3[1] > typeScore2[1] && typeScore3[1] > typeScore4[1]) {
-			type2o = type2i;
-		} else {
-			type2o = type2j;
-		}		
+		do {
+			if (typeScore1[1] > typeScore2[1] && typeScore1[1] > typeScore3[1] && typeScore1[1] > typeScore4[1]) {
+				type2o = type1i;
+				typeScore1[1] = 0;
+			} else if(typeScore2[1] > typeScore1[1] && typeScore2[1] > typeScore3[1] && typeScore2[1] > typeScore4[1]) {
+				type2o = type1j;
+				typeScore2[1] = 0;
+			} else if(typeScore3[1] > typeScore1[1] && typeScore3[1] > typeScore2[1] && typeScore3[1] > typeScore4[1]) {
+				type2o = type2i;
+				typeScore3[1] = 0;
+			} else {
+				type2o = type2j;
+				typeScore4[1] = 0;
+			}
+		} while (type1o == type2o && (typeScore1[1] != 0 || typeScore2[1] != 0 || typeScore3[1] != 0 || typeScore4[1] != 0));
 		
 		out.position(i);
 		out.put(type1o);
