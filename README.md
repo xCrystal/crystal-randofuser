@@ -36,13 +36,11 @@ Trade evolutions have been replaced with reasonable level-based evolutions. If s
 If two Pokemon with level-based evolutions are fused, the resulting Pokemon will evolve at the average of the two. If the "Average Base Stat patterns only" setting is selected, however, the base Pokemon's evolution level will weigh 80% of the total. Refer to the *Settings* section for more information. If either Pokemon evolves through other method (happiness, stone), the evolution type of the base Pokemon will be tranferred to the resulting Pokemon unchanged.
 
 #### <b>Types</b>
-The first type of the base Pokemon will always be chosen from the first type of the resulting Pokemon. The secondary type will 
-be taken from the first type of the secondary Pokemon, unless the types match. If so, a secondary type of one of the fused 
-Pokemon will be used, if possible. For example, Nidorino plus Gloom will yield a Poison/Grass Pokemon while Lanturn fused with
-Gyarados will output a Water/Electric Pokemon. Marill fused with Goldeen will simply yield a Water-type Pokemon.
+The resulting Pokemon will have a type taken from the base Pokemon and a type taken from the secondary Pokemon whenever possible. If either Pokemon is dual-type, the type chosen from it will be scored according to the custom type priorities (the type with the higher priority of the two will be chosen). If both types have the same priority, the primary type will be chosen. If both Pokemon are of the same single type, the resulting Pokemon will also be of only that type. 
 
-In all cases, Normal/Flying Pokemon are treated as Flying/Normal Pokemon instead. For example, Pidgey plus Machop will turn 
-into a Flying/Fighting Pokemon.
+If the resulting Pokemon is dual-type, its primary type will be the one with the higher score of the two, and its secondary type will be the one with the lower (second-highest) score. It both types have the same priority, the primary type will be the one that was taken from the base Pokemon and the secondary type will be the one coming from the secondary Pokemon.
+
+Consider for example a Gyarados (base Pokemon) + Lanturn (secondary Pokemon) fusion. If Water type's priority is 7, Flying type's priority is 8, and Electric type's priority is 9, the resulting Pokemon will be Electric/Flying. If Electric's priority was 8 instead, the resulting Pokemon would be Flying/Electric. If the priorities were Water=10, Flying=8, and Electric=9, the fusion would be Water/Electric. If they were Water=10, Flying=9, and Electric=9, the fusion would be Water/Flying, just like if all three types had the same priority value.
 
 #### <b>Moves</b>
 Learnsets are combined, including level-up, egg, and TM/HM moves. For example, if Cyndaquil gets fused with Gastly, it will learn Ember at level 12 and Mean Look at level 13, and will be able to learn both Fire Blast and Shadow Ball via TM. Moreover, level-up moves are arranged by level. When the moveset of a wild or trainer Pokemon is filled, it will end up with the last four moves that the two original Pokemon could learn by that level. For example, a level 30 "Gyarasect", will show up with Bite, Dragon Rage, Spore and Leer. Trainers no longer may have custom movesets.
@@ -91,6 +89,9 @@ There are some suggested defaults available to be chosen.
 
 #### <b>Evolutionary Lines</b>
 These settings are independent from the other ones and let the user choose which Pokemon follow its original evolutionary line. It also includes an option to separate Scyther and Scizor, as they have the same BST. Keep in mind that the Pokemon that you leave unselected will most likely become unobtainable, unless you play Catch 'Em All mode (see below).
+
+#### <b>Type priorities</b>
+Assign a different priority to each type to determine how the types should be fused, as detailed in the 'Types' subsection above. You can use this to favor the appearance of rare types like Dark, Ice, Steel or Dragon, or just your favorites. You could lower the priority of generic types with lots of monotype Pokemon like Water or Normal so that they become a little less common. Be careful with type priorities though, as decreasing the priority of certain types could make them extinct. For example, if the Flying type is tied for the lowest priority, it will never show up given that there's no Pokemon with Flying as its primary type. This is the reason why the Normal type priority defaults to one point below all the other types; this way Normal/Flying Pokemon will pass their Flying type, while Pokemon like Xatu, Butterfree or Dragonite pass their other type.
 
 #### <b>Catch 'Em All mode</b>
 Two .ips patches are provided with the download. *crystal-randofuser.ips* is the normal patch, while *crystal-randofuser-catchemall.ips* incorporates additional changes to make all 251 Pokemon obtainable, including those that may become unattainable as a result of the *Evolutionary Line* settings. Even if you're not interested in completing the Pokédex, the Catch 'Em All option provides more variety to the Pokemon you can build your team with. With the Catch 'Em All patch you will also be able to purchase the evolutionary stones, except Moon and Sun, in the Ecruteak Mart. More information on how to use these patches in *Download & How to use*. For information on where the new Pokemon can be found, refer to the *catchemall.txt* file.
