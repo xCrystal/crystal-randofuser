@@ -91,10 +91,10 @@ There are some suggested defaults available to be chosen.
 These settings are independent from the other ones and let the user choose which Pokemon follow its original evolutionary line. It also includes an option to separate Scyther and Scizor, as they have the same BST. Keep in mind that the Pokemon that you leave unselected will most likely become unobtainable, unless you play Catch 'Em All mode (see below).
 
 #### <b>Type priorities</b>
-Assign a different priority to each type to determine how the types should be fused, as detailed in the 'Types' subsection above. You can use this to favor the appearance of rare types like Dark, Ice, Steel or Dragon, or just your favorites. You could lower the priority of generic types with lots of monotype Pokemon like Water or Normal so that they become a little less common. Be careful with type priorities though, as decreasing the priority of certain types could make them extinct. For example, if the Flying type is tied for the lowest priority, it will never show up given that there's no Pokemon with Flying as its primary type. This is the reason why the Normal type priority defaults to one point below all the other types; this way Normal/Flying Pokemon will pass their Flying type, while Pokemon like Xatu, Butterfree or Dragonite pass their other type.
+Assign a different priority to each type to determine how the types should be fused, as detailed in the *Types* subsection above. You can use this to favor the appearance of rare types like Dark, Ice, Steel or Dragon, or just your favorites. You could lower the priority of generic types with lots of monotype Pokemon like Water or Normal so that they become a little less common. Be careful with type priorities though, as decreasing the priority of certain types could make them extinct. For example, if the Flying type is tied for the lowest priority, it will never show up given that there's no Pokemon with Flying as its primary type. This is the reason why the Normal type priority defaults to one point below all the other types; this way Normal/Flying Pokemon will pass their Flying type, while Pokemon like Xatu, Butterfree or Dragonite pass their other type.
 
 #### <b>Catch 'Em All mode</b>
-Two .ips patches are provided with the download. *crystal-randofuser.ips* is the normal patch, while *crystal-randofuser-catchemall.ips* incorporates additional changes to make all 251 Pokemon obtainable, including those that may become unattainable as a result of the *Evolutionary Line* settings. Even if you're not interested in completing the Pokédex, the Catch 'Em All option provides more variety to the Pokemon you can build your team with. With the Catch 'Em All patch you will also be able to purchase the evolutionary stones, except Moon and Sun, in the Ecruteak Mart. More information on how to use these patches in *Download & How to use*. For information on where the new Pokemon can be found, refer to the *catchemall.txt* file.
+Two Pokemon Crystal ROMs are provided in the download. *crystal-notcea.gbc* is the regular one, while *crystal-cea.gbc* incorporates additional changes to make all 251 Pokemon obtainable, including those that may become unattainable as a result of the *Evolutionary Line* settings. Even if you're not interested in completing the Pokédex, the Catch 'Em All option provides more variety to the Pokemon you can capture and therefore build your team with. In the Catch 'Em All mode you will also be able to purchase the evolutionary stones, except Moon and Sun, in the Ecruteak Mart. For information on where the new Pokemon can be found in the Catch 'Em All mode, refer to the *catchemall.txt* file provided in the download.
 
 ## Other notes
 
@@ -104,9 +104,8 @@ Two .ips patches are provided with the download. *crystal-randofuser.ips* is the
 - The odd egg Pokemon has random DVs
 
 ## Download & How to use
-- Download [crystal-randofuser.zip](https://github.com/xCrystal/crystal-randofuser/releases/download/v1.1/crystal-randofuser.zip?raw=true) and extract the .jar file and the two .ips files
-- Get yourself the following ROM: <b>Pokemon - Crystal Version (UE) (V1.0) [C][!]</b>
-- Apply either of the two .ips patches to the ROM with [Lunar IPS](http://fusoya.eludevisibility.org/lips/), and save the result as *crystal.gbc* in the directory where you extracted the .jar file. Note that in *crystal.gbc*, .gbc is the extension. If your system doesn't display the extension suffix as part of the filename, name the file just *crystal* instead.
+- Download [crystal-randofuser.zip](https://github.com/xCrystal/crystal-randofuser/releases/download/v1.3/crystal-randofuser.zip?raw=true) and extract the .jar file and the two .gbc files
+- Rename either *crystal-notcea.gbc* or *crystal-cea.gbc*, depending on which mode you want to play, to *crystal.gbc*. Note that in *crystal.gbc*, *.gbc* is the extension. If your system doesn't display the extension suffix as part of the filename, name the file just *crystal* instead.
 - Execute *crystal-randofuser.jar*. Choose your desired settings and click on the "Randofuse!" button to generate a ready-to-play "randofused" ROM that will named *crystal_randofused.gbc*
 - Do not combine this tool with any other hacking tool or randomizer
 
@@ -133,5 +132,9 @@ If you think you've found a bug, feel free to let me know about it by opening an
 - Minor bug fixes and improvements
 
 ### v1.2
-- Fix wrong species bug with special evolutions
+- Fixed wrong species bug with special evolutions
 - Johto starters are now available to be caught in the catch 'em all mode
+
+### v1.3
+- Added type priorities
+- Ready-to-randofuse ROMs are provided rather than .ips patch files. Don't tell your uncle who works at Nintendo about this
