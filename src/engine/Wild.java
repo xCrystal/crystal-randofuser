@@ -37,4 +37,17 @@ public class Wild {
 		buf = RandomizePokemon.randomize(buf, paramsTimeFishGroups, (byte) 0x21, 2, false);
 	}
 
+	public static void randomizeTree(ByteBuffer buf) {
+
+		if (!Settings.randomizeWildPokemon) return;
+		
+		buf.rewind();
+		
+		int[] params = {1, 1, 1,  1, 0, 1};
+		
+		for (int i = 0; i <= 12; i ++) {
+			buf = RandomizePokemon.randomize(buf, params, (byte) 0xff, 2, false);
+		}
+	}
+
 }
