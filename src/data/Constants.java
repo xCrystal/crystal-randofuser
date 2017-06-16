@@ -20,6 +20,8 @@ public class Constants {
 	public static final int TRAINERS_END = 0x3b4f1;
 	public static final int WILD = 0x2a5e9;
 	public static final int WILD_END = 0x2b92f;
+	public static final int FISH = 0x924e3;
+	public static final int FISH_END = 0x926c7 + 1;	
 
 	public static final int EVOS_ATTACKS_LENGTH = 0x31;
 	public static final int EGG_MOVES_LENGTH = 19;

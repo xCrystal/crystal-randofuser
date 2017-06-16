@@ -30,6 +30,7 @@ public class Main {
 		ByteBuffer buf_trainers = ByteBuffer.allocate(Constants.TRAINERS_END - Constants.TRAINERS);
 		
 		ByteBuffer buf_wild = ByteBuffer.allocate(Constants.WILD_END - Constants.WILD);
+		ByteBuffer buf_fish = ByteBuffer.allocate(Constants.FISH_END - Constants.FISH);
 
 		try (
 			RandomAccessFile fin = new RandomAccessFile(Constants.FILE_NAME_IN,  "r" );
@@ -50,6 +51,7 @@ public class Main {
 			Engine.readData(chin, buf_pals_r, buf_pals_w, Constants.PALETTES);
 			Engine.readData(chin, buf_trainers, Constants.TRAINERS);
 			Engine.readData(chin, buf_wild, Constants.WILD);
+			Engine.readData(chin, buf_fish, Constants.FISH);
 			
 			boolean anyNotFused;
 			int[] fusionIds;
@@ -73,6 +75,7 @@ public class Main {
 			Engine.switchPalettes(buf_pals_r, buf_pals_w, fusionIds);
 			Trainers.raiseLevels(buf_trainers);
 			Wild.randomizeWild(buf_wild);
+			Wild.randomizeFish(buf_fish);
 			
 			Engine.copyData(chout, buf_names, Constants.NAMES);
 			Engine.copyData(chout, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
@@ -81,6 +84,7 @@ public class Main {
 			Engine.copyData(chout, buf_pals_w, Constants.PALETTES);
 			Engine.copyData(chout, buf_trainers, Constants.TRAINERS);
 			Engine.copyData(chout, buf_wild, Constants.WILD);
+			Engine.copyData(chout, buf_fish, Constants.FISH);
 			
 			Engine.writeEvolutionChangesToRomIfAny(chout);
 			Engine.replaceHappinessEvosIfSelected(chout);

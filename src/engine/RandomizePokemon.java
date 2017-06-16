@@ -10,6 +10,8 @@ public class RandomizePokemon {
 
 	static byte getRandomMatchingPokemon(byte mon_in, boolean isTrainer) {
 		
+		if (mon_in == 0) return 0;
+		
 		int strength_in = Pokemon.values()[(mon_in - 1) & 0xff].getStrength();
 		if (!isTrainer && strength_in >= 4) strength_in = 4;
 		int mon_out = 0, strength_out = 0;
@@ -51,7 +53,7 @@ public class RandomizePokemon {
 	
 	static ByteBuffer randomize(ByteBuffer buf, int[] params, byte terminator, int numSequences, boolean isTrainer) {
 		
-		while (buf.get() != (byte) 0xff) {
+		while (buf.get() != terminator && buf.position() != buf.capacity()) {
 			buf.position(buf.position() - 1);
 			i = 0;
 			for (int j = 0; j < numSequences; j ++) {
