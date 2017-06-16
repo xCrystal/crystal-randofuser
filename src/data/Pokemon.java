@@ -1,7 +1,7 @@
 package data;
 
 public enum Pokemon {
-	
+
 	BULBASAUR  (EvoTypes.EVOTYPE1OF3, 2),
 	IVYSAUR    (EvoTypes.EVOTYPE2OF3, 4),
 	VENUSAUR   (EvoTypes.EVOTYPE3OF3, 6),
@@ -254,10 +254,10 @@ public enum Pokemon {
 	HO_OH      (EvoTypes.LEGEND, 6),
 	CELEBI     (EvoTypes.LEGEND, 6),
 	NONE       (EvoTypes.NONE, 0);
-	
+
 	private EvoTypes evoType;
 	private int strength;
-	
+
 	Pokemon (EvoTypes evoType, int strength) {
 		this.evoType = evoType;
 		this.strength = strength;
@@ -270,13 +270,13 @@ public enum Pokemon {
 	public void setEvoType(EvoTypes evoType) {
 		this.evoType = evoType;
 	}
-	
+
 	public int getStrength() {
 		return strength;
 	}
 
 	public void setStrength(int strength) {
 		this.strength = strength;
-	}	
+	}
 
 }

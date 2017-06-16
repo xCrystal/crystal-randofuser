@@ -106,7 +106,7 @@
       <ChoiceBox fx:id="dark" layoutX="498.0" layoutY="673.0" prefHeight="31.0" prefWidth="65.0" />
       <Label layoutX="457.0" layoutY="713.0" text="Steel:" />
       <ChoiceBox fx:id="steel" layoutX="498.0" layoutY="708.0" prefHeight="31.0" prefWidth="65.0" />
-      <CheckBox fx:id="randomizeWildPokemon" layoutX="26.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleRandomizeWildPokemonClick" text="Randomize Wild Pokémon" />
+      <CheckBox fx:id="randomizeWildPokemon" layoutX="26.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleRandomizeWildPokemonClick" text="Randomize Wild encounters" />
       <CheckBox fx:id="randomizeTrainerPokemon" layoutX="312.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleRandomizeTrainerPokemonClick" text="Randomize Trainer Pokémon" />
 	</children>
 </AnchorPane>

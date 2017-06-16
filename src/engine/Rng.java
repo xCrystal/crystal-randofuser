@@ -5,9 +5,9 @@ import java.util.Random;
 public class Rng {
 
 	private static final Random rnd = new Random();
-	
+
 	static int randomRange (int min, int max) {
-		
+
 		if (min > max) {
 			int temp = min;
 			min = max;
@@ -15,5 +15,5 @@ public class Rng {
 		}
 		return  min + rnd.nextInt(max - min + 1);
 	}
-	
+
 }

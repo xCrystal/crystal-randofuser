@@ -256,7 +256,7 @@ public enum Names {
 	HO_OH      ("HO-<",   "-OH<"),
 	CELEBI     ("CELE<",  "LEBI<"),
 	NONE       ("", "");
-	
+
 	private String prefix;
 	private String suffix;
 
@@ -264,39 +264,39 @@ public enum Names {
 		this.prefix = prefix;
 		this.suffix = suffix;
 	}
-	
+
 	public void setPrefix(String prefix) {
 		this.prefix = prefix;
 	}
-	
+
 	public void setSuffix(String suffix) {
 		this.suffix = suffix;
 	}
 
 	public byte[] getPrefix() {
-		
+
 		byte[] bytes = prefix.getBytes(StandardCharsets.US_ASCII);
-		
+
 		int i = 0;
 		for (byte b : bytes) {
-			
+
 			if (b == '.') b = (byte) 0xe8;
 			else if (b == ' ') b = (byte) 0x7f;
 			else if (b == '-') b = (byte) 0xe3;
 			else if (b == '<') b = (byte) 0x50;
 			else b += 0x3f;
-			
+
 			bytes[i] = b;
 			i ++;
 		}
-		
+
 		return bytes;
 	}
-	
+
 	public byte[] getSuffix() {
-		
+
 		byte[] bytes = suffix.getBytes(StandardCharsets.US_ASCII);
-		
+
 		int i = 0;
 		for (byte b : bytes) {
 
@@ -307,12 +307,12 @@ public enum Names {
 			else if (b == '2') b = (byte) 0xf8;
 			else if (b == '<') b = (byte) 0x50;
 			else b += 0x3f;
-			
+
 			bytes[i] = b;
 			i ++;
 		}
-		
+
 		return bytes;
 	}
-	
+
 }

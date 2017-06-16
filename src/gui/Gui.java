@@ -11,15 +11,15 @@ import javafx.stage.Stage;
 
 
 public class Gui extends Application {
-	
+
 	private Stage primaryStage;
 	private AnchorPane ap;
-			
+
 	@Override
 	public void start (Stage primaryStage) throws IOException {
-		
+
 		setPrimaryStage(primaryStage);
-		FXMLLoader loader = new FXMLLoader();	
+		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("gui.fxml"));
 		ap = loader.load();
 		primaryStage.setTitle("Pokémon Crystal Randofuser");
@@ -28,7 +28,7 @@ public class Gui extends Application {
 		primaryStage.show();
 	}
 
-	public static void main (String[] args) {		
+	public static void main (String[] args) {
 		launch();
 	}
 
@@ -46,5 +46,5 @@ public class Gui extends Application {
 
 	public void setAnchorPane(AnchorPane ap) {
 		this.ap = ap;
-	}	
+	}
 }

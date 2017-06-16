@@ -10,25 +10,25 @@ import data.Constants;
 import data.Pokemon;
 
 public class Main {
-	
+
 	public static void main() {
-		
+
 		ByteBuffer buf_names = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.NAMES_LENGTH);
-		
+
 		ByteBuffer buf_evosAttacks_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.EVOS_ATTACKS_LENGTH);
 		ByteBuffer buf_evosAttacks_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.EVOS_ATTACKS_LENGTH);
-		
+
 		ByteBuffer buf_eggMoves_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.EGG_MOVES_LENGTH);
 		ByteBuffer buf_eggMoves_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.EGG_MOVES_LENGTH);
-		
+
 		ByteBuffer buf_baseData_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.BASE_DATA_LENGTH);
 		ByteBuffer buf_baseData_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.BASE_DATA_LENGTH);
-		
+
 		ByteBuffer buf_pals_r = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.PALETTES_LENGTH);
 		ByteBuffer buf_pals_w = ByteBuffer.allocate(Constants.NUM_POKEMON * Constants.PALETTES_LENGTH);
-		
+
 		ByteBuffer buf_trainers = ByteBuffer.allocate(Constants.TRAINERS_END - Constants.TRAINERS);
-		
+
 		ByteBuffer buf_wild = ByteBuffer.allocate(Constants.WILD_END - Constants.WILD);
 		ByteBuffer buf_fish = ByteBuffer.allocate(Constants.FISH_END - Constants.FISH);
 		ByteBuffer buf_tree = ByteBuffer.allocate(Constants.TREE_END - Constants.TREE);
@@ -40,12 +40,12 @@ public class Main {
 			FileChannel chin  = fin.getChannel();
 			FileChannel chout = fout.getChannel();
 		) {
-			
+
 			if (Engine.verifyRom(chin) == false)
 				throw new FileNotFoundException();
-			
+
 			Engine.createRomCopy(chin, chout);
-			
+
 			Engine.readData(chin, buf_names, Constants.NAMES);
 			Engine.readData(chin, buf_evosAttacks_r, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
 			Engine.readData(chin, buf_eggMoves_r, buf_eggMoves_w, Constants.EGG_MOVES);
@@ -56,33 +56,34 @@ public class Main {
 			Engine.readData(chin, buf_fish, Constants.FISH);
 			Engine.readData(chin, buf_tree, Constants.TREE);
 			Engine.readData(chin, buf_contest, Constants.CONTEST);
-			
+
 			boolean anyNotFused;
 			int[] fusionIds;
-			
+
 			// can't seem to figure out why some pokemon might fuse with themselves
 			// so here's this dirty workaround.
 			do {
 				anyNotFused = false;
 				fusionIds = Shuffle.shufflePokemonIds();
-			
+
 				for (int i = 0 ; i <= Pokemon.CELEBI.ordinal() ; i ++) {
 					if (i == fusionIds[i] && i != Pokemon.UNOWN.ordinal())
 						anyNotFused = true;
 				}
-			} while (anyNotFused);		
-			
+			} while (anyNotFused);
+
 			Engine.fuseNames(chout, buf_names, fusionIds);
 			EvosAttacks.fuseEvosAttacks(buf_evosAttacks_r, buf_evosAttacks_w, fusionIds);
 			EvosAttacks.fuseEggMoves(buf_eggMoves_r, buf_eggMoves_w, fusionIds);
 			Engine.fuseBaseData(buf_baseData_r, buf_baseData_w, fusionIds);
 			Engine.switchPalettes(buf_pals_r, buf_pals_w, fusionIds);
 			Trainers.raiseLevels(buf_trainers);
+			Trainers.randomizeParties(buf_trainers);
 			Wild.randomizeWild(buf_wild);
 			Wild.randomizeFish(buf_fish);
 			Wild.randomizeTree(buf_tree);
 			Wild.randomizeContest(buf_contest);
-			
+
 			Engine.copyData(chout, buf_names, Constants.NAMES);
 			Engine.copyData(chout, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
 			Engine.copyData(chout, buf_eggMoves_w, Constants.EGG_MOVES);
@@ -93,21 +94,21 @@ public class Main {
 			Engine.copyData(chout, buf_fish, Constants.FISH);
 			Engine.copyData(chout, buf_tree, Constants.TREE);
 			Engine.copyData(chout, buf_contest, Constants.CONTEST);
-			
+
 			Engine.writeEvolutionChangesToRomIfAny(chout);
 			Engine.replaceHappinessEvosIfSelected(chout);
-			Engine.writeModifiedParabolicGrowthRateIfSelected(chout);			
-			
+			Engine.writeModifiedParabolicGrowthRateIfSelected(chout);
+
 			Engine.fixGlobalChecksum(chout);
-			
+
 		} catch (FileNotFoundException e) {
 			Engine.print(Constants.FILE_NAME_IN + " was not found in the directory "
 					+ "or is not valid for the Pokemon Crystal Randofuser.\n");
-			
+
 		} catch (IOException e) {
 			Engine.print("An unexpected error has occurred. Try again maybe?");
 		}
-	
+
 	}
-	
+
 }

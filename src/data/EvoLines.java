@@ -32,7 +32,7 @@ public enum EvoLines {
 	_PONYTA     (Pokemon.PONYTA,     Pokemon.RAPIDASH,   Pokemon.NONE),
 	_SLOWPOKE   (Pokemon.SLOWPOKE,   Pokemon.SLOWBRO,    Pokemon.NONE),
 	_MAGNEMITE  (Pokemon.MAGNEMITE,  Pokemon.MAGNETON,   Pokemon.NONE),
-	_FARFETCH_D (Pokemon.FARFETCH_D ,Pokemon.NONE,       Pokemon.NONE),    
+	_FARFETCH_D (Pokemon.FARFETCH_D ,Pokemon.NONE,       Pokemon.NONE),
 	_DODUO      (Pokemon.DODUO,      Pokemon.DODRIO,     Pokemon.NONE),
 	_SEEL       (Pokemon.SEEL,       Pokemon.DEWGONG,    Pokemon.NONE),
 	_GRIMER     (Pokemon.GRIMER,     Pokemon.MUK,        Pokemon.NONE),
@@ -141,11 +141,11 @@ public enum EvoLines {
 	_LUGIA      (Pokemon.LUGIA,      Pokemon.NONE,       Pokemon.NONE),
 	_HO_OH      (Pokemon.HO_OH,      Pokemon.NONE,       Pokemon.NONE),
 	_CELEBI     (Pokemon.CELEBI,     Pokemon.NONE,       Pokemon.NONE);
-	
+
 	private Pokemon pkmn1;
 	private Pokemon pkmn2;
 	private Pokemon pkmn3;
-	
+
 	EvoLines (Pokemon pkmn1, Pokemon pkmn2, Pokemon pkmn3) {
 		this.setPkmn1(pkmn1);
 		this.setPkmn2(pkmn2);
@@ -175,5 +175,5 @@ public enum EvoLines {
 	public void setPkmn3(Pokemon pkmn3) {
 		this.pkmn3 = pkmn3;
 	}
-	
+
 }
