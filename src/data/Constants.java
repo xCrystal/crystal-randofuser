@@ -23,7 +23,9 @@ public class Constants {
 	public static final int FISH = 0x924e3;
 	public static final int FISH_END = 0x926c7 + 1;
 	public static final int TREE = 0xb82fa;
-	public static final int TREE_END = 0xb83e5;	
+	public static final int TREE_END = 0xb83e5;
+	public static final int CONTEST = 0x97d87;
+	public static final int CONTEST_END = 0x97db3;
 
 	public static final int EVOS_ATTACKS_LENGTH = 0x31;
 	public static final int EGG_MOVES_LENGTH = 19;

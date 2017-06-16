@@ -32,6 +32,7 @@ public class Main {
 		ByteBuffer buf_wild = ByteBuffer.allocate(Constants.WILD_END - Constants.WILD);
 		ByteBuffer buf_fish = ByteBuffer.allocate(Constants.FISH_END - Constants.FISH);
 		ByteBuffer buf_tree = ByteBuffer.allocate(Constants.TREE_END - Constants.TREE);
+		ByteBuffer buf_contest = ByteBuffer.allocate(Constants.CONTEST_END - Constants.CONTEST);
 
 		try (
 			RandomAccessFile fin = new RandomAccessFile(Constants.FILE_NAME_IN,  "r" );
@@ -54,6 +55,7 @@ public class Main {
 			Engine.readData(chin, buf_wild, Constants.WILD);
 			Engine.readData(chin, buf_fish, Constants.FISH);
 			Engine.readData(chin, buf_tree, Constants.TREE);
+			Engine.readData(chin, buf_contest, Constants.CONTEST);
 			
 			boolean anyNotFused;
 			int[] fusionIds;
@@ -79,6 +81,7 @@ public class Main {
 			Wild.randomizeWild(buf_wild);
 			Wild.randomizeFish(buf_fish);
 			Wild.randomizeTree(buf_tree);
+			Wild.randomizeContest(buf_contest);
 			
 			Engine.copyData(chout, buf_names, Constants.NAMES);
 			Engine.copyData(chout, buf_evosAttacks_w, Constants.EVOS_ATTACKS);
@@ -89,6 +92,7 @@ public class Main {
 			Engine.copyData(chout, buf_wild, Constants.WILD);
 			Engine.copyData(chout, buf_fish, Constants.FISH);
 			Engine.copyData(chout, buf_tree, Constants.TREE);
+			Engine.copyData(chout, buf_contest, Constants.CONTEST);
 			
 			Engine.writeEvolutionChangesToRomIfAny(chout);
 			Engine.replaceHappinessEvosIfSelected(chout);

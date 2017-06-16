@@ -50,4 +50,15 @@ public class Wild {
 		}
 	}
 
+	public static void randomizeContest(ByteBuffer buf) {
+		
+		if (!Settings.randomizeWildPokemon) return;
+		
+		buf.rewind();
+		
+		int[] params = {1, 1, 1,  2, 0, 1};
+		
+		buf = RandomizePokemon.randomize(buf, params, (byte) 0xff, 2, false);
+	}
+
 }
