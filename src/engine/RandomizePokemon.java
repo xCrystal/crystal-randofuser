@@ -8,19 +8,22 @@ public class RandomizePokemon {
 	
 	private static int i = 0, replaceCnt = 0, repeatCnt = 0;
 
-	static byte getRandomMatchingPokemon(byte mon_in) {
+	static byte getRandomMatchingPokemon(byte mon_in, boolean isTrainer) {
 		
-		int strength = Pokemon.values()[(mon_in - 1) & 0xff].getStrength();
-		int mon_out = 0;
+		int strength_in = Pokemon.values()[(mon_in - 1) & 0xff].getStrength();
+		if (!isTrainer && strength_in >= 4) strength_in = 4;
+		int mon_out = 0, strength_out = 0;
 		
 		do {
 			mon_out = Rng.randomRange(Pokemon.BULBASAUR.ordinal(), Pokemon.CELEBI.ordinal());
-		} while (Pokemon.values()[mon_out].getStrength() != strength);
+			strength_out = Pokemon.values()[mon_out].getStrength();
+			if (!isTrainer && strength_out >= 4) strength_out = 4;
+		} while (strength_out != strength_in);
 		
 		return (byte) (mon_out + 1);
 	}
 	
-	static ByteBuffer doRandomizeSequence(ByteBuffer buf, int[] params) {
+	static ByteBuffer doRandomizeSequence(ByteBuffer buf, int[] params, boolean isTrainer) {
 
 		byte read = 0;
 		
@@ -34,7 +37,7 @@ public class RandomizePokemon {
 					read = buf.get();
 					buf.position(buf.position() - 1);
 					if (replaceCnt != 0) {
-						buf.put(getRandomMatchingPokemon(read));					
+						buf.put(getRandomMatchingPokemon(read, isTrainer));					
 						replaceCnt --;	
 					}
 				} while (replaceCnt != 0);				
@@ -46,13 +49,13 @@ public class RandomizePokemon {
 		return buf;
 	}
 	
-	static ByteBuffer randomize(ByteBuffer buf, int[] params, byte terminator, int numSequences) {
+	static ByteBuffer randomize(ByteBuffer buf, int[] params, byte terminator, int numSequences, boolean isTrainer) {
 		
 		while (buf.get() != (byte) 0xff) {
 			buf.position(buf.position() - 1);
 			i = 0;
 			for (int j = 0; j < numSequences; j ++) {
-				buf = doRandomizeSequence(buf, params);	
+				buf = doRandomizeSequence(buf, params, isTrainer);	
 			}
 		}
 		
