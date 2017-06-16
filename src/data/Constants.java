@@ -18,6 +18,8 @@ public class Constants {
 	public static final int PALETTES = 0xa8ce + 8;
 	public static final int TRAINERS = 0x39a21;
 	public static final int TRAINERS_END = 0x3b4f1;
+	public static final int WILD = 0x2a5e9;
+	public static final int WILD_END = 0x2b92f;
 
 	public static final int EVOS_ATTACKS_LENGTH = 0x31;
 	public static final int EGG_MOVES_LENGTH = 19;

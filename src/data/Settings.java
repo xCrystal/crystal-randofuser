@@ -7,6 +7,9 @@ public class Settings {
 	public static boolean homogenizeGrowthRates = false;
 	public static boolean replaceHappinessEvos = false;
 	
+	public static boolean randomizeWildPokemon = false;
+	public static boolean randomizeTrainerPokemon = false;
+	
 	public static int johtoLevelBump = 0; // percentage to raise Johto trainer levels by
 	public static int kantoLevelBump = 0; // percentage to raise Kanto trainer levels by
 	

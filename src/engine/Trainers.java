@@ -6,7 +6,7 @@ import data.Settings;
 
 public class Trainers {
 
-	public static void raiseLevels(ByteBuffer buf) {
+	static void raiseLevels(ByteBuffer buf) {
 		
 		if (Settings.johtoLevelBump == 0 && Settings.kantoLevelBump == 0) return;
 		

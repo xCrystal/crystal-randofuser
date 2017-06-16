@@ -9,7 +9,7 @@ import data.Settings;
 
 public class EvosAttacks {
 	
-	public static void fuseEvosAttacks (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
+	static void fuseEvosAttacks (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
 		
 		byte[] evosAttacks1 = new byte[Constants.EVOS_ATTACKS_LENGTH];
 		byte[] evosAttacks2 = new byte[Constants.EVOS_ATTACKS_LENGTH];
@@ -94,7 +94,7 @@ public class EvosAttacks {
 		}
 	}
 	
-	public static void fuseEggMoves (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
+	static void fuseEggMoves (ByteBuffer in, ByteBuffer out, int[] fusionIds) {
 		
 		byte[] eggMoves1 = new byte[Constants.EGG_MOVES_LENGTH];
 		byte[] eggMoves2 = new byte[Constants.EGG_MOVES_LENGTH];

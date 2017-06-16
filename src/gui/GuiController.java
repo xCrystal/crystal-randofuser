@@ -34,6 +34,9 @@ public class GuiController implements Initializable {
 	private List<Integer> kantoLevels = new ArrayList<Integer>();
 	@FXML private ChoiceBox<Integer> johto, kanto;
 	
+	@FXML private CheckBox randomizeWildPokemon;
+	@FXML private CheckBox randomizeTrainerPokemon;
+	
 	@FXML private Button classic, balanced, difficult, crazy;
 	
 	@FXML private ToggleGroup gloom;
@@ -188,6 +191,16 @@ public class GuiController implements Initializable {
 	}
 	
 	@FXML
+	private void handleRandomizeWildPokemonClick() {
+		Settings.randomizeWildPokemon ^= true;
+	}
+	
+	@FXML
+	private void handleRandomizeTrainerPokemonClick() {
+		Settings.randomizeTrainerPokemon ^= true;
+	}
+	
+	@FXML
 	private void defaultClassic() {
 		
 		Settings.averageBaseStats = false;
@@ -210,6 +223,11 @@ public class GuiController implements Initializable {
 		separateWeak1StageEvos.setSelected(false);
 		Settings.ignoreWeakThreeStageEvos();
 		separateWeak3StageEvos.setSelected(false);
+		
+		Settings.randomizeWildPokemon = false;
+		randomizeWildPokemon.setSelected(false);
+		Settings.randomizeTrainerPokemon = false;
+		randomizeTrainerPokemon.setSelected(false);
 	}
 	
 	@FXML
@@ -235,6 +253,11 @@ public class GuiController implements Initializable {
 		separateWeak1StageEvos.setSelected(false);
 		Settings.ignoreWeakThreeStageEvos();
 		separateWeak3StageEvos.setSelected(false);
+		
+		Settings.randomizeWildPokemon = false;
+		randomizeWildPokemon.setSelected(false);
+		Settings.randomizeTrainerPokemon = false;
+		randomizeTrainerPokemon.setSelected(false);	
 	}
 	
 	@FXML
@@ -260,6 +283,11 @@ public class GuiController implements Initializable {
 		separateWeak1StageEvos.setSelected(true);
 		Settings.setWeakThreeStageEvos();
 		separateWeak3StageEvos.setSelected(true);
+		
+		Settings.randomizeWildPokemon = true;
+		randomizeWildPokemon.setSelected(true);
+		Settings.randomizeTrainerPokemon = true;
+		randomizeTrainerPokemon.setSelected(true);	
 	}
 	
 	@FXML
@@ -285,6 +313,11 @@ public class GuiController implements Initializable {
 		separateWeak1StageEvos.setSelected(false);
 		Settings.ignoreWeakThreeStageEvos();
 		separateWeak3StageEvos.setSelected(false);
+		
+		Settings.randomizeWildPokemon = true;
+		randomizeWildPokemon.setSelected(true);
+		Settings.randomizeTrainerPokemon = true;
+		randomizeTrainerPokemon.setSelected(true);	
 	}
 	
 	@FXML

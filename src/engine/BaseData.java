@@ -8,11 +8,11 @@ import data.Settings;
 
 public class BaseData {
 	
-	public static int toUnsignedInt (byte b) {
+	static int toUnsignedInt (byte b) {
 		return ((int) b) & 0xff;
 	}
 	
-	public static void fuseStats (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void fuseStats (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		byte stat1, stat2;
 		int sum1 = 0, sum2 = 0;
@@ -47,7 +47,7 @@ public class BaseData {
 		
 	}
 	
-	public static void fuseTypes (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void fuseTypes (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		byte type1i, type2i, type1j, type2j, type1o, type2o;
 		
@@ -162,7 +162,7 @@ public class BaseData {
 		out.put(type2o);
 	}
 	
-	public static void fuseCatchRates (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void fuseCatchRates (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		byte cr1, cr2;
 		
@@ -185,7 +185,7 @@ public class BaseData {
 		out.put(result);
 	}
 	
-	public static void fuseBaseExp (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void fuseBaseExp (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		byte be1, be2;
 		int f1, f2;
@@ -209,7 +209,7 @@ public class BaseData {
 		out.put(result);
 	}
 
-	public static void fuseHeldItems (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void fuseHeldItems (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		byte item1i, item2i, item1j, item2j;
 		
@@ -228,7 +228,7 @@ public class BaseData {
 		out.put(item2i);
 	}
 	
-	public static void fuseGenders (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void fuseGenders (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		byte g1, g2;
 		
@@ -248,7 +248,7 @@ public class BaseData {
 		out.put(result);
 	}
 	
-	public static void fuseHatchCycles (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void fuseHatchCycles (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		byte hc1, hc2;
 		int f1, f2;
@@ -272,14 +272,14 @@ public class BaseData {
 		out.put(result);	
 	}
 	
-	public static void homogenizeGrowthRates (ByteBuffer out, int i) {
+	static void homogenizeGrowthRates (ByteBuffer out, int i) {
 	// this changes the growth rate of all Pokemon to "PARABOLIC". 
 	// If this option is selected, the PARABOLIC formula will also be slightly balanced.
 		out.position(i);
 		out.put((byte) GrowthRates.PARABOLIC.ordinal());
 	}
 	
-	public static void fuseGrowthRates (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void fuseGrowthRates (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		if (Settings.homogenizeGrowthRates) {
 			homogenizeGrowthRates (out, i);
@@ -317,7 +317,7 @@ public class BaseData {
 		out.put(gr1);
 	}
 
-	public static void fuseEggGroups (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void fuseEggGroups (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		// egg group work like types, except they are nybbles
 		byte egi, egj, eg1i, eg2i, eg1j, eg2j;
@@ -348,7 +348,7 @@ public class BaseData {
 		out.put((byte) ((eg1i << 4) | eg2i));
 	}
 	
-	public static void combineTmHm (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
+	static void combineTmHm (ByteBuffer in, ByteBuffer out, int[] fusionIds, int i, int j) {
 		
 		// tmhm flags are 8 bytes of data
 		long tmhm1, tmhm2;

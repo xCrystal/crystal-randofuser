@@ -1,22 +1,9 @@
 package engine;
 
-import java.util.Random;
 import data.*;
 
 public class Shuffle {
-	
-	private static final Random rnd = new Random();
-	
-	static int randomRange (int min, int max) {
 		
-		if (min > max) {
-			int temp = min;
-			min = max;
-			max = temp;
-		}
-		return  min + rnd.nextInt(max - min + 1);
-	}
-	
 	static int[] shufflePokemonIds() {
 		
 		int[] fusionIds = new int[Constants.NUM_POKEMON];
@@ -31,7 +18,7 @@ public class Shuffle {
 			
 			do {
 				do {
-					rand = randomRange(Pokemon.BULBASAUR.ordinal(), Pokemon.CELEBI.ordinal());
+					rand = Rng.randomRange(Pokemon.BULBASAUR.ordinal(), Pokemon.CELEBI.ordinal());
 				} while ((i == fusionIds[rand]) || (rand == Pokemon.UNOWN.ordinal())); // make sure it's not fusing with itself or unown
 			} while (Pokemon.values()[i].getEvoType() != Pokemon.values()[rand].getEvoType()); // assert same evolution type
 			
