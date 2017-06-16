@@ -254,10 +254,10 @@ public class GuiController implements Initializable {
 		Settings.ignoreWeakThreeStageEvos();
 		separateWeak3StageEvos.setSelected(false);
 
-		Settings.randomizeWildPokemon = false;
-		randomizeWildPokemon.setSelected(false);
-		Settings.randomizeTrainerPokemon = false;
-		randomizeTrainerPokemon.setSelected(false);
+		Settings.randomizeWildPokemon = true;
+		randomizeWildPokemon.setSelected(true);
+		Settings.randomizeTrainerPokemon = true;
+		randomizeTrainerPokemon.setSelected(true);
 	}
 
 	@FXML
