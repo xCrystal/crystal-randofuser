@@ -110,7 +110,7 @@ The Catch 'Em All mode was not made with the possibility of randomizing wild enc
 - The odd egg Pokemon has random DVs.
 
 ## Download & How to use
-- Download [crystal-randofuser.zip](https://github.com/xCrystal/crystal-randofuser/releases/download/v1.3/crystal-randofuser.zip?raw=true) and extract the .jar file and the two .gbc files
+- Download [crystal-randofuser.zip](https://github.com/xCrystal/crystal-randofuser/releases/download/v2.0/crystal-randofuser.zip?raw=true) and extract the .jar file and the two .gbc files
 - Rename either *crystal-notcea.gbc* or *crystal-cea.gbc*, depending on which mode you want to play, to *crystal.gbc*. Note that in *crystal.gbc*, *.gbc* is the extension. If your system doesn't display the extension suffix as part of the filename, name the file just *crystal* instead.
 - Execute *crystal-randofuser.jar*. Choose your desired settings and click on the "Randofuse!" button to generate a ready-to-play "randofused" ROM that will named *crystal_randofused.gbc*
 - Do not combine this tool with any other hacking tool or randomizer
