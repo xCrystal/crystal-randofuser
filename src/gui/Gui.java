@@ -6,14 +6,14 @@ import javafx.application.Application;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 
 public class Gui extends Application {
 
 	private Stage primaryStage;
-	private AnchorPane ap;
+	private ScrollPane sp;
 
 	@Override
 	public void start (Stage primaryStage) throws IOException {
@@ -21,9 +21,9 @@ public class Gui extends Application {
 		setPrimaryStage(primaryStage);
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("gui.fxml"));
-		ap = loader.load();
+		sp = loader.load();
 		primaryStage.setTitle("Pokémon Crystal Randofuser");
-		primaryStage.setScene(new Scene(ap));
+		primaryStage.setScene(new Scene(sp));
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
@@ -40,11 +40,4 @@ public class Gui extends Application {
 		this.primaryStage = primaryStage;
 	}
 
-	public AnchorPane getAnchorPane() {
-		return ap;
-	}
-
-	public void setAnchorPane(AnchorPane ap) {
-		this.ap = ap;
-	}
 }

@@ -7,10 +7,13 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GuiController">
+<ScrollPane prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GuiController">
+<content>
+<AnchorPane prefHeight="800.0" prefWidth="600.0">
    <children>
       <RadioButton fx:id="averageBaseStats" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#handleAverageBaseStatsClick" text="Average Base Stats and BST">
          <toggleGroup>
@@ -110,3 +113,5 @@
       <CheckBox fx:id="randomizeTrainerPokemon" layoutX="312.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleRandomizeTrainerPokemonClick" text="Randomize Trainer Pokémon" />
 	</children>
 </AnchorPane>
+</content>
+</ScrollPane>
