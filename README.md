@@ -80,9 +80,12 @@ Choose whether you'd like to increase the level of all trainer Pokemon by a cust
 #### <b>Evolution category filters</b>
 Choose whether you'd like to further filter which Pokemon can be fused with which Pokemon. The legendary filter is good for purity while the other two are intended to provide stability if averaging BST is selected. A total of 16 Pokemon are included in the 1-stage filter (BST-based, up to Tangela) and a total of just 5 in the 3-stage evolution filter (Pichu, Cleffa, Igglybuff, Caterpie, and Weedle lines). Keep in mind that these filters cut versatility in the randomization, especially the 3-stage one.
 
+#### <b>Randomize Wild encounters & Randomize trainer Pokemon</b>
+Select these options if you want to completely randomize the species of wild and trainer Pokemon, respectively. Before being fused, Pokemon will be arranged in groups based on overall strength and other factors such as rarity and evolution stage. 6 groups are used for trainer parties and only 4 groups are used for wild encounters (less exclusiveness of strong Pokemon to ensure variety). Each wild Pokemon slot and/or trainer Pokemon will be replaced with another that belongs to the same group. This arrangement has nothing to do with how Pokemon get fused with each other. Note that this strength classification may lose accuracy once the Pokemon are fused if "Average Base Stat patterns only" was not selected, although the evolution stage was also factored in for this reason. Logic and consistency are not preserved; for example, you will be able to find Fire-type Pokemon in the sea and Grass-type Pokemon in caves, and as for trainers, leaders and other trainer classes will no longer be type themed and your rival will not retain his party across battles. The randomization of wild Pokemon includes fishing, Headbutt, Rock Smash and Bug Catching Contest encounters, but does not include static encounters and roaming legendaries. Unown is not randomized in either mode.
+
 #### <b>Defaults</b>
 There are some suggested defaults available to be chosen.
-- Classic: A stable option with unchanged BSTs that stays true to the trainer leves of the original game.
+- Classic: A stable option with unchanged BSTs and unrandomized wild and trainer encounters, that also stays true to the trainer leves of the original game.
 - Balanced: Like classic, but balances the Kanto trainers and homogenizes the growth rates to soften grinding. A good idea for nuzlocke and similar runs.
 - Difficult: A more challenging setup that averages the BSTs, but adds additional filters to prevent extreme combinations.
 - Crazy: The toughest and least predictable option. Trainer levels are considerably raised. Hardcore players may try this along with "Homogenize Growth Rates" for a very challenging nuzlocke run.
@@ -96,12 +99,15 @@ Assign a different priority to each type to determine how the types should be fu
 #### <b>Catch 'Em All mode</b>
 Two Pokemon Crystal ROMs are provided in the download. *crystal-notcea.gbc* is the regular one, while *crystal-cea.gbc* incorporates additional changes to make all 251 Pokemon obtainable, including those that may become unattainable as a result of the *Evolutionary Line* settings. Even if you're not interested in completing the Pokédex, the Catch 'Em All option provides more variety to the Pokemon you can capture and therefore build your team with. In the Catch 'Em All mode you will also be able to purchase the evolutionary stones, except Moon and Sun, in the Ecruteak Mart. For information on where the new Pokemon can be found in the Catch 'Em All mode, refer to the *catchemall.txt* file provided in the download.
 
+<i>About combining this mode with the Randomize Wild encounters option</i>:
+The Catch 'Em All mode was not made with the possibility of randomizing wild encounters in mind. At first glance, both modes seem contradictory, and in a way, they are. Randomizing wild encounters will override most of the changes provided by the Catch 'Em All mode. In practice, the only differences between both ROMs would be that with Catch 'Em All, evolutionary stones will be available in the Ecruteak Mart and that the Celebi event in the Ilex Forest will be active. If you're planning to turn on wild encounter randomization, choose one ROM or the other depending on if you wish to activate any of these two changes. Ironically, the Catch 'Em All mode won't ensure that the Pokedex can be completed if you randomize wild encounters, but due to all the wild Pokemon slots (up to 21 per area/map), it would be rare that a Pokemon (or a pre-evolution) doesn't appear anywhere.
+
 ## Other notes
 
 - There may be hardcoded references to Pokemon in the games that still use non-fused names. If so, they refer to the base Pokemon.
-- Unown is not fused with any Pokemon, and neither any Pokemon may be fused with Unown
-- The Battle Tower is not available
-- The odd egg Pokemon has random DVs
+- Unown is not fused with any Pokemon, and neither any Pokemon may be fused with Unown.
+- The Battle Tower is not available.
+- The odd egg Pokemon has random DVs.
 
 ## Download & How to use
 - Download [crystal-randofuser.zip](https://github.com/xCrystal/crystal-randofuser/releases/download/v1.3/crystal-randofuser.zip?raw=true) and extract the .jar file and the two .gbc files
@@ -138,3 +144,6 @@ If you think you've found a bug, feel free to let me know about it by opening an
 ### v1.3
 - Added type priorities
 - Ready-to-randofuse ROMs are provided rather than .ips patch files. Don't tell your uncle who works at Nintendo about this!
+
+### v2.0
+- Added separate options to randomize species of wild and trainer Pokemon
