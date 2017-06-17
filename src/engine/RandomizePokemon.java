@@ -10,7 +10,7 @@ public class RandomizePokemon {
 
 	static byte getRandomMatchingPokemon(byte mon_in, boolean isTrainer) {
 
-		if (mon_in == 0) return 0;
+		if (mon_in == 0 || mon_in == (byte) Pokemon.UNOWN.ordinal() + 1) return mon_in;
 
 		int strength_in = Pokemon.values()[(mon_in - 1) & 0xff].getStrength();
 		if (!isTrainer && strength_in >= 4) strength_in = 4;
@@ -20,7 +20,7 @@ public class RandomizePokemon {
 			mon_out = Rng.randomRange(Pokemon.BULBASAUR.ordinal(), Pokemon.CELEBI.ordinal());
 			strength_out = Pokemon.values()[mon_out].getStrength();
 			if (!isTrainer && strength_out >= 4) strength_out = 4;
-		} while (strength_out != strength_in);
+		} while (strength_out != strength_in || mon_out == Pokemon.UNOWN.ordinal());
 
 		return (byte) (mon_out + 1);
 	}

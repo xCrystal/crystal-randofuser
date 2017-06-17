@@ -73,7 +73,7 @@ public class Trainers {
 
 		int[] paramsNames = {1, 0, 1};
 		int[] paramsWithoutItem = {1, 1, 1};
-		int[] paramsWithItem = { 1, 1, 1,  1, 0, 1};
+		int[] paramsWithItem = {1, 1, 1,  1, 0, 1};
 
 		for (int i = 0; i < Constants.NUM_TRAINERS; i ++) {
 			buf = RandomizePokemon.randomize(buf, paramsNames, (byte) 0x50, 1, true);
