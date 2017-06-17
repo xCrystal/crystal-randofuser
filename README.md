@@ -1,6 +1,6 @@
 # Pokemon Crystal Randofuser
 
-<img src="https://raw.githubusercontent.com/xCrystal/crystal-randofuser/5bb2b18/media/gui.png" width="307">
+<img src="https://raw.githubusercontent.com/xCrystal/crystal-randofuser/713c2c8/media/gui.png" width="307">
 
 This is a special randomizer tool compatible with Pokemon Crystal. It fuses each Pokemon with another
 existing one at random with matching evolution stage. All the data and characteristics of the
