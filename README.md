@@ -1,3 +1,5 @@
+**This is no longer maintained. A revamped version integrated with pokecrystal is available at: https://gitlab.com/xCrystal/pokecrystal-randofuser. Includes ready to use game patches at: https://gitlab.com/xCrystal/pokecrystal-randofuser/-/tree/randofuser/sample_patches**
+
 # Pokemon Crystal Randofuser
 
 <img src="https://raw.githubusercontent.com/xCrystal/crystal-randofuser/713c2c8/media/gui.png" width="307">
